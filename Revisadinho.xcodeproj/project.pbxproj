@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
+		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
 		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
+		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		73ED397A26F0C9350030CF52 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		EFE12CD026EF76E4005FB2B2 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 		EFE12CDB26EF76E4005FB2B2 /* Revisadinho */ = {
 			isa = PBXGroup;
 			children = (
+				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
 				7375AACA26EF936E006888B8 /* Routers */,
 				7375AAC926EF9355006888B8 /* Helpers */,
@@ -345,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */,
+				73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */,
 				EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */,
 				EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */,
 			);
