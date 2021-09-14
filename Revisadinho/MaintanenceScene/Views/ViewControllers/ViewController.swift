@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Jhennyfer Rodrigues de Oliveira on 13/09/21.
-//
+// swiftlint:disable trailing_whitespace line_length
 
 import UIKit
 
@@ -14,6 +14,4 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
 }
-
