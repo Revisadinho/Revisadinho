@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
+		D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */; };
+		D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */; };
+		D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */; };
+		D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FBB26F0DB4400B5F64F /* CustomTextField.swift */; };
+		D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */; };
 		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* ViewController.swift */; };
@@ -38,6 +43,11 @@
 /* Begin PBXFileReference section */
 		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewController.swift; sourceTree = "<group>"; };
+		D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceView.swift; sourceTree = "<group>"; };
+		D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewModel.swift; sourceTree = "<group>"; };
+		D8637FBB26F0DB4400B5F64F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,29 +151,6 @@
 			path = MaintanenceScene;
 			sourceTree = "<group>";
 		};
-		7375AACE26EF958E006888B8 /* AddMaintenanceScene */ = {
-			isa = PBXGroup;
-			children = (
-				7375AAD026EF95FA006888B8 /* Views */,
-				7375AACF26EF95F4006888B8 /* ViewModels */,
-			);
-			path = AddMaintenanceScene;
-			sourceTree = "<group>";
-		};
-		7375AACF26EF95F4006888B8 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		7375AAD026EF95FA006888B8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		7375AAD126EF9636006888B8 /* ProgressScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +182,34 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		D8637FB226F0D61B00B5F64F /* AddMaintenceScene */ = {
+			isa = PBXGroup;
+			children = (
+				D8637FB426F0D63400B5F64F /* ViewModels */,
+				D8637FB326F0D62C00B5F64F /* Views */,
+			);
+			path = AddMaintenceScene;
+			sourceTree = "<group>";
+		};
+		D8637FB326F0D62C00B5F64F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */,
+				D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */,
+				D8637FBB26F0DB4400B5F64F /* CustomTextField.swift */,
+				D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D8637FB426F0D63400B5F64F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		EFE12CD026EF76E4005FB2B2 = {
 			isa = PBXGroup;
 			children = (
@@ -219,12 +234,12 @@
 		EFE12CDB26EF76E4005FB2B2 /* Revisadinho */ = {
 			isa = PBXGroup;
 			children = (
+				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
 				7375AACA26EF936E006888B8 /* Routers */,
 				7375AAC926EF9355006888B8 /* Helpers */,
 				7375AAC826EF9349006888B8 /* Model */,
-				7375AACE26EF958E006888B8 /* AddMaintenanceScene */,
 				7375AACD26EF9566006888B8 /* MaintanenceScene */,
 				7375AAD126EF9636006888B8 /* ProgressScene */,
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
@@ -403,9 +418,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
+				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */,
 				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
+				D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */,
+				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
 				EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */,
+				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
