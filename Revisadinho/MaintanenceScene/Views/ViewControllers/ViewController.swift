@@ -7,11 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MaintenanceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func loadView() {
+        super.loadView()
+        let maintenanceView = MaintenanceView()
+        maintenanceView.viewController = self
+        view = maintenanceView
     }
 
 }
