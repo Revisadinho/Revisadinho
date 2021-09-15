@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
-
+		EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDA26F0D2A500DC01CA /* Color.swift */; };
 		EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */; };
 		EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */; };
-		EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDA26F0D2A500DC01CA /* Color.swift */; };
-
+		EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */; };
 		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* ViewController.swift */; };
@@ -43,12 +42,10 @@
 /* Begin PBXFileReference section */
 		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-
+		EF3D7FDA26F0D2A500DC01CA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceView.swift; sourceTree = "<group>"; };
 		EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponent.swift; sourceTree = "<group>"; };
-
-		EF3D7FDA26F0D2A500DC01CA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-
+		EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentController.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE12CE026EF76E4005FB2B2 /* ViewController.swift */,
+				EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -426,12 +424,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */,
-
 				EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */,
-
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
-
 				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
+				EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */,
 				EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */,
 				EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */,
 			);
