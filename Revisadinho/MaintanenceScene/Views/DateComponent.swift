@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+protocol DateComponentActionDelegate {
+    func goToPreviousMonth()
+    func goToNextMonth()
+}
+
 class DateComponent: UIView {
+    
+    let delegate: DateComponentActionDelegate = DateComponentController()
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setUpViewHierarchy()
@@ -25,8 +32,12 @@ class DateComponent: UIView {
     
     lazy var dateCard: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 309, height: 55))
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         view.layer.cornerRadius = 13
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 13
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,12 +45,14 @@ class DateComponent: UIView {
     lazy var monthLabel: UILabel = {
         let label = UILabel()
         label.text = "Dezembro"
+        label.textColor = .grayText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var yearLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .grayText
         label.text = "2021"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -47,17 +60,27 @@ class DateComponent: UIView {
     
     lazy var backButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "chevron.backward")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var forwardButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "chevron.forward"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "chevron.forward")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(delegatesForwardButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc func delegatesBackButtonActionToController(sender: UIButton) {
+        delegate.goToPreviousMonth()
+    }
+    
+    @objc func delegatesForwardButtonActionToController(sender: UIButton) {
+        delegate.goToNextMonth()
+    }
     
     func setUpViewHierarchy() {
         self.addSubview(dateCard)
