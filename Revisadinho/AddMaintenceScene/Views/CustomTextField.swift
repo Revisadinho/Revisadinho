@@ -13,12 +13,22 @@ public enum Constants {
     static let placeholderSize: CGFloat = 16
     static let height: CGFloat = 60
     static let width: CGFloat = 300
-    static let fontSizeForTitles: CGFloat = 24
-    static let fontSizeForSubtitles: CGFloat = 22
-    static let fontRegular = "Quicksand-VariableFont_wght"
+   
+}
+
+public enum Fonts {
+    static let regular = "Quicksand-Regular"
+    static let bold = "Quicksand-Bold"
+    static let medium = "Quicksand-Medium"
+    static let light = "Quicksand-Light"
+    static let semiBold = "Quicksand-SemiBold"
+    static let sizeForTitles: CGFloat = 24
+    static let sizeForSubtitles: CGFloat = 20
 }
 
 class CustomTextField: UITextField {
+    
+    private let symbolButton = UIButton(type: .custom)
     
     private var textHeight: CGFloat {
         ceil(font?.lineHeight ?? 0)
@@ -50,6 +60,12 @@ class CustomTextField: UITextField {
         return bounds.inset(by: textInsets)
     }
     
+    override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+        var rect = super.rightViewRect(forBounds: bounds)
+        rect.origin.x -= self.textInsets.left
+        return rect
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commomInit()
@@ -60,13 +76,22 @@ class CustomTextField: UITextField {
     }
     
     func commomInit() {
-        
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.inactiveColor.cgColor
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
-        addTarget(self, action: #selector(updateBorder), for: .allEditingEvents)
+        addTarget(self, action: #selector(updateColors), for: .allEditingEvents)
         setConstraints()
+    }
+    
+    public func setButtonWithIcon(_ icon: String) {
+        let largeConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .default)
+        let icon = UIImage(systemName: icon, withConfiguration: largeConfiguration)
+        symbolButton.setImage(icon, for: .normal)
+        symbolButton.frame = CGRect(x: CGFloat(self.frame.size.width - 40), y: CGFloat(5), width: CGFloat(32), height: CGFloat(32))
+        symbolButton.tintColor = .inactiveColor
+        self.rightView = symbolButton
+        self.rightViewMode = .always
     }
     
     private func setPlaceholderColor() {
@@ -82,10 +107,11 @@ class CustomTextField: UITextField {
     }
     
     @objc
-    private func updateBorder() {
-        let borderColor: UIColor = isFirstResponder ? .actionColor : .inactiveColor
+    private func updateColors() {
+        let currentColor: UIColor = isFirstResponder ? .actionColor : .inactiveColor
         UIView.animate(withDuration: 0.25) {
-            self.layer.borderColor = borderColor.cgColor
+            self.layer.borderColor = currentColor.cgColor
+            self.symbolButton.tintColor = currentColor
         }
     }
 }
