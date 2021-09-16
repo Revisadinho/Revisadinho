@@ -10,10 +10,10 @@ import CoreData
 
 public class DatabaseController {
     public static let shared = DatabaseController()
-    private var containerName: String = "revisadinhoContainer"
+    private var containerName: String = "Model"
     public let persistentContainer: NSPersistentContainer
     public let viewContext: NSManagedObjectContext
-    
+
     private init() {
         let container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores(completionHandler: { (_, error) in

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */; };
 		6E1BF43326F2205600A424E7 /* Maintenance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43126F2205600A424E7 /* Maintenance+CoreDataClass.swift */; };
 		6E1BF43426F2205600A424E7 /* Maintenance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43226F2205600A424E7 /* Maintenance+CoreDataProperties.swift */; };
 		6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43526F22D6000A424E7 /* ModelTests.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
 		6E1BF43126F2205600A424E7 /* Maintenance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6E1BF43226F2205600A424E7 /* Maintenance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6E1BF43526F22D6000A424E7 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				EFE12CF326EF76E5005FB2B2 /* RevisadinhoTests.swift */,
 				EFE12CF526EF76E5005FB2B2 /* Info.plist */,
 				6E1BF43526F22D6000A424E7 /* ModelTests.swift */,
+				6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */,
 			);
 			path = RevisadinhoTests;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE12CF426EF76E5005FB2B2 /* RevisadinhoTests.swift in Sources */,
+				6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */,
 				6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
