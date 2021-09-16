@@ -13,6 +13,7 @@ public enum AddMaintenceViewStrings {
     static let calendarLabel = "Selecione a data"
     static let hodometerLabel = "Km do veículo"
     static let servicesLabel = "Serviços"
+    static let saveButtonLabel = "Salvar"
     static let calendarPlaceholder = "21 Agosto, 2021"
     static let hodometerPlaceholder = "30.000 km"
     static let calendarIcon = "calendar"
@@ -21,25 +22,36 @@ public enum AddMaintenceViewStrings {
 
 class AddMaintenceView: UIView {
     
-    private let titleLabel = CustomLabel()
-    private let calendarLabel = CustomLabel()
-    private let hodometerLabel = CustomLabel()
-    private let servicesLabel = CustomLabel()
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .appBackgroundColor
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: Constants.scrollViewContentSize)
+        return scrollView
+    }()
     
-    private let calendarTextField = CustomTextField()
-    private let hodometerTextField = CustomTextField()
+    lazy var titleLabel = CustomLabel()
+    lazy var calendarLabel = CustomLabel()
+    lazy var hodometerLabel = CustomLabel()
+    lazy var servicesLabel = CustomLabel()
+    
+    lazy var calendarTextField = CustomTextField()
+    lazy var hodometerTextField = CustomTextField()
+    
+    lazy var saveButton = CustomButton()
     
     lazy var servicesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 40
-        layout.minimumLineSpacing = 40
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 10
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .appBackgroundColor
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.allowsMultipleSelection = true
         return collectionView
     }()
     
@@ -61,10 +73,12 @@ class AddMaintenceView: UIView {
     private func setupAddMaintenceView() {
         self.dataSource = getServicesIcons()
         self.backgroundColor = .appBackgroundColor
+        addSubview(scrollView)
         self.hideKeyboardWhenTappedAround()
         setLabels()
         setTextFields()
         setCollectionView()
+        setButtons()
         setContraints()
     }
     
@@ -85,10 +99,10 @@ class AddMaintenceView: UIView {
         servicesLabel.textAlignment = .left
         servicesLabel.font = UIFont(name: Fonts.regular, size: Fonts.sizeForSubtitles)
         
-        addSubview(titleLabel)
-        addSubview(calendarLabel)
-        addSubview(hodometerLabel)
-        addSubview(servicesLabel)
+        scrollView.addSubview(titleLabel)
+        scrollView.addSubview(calendarLabel)
+        scrollView.addSubview(hodometerLabel)
+        scrollView.addSubview(servicesLabel)
     }
     
     private func setTextFields() {
@@ -99,39 +113,52 @@ class AddMaintenceView: UIView {
         hodometerTextField.setButtonWithIcon(AddMaintenceViewStrings.speedometerIcon)
         hodometerTextField.keyboardType = .numberPad
         
-        addSubview(calendarTextField)
-        addSubview(hodometerTextField)
+        scrollView.addSubview(calendarTextField)
+        scrollView.addSubview(hodometerTextField)
     }
     
     private func setCollectionView() {
         servicesCollectionView.register(ServicesCollectionViewCell.self, forCellWithReuseIdentifier: "servicesCollectionViewCell")
-        addSubview(servicesCollectionView)
+        scrollView.addSubview(servicesCollectionView)
+    }
+    
+    private func setButtons() {
+        saveButton.setTitle(AddMaintenceViewStrings.saveButtonLabel, for: .normal)
+        scrollView.addSubview(saveButton)
     }
     
     private func setContraints() {
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            calendarLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 40),
+            
+            calendarLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             calendarLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             
-            calendarTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            calendarTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             calendarTextField.topAnchor.constraint(equalTo: calendarLabel.bottomAnchor, constant: 8),
             
-            hodometerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            hodometerLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             hodometerLabel.topAnchor.constraint(equalTo: calendarTextField.bottomAnchor, constant: 25),
             
-            hodometerTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            hodometerTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             hodometerTextField.topAnchor.constraint(equalTo: hodometerLabel.bottomAnchor, constant: 8),
             
-            servicesLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            servicesLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             servicesLabel.topAnchor.constraint(equalTo: hodometerTextField.bottomAnchor, constant: 25),
             
             servicesCollectionView.topAnchor.constraint(equalTo: servicesLabel.bottomAnchor, constant: 8),
             servicesCollectionView.widthAnchor.constraint(equalToConstant: 300),
-            servicesCollectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            servicesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30)
+            servicesCollectionView.heightAnchor.constraint(equalToConstant: 250),
+            servicesCollectionView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            
+            saveButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            saveButton.topAnchor.constraint(equalTo: servicesCollectionView.bottomAnchor, constant: 40)
         ])
     }
     
@@ -149,7 +176,7 @@ class AddMaintenceView: UIView {
 
 // MARK: - CollectionView extensions
 
-extension AddMaintenceView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension AddMaintenceView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
@@ -158,8 +185,23 @@ extension AddMaintenceView: UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "servicesCollectionViewCell", for: indexPath) as? ServicesCollectionViewCell else {return ServicesCollectionViewCell()}
         
-        cell.setIconImage(withName: dataSource[indexPath.item])
+        cell.setIconContents(withName: dataSource[indexPath.item])
         return cell
+    }
+}
+
+extension AddMaintenceView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
+                cell.updateBorder()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
+                cell.updateBorder()
+        }
     }
 }
 
@@ -167,7 +209,7 @@ extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 70, height: 70)
+        return CGSize(width: 100, height: 120)
     }
 }
 
@@ -188,6 +230,10 @@ extension UIColor {
     
     static var mainColor: UIColor = {
        return UIColor(displayP3Red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
+    }()
+    
+    static var iconsBorderColor: UIColor = {
+        return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
     }()
 }
 

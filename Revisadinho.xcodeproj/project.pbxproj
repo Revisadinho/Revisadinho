@@ -14,6 +14,7 @@
 		D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */; };
 		D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FBB26F0DB4400B5F64F /* CustomTextField.swift */; };
 		D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */; };
+		D87B793126F3748A00D51642 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B793026F3748A00D51642 /* CustomButton.swift */; };
 		D8A734CA26F215BE00A4D799 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8A734C526F215BE00A4D799 /* Quicksand-Bold.ttf */; };
 		D8A734CB26F215BE00A4D799 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8A734C626F215BE00A4D799 /* Quicksand-Light.ttf */; };
 		D8A734CC26F215BE00A4D799 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8A734C726F215BE00A4D799 /* Quicksand-Regular.ttf */; };
@@ -55,6 +56,7 @@
 		D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewModel.swift; sourceTree = "<group>"; };
 		D8637FBB26F0DB4400B5F64F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		D87B793026F3748A00D51642 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D8A734C526F215BE00A4D799 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Bold.ttf"; path = "../../../../Downloads/Quicksand/static/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		D8A734C626F215BE00A4D799 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Light.ttf"; path = "../../../../Downloads/Quicksand/static/Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		D8A734C726F215BE00A4D799 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Regular.ttf"; path = "../../../../Downloads/Quicksand/static/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				D8637FBB26F0DB4400B5F64F /* CustomTextField.swift */,
 				D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */,
 				D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */,
+				D87B793026F3748A00D51642 /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */,
 				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
+				D87B793126F3748A00D51642 /* CustomButton.swift in Sources */,
 				D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */,
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
