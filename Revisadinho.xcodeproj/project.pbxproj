@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6E1BF43326F2205600A424E7 /* Maintenance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43126F2205600A424E7 /* Maintenance+CoreDataClass.swift */; };
 		6E1BF43426F2205600A424E7 /* Maintenance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43226F2205600A424E7 /* Maintenance+CoreDataProperties.swift */; };
+		6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43526F22D6000A424E7 /* ModelTests.swift */; };
 		6EE2083B26F0CEED007889EF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2083A26F0CEED007889EF /* Model.swift */; };
 		6EE2083D26F0D18A007889EF /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2083C26F0D18A007889EF /* DatabaseController.swift */; };
 		6EE2083F26F0DBFA007889EF /* MaintenanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2083E26F0DBFA007889EF /* MaintenanceItem.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		6E1BF43126F2205600A424E7 /* Maintenance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6E1BF43226F2205600A424E7 /* Maintenance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6E1BF43526F22D6000A424E7 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		6EE2083A26F0CEED007889EF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6EE2083C26F0D18A007889EF /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		6EE2083E26F0DBFA007889EF /* MaintenanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				EFE12CF326EF76E5005FB2B2 /* RevisadinhoTests.swift */,
 				EFE12CF526EF76E5005FB2B2 /* Info.plist */,
+				6E1BF43526F22D6000A424E7 /* ModelTests.swift */,
 			);
 			path = RevisadinhoTests;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE12CF426EF76E5005FB2B2 /* RevisadinhoTests.swift in Sources */,
+				6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

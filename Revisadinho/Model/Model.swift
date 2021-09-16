@@ -11,27 +11,16 @@ import CoreData
 public class Model {
 
     static let shared = Model()
-    private let database: DatabaseController
 
-    var persistentContainer: NSPersistentContainer {
-        return database.persistentContainer
-    }
-    
-    var viewContext: NSManagedObjectContext {
-        return database.persistentContainer.viewContext
-    }
+    private init() { }
 
-    private init() {
-        database = DatabaseController()
-    }
-
-    private func getMaintenances() -> [Maintenance] {
+    private func getMaintenances(viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> [Maintenance] {
         let maintenances = Maintenance.fetchAllMaintenances(viewContext: viewContext)
         return maintenances
     }
 
-    public func getMaintenances(byStartDate startDate: Date, toDate finishingDate: Date) -> [Maintenance] {
-        let maintenances = getMaintenances()
+    public func getMaintenances(byStartDate startDate: Date, toDate finishingDate: Date, viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> [Maintenance] {
+        let maintenances = getMaintenances(viewContext: viewContext)
         let filteredMaintenances = maintenances.filter {
             $0.date ?? Date() > startDate && $0.date ?? Date() < finishingDate
         }
@@ -44,23 +33,23 @@ public class Model {
         return filteredMaintenance!
     }
 
-    public func createMaintenance(uuid: UUID = UUID(), date: Date, hodometer: Double, maintenanceItens: [Double]) {
+    public func createMaintenance(uuid: UUID = UUID(), date: Date, hodometer: Double, maintenanceItens: [Double], viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) {
         if let maintenance = NSEntityDescription.insertNewObject(forEntityName: "Maintenance", into: viewContext) as? Maintenance {
             maintenance.id = uuid
             maintenance.date = date
             maintenance.hodometer = hodometer
             maintenance.maintenances = maintenanceItens
-            database.saveContext()
+            saveContext(viewContext: viewContext)
         }
     }
 
-    public func deleteMaintenance(byUUID uuid: UUID) {
+    public func deleteMaintenance(byUUID uuid: UUID, viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) {
         let maintenance = getMaintenances(byUUID: uuid)
         viewContext.delete(maintenance)
-        database.saveContext()
+        saveContext(viewContext: viewContext)
     }
 
-    public func updateMaintenance(byUUID uuid: UUID, date: Date? = nil, hodometer: Double? = nil, maintenanceItens: [Double]? = nil) {
+    public func updateMaintenance(byUUID uuid: UUID, date: Date? = nil, hodometer: Double? = nil, maintenanceItens: [Double]? = nil, viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) {
         let maintenance = getMaintenances(byUUID: uuid)
         if let date = date {
             maintenance.date = date
@@ -71,6 +60,10 @@ public class Model {
         if let maintenanceItens = maintenanceItens {
             maintenance.maintenances = maintenanceItens
         }
-        database.saveContext()
+        saveContext(viewContext: viewContext)
+    }
+    
+    private func saveContext(viewContext: NSManagedObjectContext) {
+        try? viewContext.save()
     }
 }
