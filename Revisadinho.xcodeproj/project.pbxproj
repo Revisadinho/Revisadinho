@@ -22,6 +22,8 @@
 		D8A734CE26F215BE00A4D799 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8A734C926F215BE00A4D799 /* Quicksand-Medium.ttf */; };
 		D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */; };
 		D8A734D426F2350A00A4D799 /* ServicesIcons in Resources */ = {isa = PBXBuildFile; fileRef = D8A734D326F2350A00A4D799 /* ServicesIcons */; };
+		D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */; };
+		D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */; };
 		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		D8A734C926F215BE00A4D799 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Medium.ttf"; path = "../../../../Downloads/Quicksand/static/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8A734D326F2350A00A4D799 /* ServicesIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ServicesIcons; path = ../../../Documents/ServicesIcons; sourceTree = "<group>"; };
+		D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				D8637FBD26F0E85E00B5F64F /* CustomLabel.swift */,
 				D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */,
 				D87B793026F3748A00D51642 /* CustomButton.swift */,
+				D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */,
+				D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,7 +461,9 @@
 				D87B793126F3748A00D51642 /* CustomButton.swift in Sources */,
 				D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */,
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
+				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
+				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
 				EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 			);

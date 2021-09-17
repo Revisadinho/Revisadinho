@@ -71,10 +71,10 @@ class AddMaintenceView: UIView {
     }
     
     private func setupAddMaintenceView() {
-        self.dataSource = getServicesIcons()
-        self.backgroundColor = .appBackgroundColor
+        dataSource = getServicesIcons()
+        backgroundColor = .appBackgroundColor
         addSubview(scrollView)
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         setLabels()
         setTextFields()
         setCollectionView()
@@ -248,6 +248,6 @@ extension UIView {
     
     @objc
     func dismissKeyboard() {
-        self.endEditing(true)
+        endEditing(true)
     }
 }
