@@ -26,6 +26,7 @@ public enum Fonts {
     static let sizeForTitles: CGFloat = 24
     static let sizeForSubtitles: CGFloat = 20
     static let sizeForBody: CGFloat = 15
+    static let sizeForWeekdayCalendar: CGFloat = 12
 }
 
 class CustomTextField: UITextField {
@@ -82,6 +83,8 @@ class CustomTextField: UITextField {
         self.layer.borderColor = UIColor.inactiveColor.cgColor
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
+        font = UIFont(name: Fonts.medium, size: Fonts.sizeForBody)
+        textColor = UIColor.mainColor
         addTarget(self, action: #selector(updateColors), for: .allEditingEvents)
         setConstraints()
     }

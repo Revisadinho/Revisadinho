@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
+		D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D85EF6DF26F8B40C00AC5617 /* FSCalendar */; };
 		D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */; };
 		D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */; };
 		D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */; };
@@ -88,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +315,9 @@
 			dependencies = (
 			);
 			name = Revisadinho;
+			packageProductDependencies = (
+				D85EF6DF26F8B40C00AC5617 /* FSCalendar */,
+			);
 			productName = Revisadinho;
 			productReference = EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */;
 			productType = "com.apple.product-type.application";
@@ -384,6 +389,9 @@
 				Base,
 			);
 			mainGroup = EFE12CD026EF76E4005FB2B2;
+			packageReferences = (
+				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = EFE12CDA26EF76E4005FB2B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -790,6 +798,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D85EF6DF26F8B40C00AC5617 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EFE12CD126EF76E4005FB2B2 /* Project object */;
 }

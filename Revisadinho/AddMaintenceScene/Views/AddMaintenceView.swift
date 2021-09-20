@@ -14,6 +14,7 @@ public enum AddMaintenceViewStrings {
     static let hodometerLabel = "Km do veículo"
     static let servicesLabel = "Serviços"
     static let saveButtonLabel = "Salvar"
+    static let bottomSheetButtonLabel = "Selecionar"
     static let calendarPlaceholder = "21 Agosto, 2021"
     static let hodometerPlaceholder = "30.000 km"
     static let calendarIcon = "calendar"
@@ -234,6 +235,10 @@ extension UIColor {
     
     static var iconsBorderColor: UIColor = {
         return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
+    }()
+    
+    static var secondColor: UIColor = {
+        return UIColor(displayP3Red: 138/255, green: 142/255, blue: 176/255, alpha: 1)
     }()
 }
 
