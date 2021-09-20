@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+protocol PlusButtonDelegate: AnyObject {
+    func addNewMaintenance()
+}
+
 class MaintenanceView: UIView {
     var viewController: MaintenanceViewController?
+    weak var delegate: PlusButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -63,10 +68,14 @@ class MaintenanceView: UIView {
         button.setBackgroundImage(UIImage(systemName: "plus")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
         
         button.isUserInteractionEnabled = true
-//        button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc func delegatesBackButtonActionToController(sender: UIButton) {
+        delegate?.addNewMaintenance()
+    }
     
     func setUpViewHierarchy() {
         self.addSubview(tableView)
