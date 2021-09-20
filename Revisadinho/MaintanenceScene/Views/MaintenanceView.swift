@@ -15,9 +15,6 @@ class MaintenanceView: UIView {
         super.init(frame: .zero)
         self.backgroundColor = .blueBackground
         setUpViewHierarchy()
-        setUpTitleLabelConstraints()
-        setUpPlusButtonConstraints()
-        setUpDateComponentConstraints()
         setUpTableViewConstraints()
         
     }
@@ -26,8 +23,16 @@ class MaintenanceView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    lazy var viewForTableViewHeader: UIView = {
+        let view = UIView(frame: CGRect(x: 16, y: 0, width: 350, height: 240))
+        view.backgroundColor = .blueBackground
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var dateComponent: DateComponent = {
         let component = DateComponent()
+        component.isUserInteractionEnabled = true
         component.translatesAutoresizingMaskIntoConstraints = false
         return component
     }()
@@ -35,7 +40,9 @@ class MaintenanceView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .blueBackground
+        tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
         tableView.separatorColor = .gray
+        tableView.separatorColor = .blueBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -54,22 +61,36 @@ class MaintenanceView: UIView {
     lazy var plusButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "plus")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        button.isUserInteractionEnabled = true
 //        button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     func setUpViewHierarchy() {
-        self.addSubview(titleLabel)
-        self.addSubview(plusButton)
-        self.addSubview(dateComponent)
         self.addSubview(tableView)
+    }
+    
+    func setUpViewForTableViewHeaderConstraints() {
+        NSLayoutConstraint.activate([
+            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.width),
+            viewForTableViewHeader.heightAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.height)
+        ])
+        
+        viewForTableViewHeader.addSubview(titleLabel)
+        viewForTableViewHeader.addSubview(plusButton)
+        viewForTableViewHeader.addSubview(dateComponent)
+        
+        setUpTitleLabelConstraints()
+        setUpPlusButtonConstraints()
+        setUpDateComponentConstraints()
     }
     
     func setUpTitleLabelConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
-            titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: viewForTableViewHeader.topAnchor, constant: 50),
+            titleLabel.leftAnchor.constraint(equalTo: viewForTableViewHeader.leftAnchor, constant: 20),
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
             titleLabel.heightAnchor.constraint(equalToConstant: 82)
         ])
@@ -78,7 +99,7 @@ class MaintenanceView: UIView {
     func setUpPlusButtonConstraints() {
         NSLayoutConstraint.activate([
             plusButton.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -5),
-            plusButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -28),
+            plusButton.rightAnchor.constraint(equalTo: viewForTableViewHeader.rightAnchor, constant: -28),
             plusButton.widthAnchor.constraint(equalToConstant: 30),
             plusButton.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -87,7 +108,7 @@ class MaintenanceView: UIView {
     func setUpDateComponentConstraints() {
         NSLayoutConstraint.activate([
             dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
-            dateComponent.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
             dateComponent.widthAnchor.constraint(equalToConstant: 309),
             dateComponent.heightAnchor.constraint(equalToConstant: 55)
         ])
@@ -95,11 +116,11 @@ class MaintenanceView: UIView {
     
     func setUpTableViewConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: dateComponent.bottomAnchor, constant: 32),
             tableView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16 ),
-            tableView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            tableView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
+            tableView.topAnchor.constraint(equalTo: self.topAnchor),
             tableView.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
     }
-    
+        
 }
