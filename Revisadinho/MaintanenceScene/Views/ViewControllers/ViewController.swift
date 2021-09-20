@@ -9,17 +9,73 @@ import UIKit
 
 class MaintenanceViewController: UIViewController {
 
+    let maintenanceView = MaintenanceView()
+    var tableViewHeader: UIView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        // Do any additional setup after loading the view.
     }
     
     override func loadView() {
         super.loadView()
-        let maintenanceView = MaintenanceView()
         maintenanceView.viewController = self
+        maintenanceView.tableView.delegate = self
+        maintenanceView.tableView.dataSource = self
+        self.tableViewHeader = maintenanceView.viewForTableViewHeader        
         view = maintenanceView
     }
 
+}
+
+extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
+        
+        cell?.cardCollectionView.delegate = self
+        cell?.cardCollectionView.dataSource = self
+        
+        if indexPath.row == 0 {
+            cell?.lineUp.isHidden = true
+        }
+        
+//        if indexPath.row == indexPath.row. {
+//            cell?.lineUp.isHidden = true
+//        }
+        return cell ?? MaintenanceTableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let viewForHeader = tableViewHeader
+        viewForHeader?.isUserInteractionEnabled = true
+        maintenanceView.setUpViewForTableViewHeaderConstraints()
+        return viewForHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        240
+    }
+    
+}
+
+extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaintenanceCollectionViewCell.identifier, for: indexPath) as? MaintenanceCollectionViewCell
+        
+        return cell ?? MaintenanceCollectionViewCell()
+    }
+    
 }
