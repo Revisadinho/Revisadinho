@@ -13,6 +13,8 @@
 		EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */; };
 		EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */; };
 		EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */; };
+		EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */; };
+		EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */; };
 		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceView.swift; sourceTree = "<group>"; };
 		EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponent.swift; sourceTree = "<group>"; };
 		EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentController.swift; sourceTree = "<group>"; };
+		EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
+		EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +93,8 @@
 		7375AAC626EF9273006888B8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */,
+				EF3D7FEB26F372EE00DC01CA /* Components */,
+				EF3D7FEA26F372E700DC01CA /* Cells */,
 				EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */,
 				EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */,
 				7375AACB26EF941E006888B8 /* ViewControllers */,
@@ -213,6 +218,23 @@
 				EF3D7FDA26F0D2A500DC01CA /* Color.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF3D7FEA26F372E700DC01CA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */,
+				EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EF3D7FEB26F372EE00DC01CA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		EFE12CD026EF76E4005FB2B2 = {
@@ -426,9 +448,11 @@
 				EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */,
 				EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */,
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
+				EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */,
 				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
 				EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */,
 				EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */,
+				EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */,
 				EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
