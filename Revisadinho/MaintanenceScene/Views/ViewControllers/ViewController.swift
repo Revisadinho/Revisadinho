@@ -20,6 +20,7 @@ class MaintenanceViewController: UIViewController {
     override func loadView() {
         super.loadView()
         maintenanceView.viewController = self
+        maintenanceView.delegate = self
         maintenanceView.tableView.delegate = self
         maintenanceView.tableView.dataSource = self
         self.tableViewHeader = maintenanceView.viewForTableViewHeader        
@@ -78,4 +79,10 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
         return cell ?? MaintenanceCollectionViewCell()
     }
     
+}
+
+extension MaintenanceViewController: PlusButtonDelegate {
+    func addNewMaintenance() {
+        print("adding maintenance")
+    }
 }
