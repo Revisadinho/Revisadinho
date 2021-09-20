@@ -69,7 +69,7 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(uuid, updatedMaintenance?.id)
         XCTAssertNotEqual(date, updatedMaintenance?.date)
         XCTAssertNotEqual(hodometer, updatedMaintenance?.hodometer)
-        XCTAssertNotEqual(maintenanceItens, updatedMaintenance?.maintenances)
+        XCTAssertNotEqual(maintenanceItens, updatedMaintenance?.maintenanceItens)
 
     }
 }
