@@ -11,9 +11,10 @@ import XCTest
 class ModelTests: XCTestCase {
     var sut: Model!
     var coreDataStack: CoreDataTestStack!
-
+    var dba: DatabaseController!
     override func setUp() {
         super.setUp()
+        dba = DatabaseController.shared
         coreDataStack = CoreDataTestStack()
         sut = Model.shared
     }
