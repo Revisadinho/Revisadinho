@@ -44,6 +44,7 @@ class MaintenanceView: UIView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .blueBackground
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
         tableView.separatorColor = .gray
