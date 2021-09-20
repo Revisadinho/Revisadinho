@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol DateComponentActionDelegate {
+protocol DateComponentActionDelegate: AnyObject {
     func goToPreviousMonth()
     func goToNextMonth()
 }
 
 class DateComponent: UIView {
     
-    let delegate: DateComponentActionDelegate = DateComponentController()
+    var delegate: DateComponentActionDelegate = DateComponentController()
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.isUserInteractionEnabled = true
