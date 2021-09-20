@@ -14,6 +14,10 @@
 		6E0FBB6826F8B40F00C762B7 /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB6726F8B40F00C762B7 /* MaintenanceViewModel.swift */; };
 		6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB6926F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift */; };
 		6E0FBB6C26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB6A26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift */; };
+		6E0FBB6E26F8C39900C762B7 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB6D26F8C39900C762B7 /* Maintenance.swift */; };
+		6E0FBB7026F8C74C00C762B7 /* AddMaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB6F26F8C74C00C762B7 /* AddMaintenanceViewModel.swift */; };
+		6E0FBB7226F8CADA00C762B7 /* MaintenanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB7126F8CADA00C762B7 /* MaintenanceViewModelTests.swift */; };
+		6E0FBB7426F8D04600C762B7 /* AddMaintenanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB7326F8D04600C762B7 /* AddMaintenanceViewModelTests.swift */; };
 		6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */; };
 		6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43526F22D6000A424E7 /* ModelTests.swift */; };
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
@@ -53,6 +57,10 @@
 		6E0FBB6726F8B40F00C762B7 /* MaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewModel.swift; sourceTree = "<group>"; };
 		6E0FBB6926F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MaintenanceDAO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6E0FBB6A26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MaintenanceDAO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6E0FBB6D26F8C39900C762B7 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
+		6E0FBB6F26F8C74C00C762B7 /* AddMaintenanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceViewModel.swift; sourceTree = "<group>"; };
+		6E0FBB7126F8CADA00C762B7 /* MaintenanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewModelTests.swift; sourceTree = "<group>"; };
+		6E0FBB7326F8D04600C762B7 /* AddMaintenanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceViewModelTests.swift; sourceTree = "<group>"; };
 		6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
 		6E1BF43126F2205600A424E7 /* Maintenance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6E1BF43226F2205600A424E7 /* Maintenance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -126,6 +134,7 @@
 				6E0FBB5D26F8A73C00C762B7 /* Model.swift */,
 				6E0FBB5A26F8A73C00C762B7 /* Model.xcdatamodeld */,
 				6E0FBB6526F8AA4C00C762B7 /* DatabaseController.swift */,
+				6E0FBB6D26F8C39900C762B7 /* Maintenance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
 				EFE12CEA26EF76E4005FB2B2 /* Info.plist */,
 				6E0FBB6726F8B40F00C762B7 /* MaintenanceViewModel.swift */,
+				6E0FBB6F26F8C74C00C762B7 /* AddMaintenanceViewModel.swift */,
 			);
 			path = Revisadinho;
 			sourceTree = "<group>";
@@ -296,6 +306,8 @@
 				EFE12CF526EF76E5005FB2B2 /* Info.plist */,
 				6E1BF43526F22D6000A424E7 /* ModelTests.swift */,
 				6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */,
+				6E0FBB7126F8CADA00C762B7 /* MaintenanceViewModelTests.swift */,
+				6E0FBB7326F8D04600C762B7 /* AddMaintenanceViewModelTests.swift */,
 			);
 			path = RevisadinhoTests;
 			sourceTree = "<group>";
@@ -464,7 +476,9 @@
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* ViewController.swift in Sources */,
 				6E0FBB6626F8AA4C00C762B7 /* DatabaseController.swift in Sources */,
+				6E0FBB6E26F8C39900C762B7 /* Maintenance.swift in Sources */,
 				6E0FBB6C26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift in Sources */,
+				6E0FBB7026F8C74C00C762B7 /* AddMaintenanceViewModel.swift in Sources */,
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
 				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
 				6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */,
@@ -479,9 +493,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0FBB7226F8CADA00C762B7 /* MaintenanceViewModelTests.swift in Sources */,
 				EFE12CF426EF76E5005FB2B2 /* RevisadinhoTests.swift in Sources */,
 				6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */,
 				6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */,
+				6E0FBB7426F8D04600C762B7 /* AddMaintenanceViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
