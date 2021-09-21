@@ -12,6 +12,7 @@ import FSCalendar
 class BottomSheetViewController: UIViewController {
     let contentView = BottomSheetView()
     var textField: UITextField?
+    var selectedDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +61,10 @@ extension BottomSheetViewController: FSCalendarDelegate {
         if textField != nil {
             textField?.text = getDateString(date)
         }
+        selectedDate = date
     }
     
-    private func getDateString(_ date: Date) -> String {
+    public func getDateString(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt_BR")
         dateFormatter.dateFormat = "dd MMMM, yyyy"

@@ -63,6 +63,8 @@ class AddMaintenceView: UIView {
             servicesCollectionView.reloadData()
         }
     }
+    
+    lazy var servicesSelected = [String]()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -111,6 +113,7 @@ class AddMaintenceView: UIView {
     private func setTextFields() {
         calendarTextField.placeholder = AddMaintenceViewStrings.calendarPlaceholder
         calendarTextField.setButtonWithIcon(AddMaintenceViewStrings.calendarIcon)
+        calendarTextField.inputView = UIView()
         
         hodometerTextField.placeholder = AddMaintenceViewStrings.hodometerPlaceholder
         hodometerTextField.setButtonWithIcon(AddMaintenceViewStrings.speedometerIcon)
@@ -198,12 +201,21 @@ extension AddMaintenceView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
                 cell.updateBorder()
+            
+            guard let cellName = cell.iconLabel.text else {return}
+            servicesSelected.append(cellName)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
                 cell.updateBorder()
+            guard let cellName = cell.iconLabel.text else {return}
+            if servicesSelected.contains(cellName) {
+                if let index = servicesSelected.firstIndex(where: {$0 == cellName}) {
+                    servicesSelected.remove(at: index)
+                }
+            }
         }
     }
 }
