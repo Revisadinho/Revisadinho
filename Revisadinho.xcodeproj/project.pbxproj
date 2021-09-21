@@ -24,6 +24,7 @@
 		EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */; };
 		EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */; };
 		EF3D7FED26F8C9DD00DC01CA /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FEC26F8C9DD00DC01CA /* DateModel.swift */; };
+		EF3D7FEF26FA02C500DC01CA /* DateComponentControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FEE26FA02C500DC01CA /* DateComponentControllerTests.swift */; };
 		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* MaintenanceViewController.swift */; };
@@ -74,6 +75,7 @@
 		EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
 		EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF3D7FEC26F8C9DD00DC01CA /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		EF3D7FEE26FA02C500DC01CA /* DateComponentControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentControllerTests.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				EFE12CF526EF76E5005FB2B2 /* Info.plist */,
 				6E1BF43526F22D6000A424E7 /* ModelTests.swift */,
 				6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */,
+				EF3D7FEE26FA02C500DC01CA /* DateComponentControllerTests.swift */,
 			);
 			path = RevisadinhoTests;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE12CF426EF76E5005FB2B2 /* RevisadinhoTests.swift in Sources */,
+				EF3D7FEF26FA02C500DC01CA /* DateComponentControllerTests.swift in Sources */,
 				6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */,
 				6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */,
 			);
