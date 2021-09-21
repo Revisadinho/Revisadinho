@@ -19,6 +19,8 @@ public enum AddMaintenceViewStrings {
     static let hodometerPlaceholder = "30.000 km"
     static let calendarIcon = "calendar"
     static let speedometerIcon = "speedometer"
+    static let chevronBackwardIcon = "chevron.backward"
+    static let chevronForwardIcon = "chevron.forward"
 }
 
 class AddMaintenceView: UIView {
