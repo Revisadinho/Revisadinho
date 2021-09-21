@@ -19,6 +19,14 @@ public class Model {
         return maintenances
     }
 
+    public func getMaintenances(byMonth month: Int, andYear year: Int, viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> [MaintenanceDAO] {
+        let maintenances = getMaintenances(viewContext: viewContext)
+        let filteredMaintenances = maintenances.filter {
+            return Calendar.current.component(.month, from: $0.date!) == month && Calendar.current.component(.year, from: $0.date!) == year
+        }
+        return filteredMaintenances
+    }
+
     public func getMaintenances(byStartDate startDate: Date, toDate finishingDate: Date, viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> [MaintenanceDAO] {
         let maintenances = getMaintenances(viewContext: viewContext)
         let filteredMaintenances = maintenances.filter {
