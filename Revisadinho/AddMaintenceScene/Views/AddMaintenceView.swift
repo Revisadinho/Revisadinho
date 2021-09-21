@@ -64,7 +64,9 @@ class AddMaintenceView: UIView {
         }
     }
     
-    lazy var servicesSelected = [String]()
+    var allMaintenceItems: [MaintenanceItem] = MaintenanceItem.allCases
+    
+    lazy var servicesSelected = [MaintenanceItem]()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,7 +78,7 @@ class AddMaintenceView: UIView {
     }
     
     private func setupAddMaintenceView() {
-        dataSource = getServicesIcons()
+        //dataSource = MaintenanceItem.allCases
         backgroundColor = .appBackgroundColor
         addSubview(scrollView)
         hideKeyboardWhenTappedAround()
@@ -167,17 +169,6 @@ class AddMaintenceView: UIView {
             saveButton.topAnchor.constraint(equalTo: servicesCollectionView.bottomAnchor, constant: 40)
         ])
     }
-    
-    private func getServicesIcons() -> [String] {
-        var servicesIcons = [String]()
-        let paths = Bundle.main.paths(forResourcesOfType: "png", inDirectory: "ServicesIcons")
-        for path in paths {
-            let fileName = URL(fileURLWithPath: path).deletingPathExtension().lastPathComponent
-            servicesIcons.append(fileName)
-        }
-        
-        return servicesIcons
-    }
 }
 
 // MARK: - CollectionView extensions
@@ -185,13 +176,13 @@ class AddMaintenceView: UIView {
 extension AddMaintenceView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        return allMaintenceItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "servicesCollectionViewCell", for: indexPath) as? ServicesCollectionViewCell else {return ServicesCollectionViewCell()}
         
-        cell.setIconContents(withName: dataSource[indexPath.item])
+        cell.setIconContents(withItem: allMaintenceItems[indexPath.item])
         return cell
     }
 }
@@ -202,17 +193,15 @@ extension AddMaintenceView: UICollectionViewDelegate {
         if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
                 cell.updateBorder()
             
-            guard let cellName = cell.iconLabel.text else {return}
-            servicesSelected.append(cellName)
+            servicesSelected.append(allMaintenceItems[indexPath.item])
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
                 cell.updateBorder()
-            guard let cellName = cell.iconLabel.text else {return}
-            if servicesSelected.contains(cellName) {
-                if let index = servicesSelected.firstIndex(where: {$0 == cellName}) {
+            if servicesSelected.contains(allMaintenceItems[indexPath.item]) {
+                if let index = servicesSelected.firstIndex(where: {$0 == allMaintenceItems[indexPath.item]}) {
                     servicesSelected.remove(at: index)
                 }
             }
