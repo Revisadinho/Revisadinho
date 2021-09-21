@@ -11,7 +11,8 @@ class MaintenanceViewController: UIViewController {
 
     let maintenanceView = MaintenanceView()
     var tableViewHeader: UIView?
-
+    var maintenanceRouter: MaintenanceRouter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -83,6 +84,7 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension MaintenanceViewController: PlusButtonDelegate {
     func addNewMaintenance() {
+        maintenanceRouter?.displayAddMaintenance()
         print("adding maintenance")
     }
 }
