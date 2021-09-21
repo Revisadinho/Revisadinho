@@ -13,6 +13,7 @@ protocol PlusButtonDelegate: AnyObject {
 }
 
 class MaintenanceView: UIView {
+    
     var viewController: MaintenanceViewController?
     weak var delegate: PlusButtonDelegate?
     
@@ -36,7 +37,7 @@ class MaintenanceView: UIView {
     }()
     
     lazy var dateComponent: DateComponent = {
-        let component = DateComponent()
+        let component = DateComponent.dateComponent
         component.isUserInteractionEnabled = true
         component.translatesAutoresizingMaskIntoConstraints = false
         return component

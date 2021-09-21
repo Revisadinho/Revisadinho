@@ -5,6 +5,7 @@
 //  Created by Jéssica Araujo on 16/09/21.
 //
 // swiftlint:disable trailing_whitespace
+// swiftlint:disable line_length
 
 import UIKit
 import FSCalendar

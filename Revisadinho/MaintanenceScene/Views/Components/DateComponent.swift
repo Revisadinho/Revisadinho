@@ -10,12 +10,13 @@ import UIKit
 
 protocol DateComponentActionDelegate: AnyObject {
     func goToPreviousMonth()
-    func goToNextMonth()
+    func goToNextMonth() 
 }
 
 class DateComponent: UIView {
-    
-    var delegate: DateComponentActionDelegate = DateComponentController()
+    static var dateComponent = DateComponent()
+    let currentDate = DateModel()
+    var delegate: DateComponentActionDelegate = DateComponentController.sharedInstance
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.isUserInteractionEnabled = true
@@ -46,7 +47,7 @@ class DateComponent: UIView {
     
     lazy var monthLabel: UILabel = {
         let label = UILabel()
-        label.text = "Dezembro"
+        label.text = currentDate.convertMonthIntToString(monthInt: currentDate.getCurrentMonth())
         label.textColor = .grayText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -55,7 +56,7 @@ class DateComponent: UIView {
     lazy var yearLabel: UILabel = {
         let label = UILabel()
         label.textColor = .grayText
-        label.text = "2021"
+        label.text = String(currentDate.getCurrentYear())
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

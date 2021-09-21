@@ -67,6 +67,10 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         240
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = ModalViewController()
+        self.present(controller, animated: true, completion: nil)
+    }
 }
 
 extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -79,7 +83,6 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
         
         return cell ?? MaintenanceCollectionViewCell()
     }
-    
 }
 
 extension MaintenanceViewController: PlusButtonDelegate {
