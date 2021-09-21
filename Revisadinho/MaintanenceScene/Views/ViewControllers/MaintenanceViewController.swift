@@ -6,12 +6,15 @@
 // swiftlint:disable trailing_whitespace line_length
 
 import UIKit
+import Foundation
 
 class MaintenanceViewController: UIViewController {
 
+    let maintenanceViewModel = MaintenanceViewModel()
     let maintenanceView = MaintenanceView()
     var tableViewHeader: UIView?
     var maintenanceRouter: MaintenanceRouter?
+    var tableView: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,10 @@ class MaintenanceViewController: UIViewController {
         super.loadView()
         maintenanceView.viewController = self
         maintenanceView.delegate = self
+        tableView = maintenanceView.tableView
         maintenanceView.tableView.delegate = self
         maintenanceView.tableView.dataSource = self
+        maintenanceView.dateComponent.delegateReloadTableView = self
         self.tableViewHeader = maintenanceView.viewForTableViewHeader        
         view = maintenanceView
     }
@@ -33,7 +38,10 @@ class MaintenanceViewController: UIViewController {
 extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        let lastMonthState = DateComponentController.getLastStateMonth()
+        let lastYearState = DateComponentController.getLastStateYear()
+        let maintenances = maintenanceViewModel.getMaintenances(byMonth: lastMonthState, andYear: lastYearState)
+        return maintenances.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -42,7 +50,10 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
-        
+        let lastMonthState = DateComponentController.getLastStateMonth()
+        let lastYearState = DateComponentController.getLastStateYear()
+        let maintenances = maintenanceViewModel.getMaintenances(byMonth: lastMonthState, andYear: lastYearState)
+        cell?.dateLabel.text = maintenances[indexPath.row].date.description
         cell?.cardCollectionView.delegate = self
         cell?.cardCollectionView.dataSource = self
         
@@ -88,5 +99,16 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
 extension MaintenanceViewController: PlusButtonDelegate {
     func addNewMaintenance() {
         maintenanceRouter?.displayAddMaintenance()
+    }
+}
+
+extension MaintenanceViewController: ReloadTableViewDelegate {
+    func reloadTableViewForPreviousMonth() {
+        print("ieii")
+        tableView?.reloadData()
+    }
+    
+    func reloadTableViewForNextMonth() {
+        tableView?.reloadData()
     }
 }
