@@ -59,6 +59,19 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(result.count, 2)
     }
 
+    func test_getMaintenanceByMonthAndYear_shouldNotBeEmpty() {
+        let uuid: UUID = UUID()
+        let date: Date = Date()
+        let hodometer: Double = 20.876
+        let maintenanceItens: [Double] = [1.0, 2.0, 3.0, 4.0]
+        _ = sut.createMaintenance(uuid: uuid, date: date, hodometer: hodometer, maintenanceItens: maintenanceItens, viewContext: coreDataStack.viewContext)
+        _ = sut.createMaintenance(date: date + 1, hodometer: hodometer, maintenanceItens: maintenanceItens, viewContext: coreDataStack.viewContext)
+        let month = Calendar.current.component(.month, from: date)
+        let year = Calendar.current.component(.year, from: date)
+        let result = sut.getMaintenances(byMonth: month, andYear: year, viewContext: coreDataStack.viewContext)
+        XCTAssertTrue(result.count == 2)
+    }
+
     func test_updateMaintenance_shouldNotBeEqualAfterChange() {
         let uuid: UUID = UUID()
         let date: Date = Date()

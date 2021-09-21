@@ -24,11 +24,23 @@ class AddMaintenceViewController: UIViewController {
     
     override func loadView() {
         view = contentView
+        contentView.saveButton.addTarget(self, action: #selector(printInputs), for: .touchUpInside)
     }
     
     private func showBottomSheetView() {
         bottomSheetViewController.modalPresentationStyle = .overCurrentContext
         present(bottomSheetViewController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func printInputs() {
+        guard let totalKm = contentView.hodometerTextField.text else {return}
+        guard let date = bottomSheetViewController.selectedDate else {return}
+        let services = contentView.servicesSelected
+        
+        print(totalKm)
+        print(bottomSheetViewController.getDateString(date))
+        print(services)
     }
 }
 

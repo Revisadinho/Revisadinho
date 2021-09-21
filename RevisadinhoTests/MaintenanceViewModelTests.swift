@@ -25,6 +25,13 @@ class MaintenanceViewModelTests: XCTestCase {
         let count = sut.getMaintenancesByDate(startingDate: date - 5, endingDate: date + 5, viewContext: coreDataStack.viewContext).count
         XCTAssertEqual(3, count)
     }
+
+    func test_getMaintenancesByMonthAndYear_shouldReturnThreeMaintenances() {
+        let month = Calendar.current.component(.month, from: date)
+        let year = Calendar.current.component(.year, from: date)
+        let count = sut.getMaintenances(byMonth: month, andYear: year, viewContext: coreDataStack.viewContext).count
+        XCTAssertEqual(3, count)
+    }
 }
 extension MaintenanceViewModelTests {
     func createMaintenances(_ date: Date) {

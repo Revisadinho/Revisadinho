@@ -41,6 +41,20 @@ class BottomSheetView: UIView {
         return button
     }()
     
+    lazy var nextMonthButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .actionColor
+        return button
+    }()
+    
+    lazy var previousMonthButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .actionColor
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupBottomSheetView()
@@ -57,9 +71,12 @@ class BottomSheetView: UIView {
         insertSubview(blurView, at: 0)
         addSubview(bottomSheet)
         bottomSheet.addSubview(fsCalendar)
+        bottomSheet.addSubview(nextMonthButton)
+        bottomSheet.addSubview(previousMonthButton)
         bottomSheet.addSubview(selectButton)
         
         setupFSCalendar()
+        setupButtons()
         setConstraints()
     }
     
@@ -76,12 +93,27 @@ class BottomSheetView: UIView {
         fsCalendar.appearance.selectionColor = .actionColor
         fsCalendar.appearance.todayColor = .secondColor
         
+        fsCalendar.appearance.headerTitleAlignment = .left
+        fsCalendar.appearance.headerTitleOffset = CGPoint(x: bottomSheet.bounds.size.width - 78, y: 0)
+        
         fsCalendar.appearance.caseOptions = [.headerUsesCapitalized, .weekdayUsesUpperCase]
         fsCalendar.allowsMultipleSelection = false
         fsCalendar.calendarHeaderView.calendar.locale = Locale(identifier: "pt")
         fsCalendar.appearance.headerMinimumDissolvedAlpha = 0
         fsCalendar.appearance.borderRadius = 2
         fsCalendar.clipsToBounds = true
+    }
+    
+    private func setupButtons() {
+        let largeConfiguration = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .medium)
+        let chevronForwardImage = UIImage(systemName: AddMaintenceViewStrings.chevronForwardIcon, withConfiguration: largeConfiguration)
+        let chevronBackwardImage = UIImage(systemName: AddMaintenceViewStrings.chevronBackwardIcon, withConfiguration: largeConfiguration)
+        
+        nextMonthButton.setImage(chevronForwardImage, for: .normal)
+        previousMonthButton.setImage(chevronBackwardImage, for: .normal)
+        
+        nextMonthButton.addTarget(self, action: #selector(onNextMonthButtonClick), for: .touchUpInside)
+        previousMonthButton.addTarget(self, action: #selector(onPreviouMonthButtonClick), for: .touchUpInside)
     }
     
     private func setConstraints() {
@@ -93,15 +125,43 @@ class BottomSheetView: UIView {
             bottomSheet.trailingAnchor.constraint(equalTo: trailingAnchor),
             bottomSheet.bottomAnchor.constraint(equalTo: bottomAnchor),
             bottomSheet.heightAnchor.constraint(equalToConstant: 400),
-           
+            
             fsCalendar.heightAnchor.constraint(equalToConstant: 312),
             fsCalendar.widthAnchor.constraint(equalToConstant: 346),
             fsCalendar.centerXAnchor.constraint(equalTo: bottomSheet.centerXAnchor),
             fsCalendar.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 10),
             
+            nextMonthButton.heightAnchor.constraint(equalToConstant: 25),
+            nextMonthButton.widthAnchor.constraint(equalToConstant: 20),
+            nextMonthButton.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 20),
+            nextMonthButton.trailingAnchor.constraint(equalTo: bottomSheet.trailingAnchor, constant: -15),
+            
+            previousMonthButton.heightAnchor.constraint(equalToConstant: 25),
+            previousMonthButton.widthAnchor.constraint(equalToConstant: 20),
+            previousMonthButton.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 20),
+            previousMonthButton.trailingAnchor.constraint(equalTo: nextMonthButton.leadingAnchor, constant: -30),
+            
             selectButton.centerXAnchor.constraint(equalTo: bottomSheet.centerXAnchor),
             selectButton.topAnchor.constraint(equalTo: fsCalendar.bottomAnchor, constant: 10)
         ])
+    }
+    
+    @objc
+    func onPreviouMonthButtonClick() {
+        fsCalendar.setCurrentPage(getPreviousMonth(date: fsCalendar.currentPage), animated: true)
+    }
+    
+    @objc
+    func onNextMonthButtonClick() {
+        fsCalendar.setCurrentPage(getNextMonth(date: fsCalendar.currentPage), animated: true)
+    }
+    
+    private func getNextMonth(date: Date) -> Date {
+        return Calendar.current.date(byAdding: .month, value: 1, to: date)!
+    }
+    
+    private func getPreviousMonth(date: Date) -> Date {
+        return Calendar.current.date(byAdding: .month, value: -1, to: date)!
     }
 }
 
