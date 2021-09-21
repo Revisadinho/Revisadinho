@@ -1,0 +1,24 @@
+<svg width="140" height="126" viewBox="0 0 140 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 29C0 23.4772 4.47715 19 10 19H32.5676C38.0904 19 42.5676 23.4772 42.5676 29V97.5405C42.5676 103.063 38.0904 107.541 32.5676 107.541H9.99999C4.47714 107.541 0 103.063 0 97.5405V29Z" fill="#B4B7D1"/>
+<line x1="12.6251" y1="29.2535" x2="21.1507" y2="38.7264" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="21.0766" y1="38.726" x2="29.6028" y2="29.2535" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="12.6251" y1="47.9835" x2="21.1507" y2="57.4564" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="21.0766" y1="57.4555" x2="29.6028" y2="47.9829" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="12.6251" y1="66.7134" x2="21.1507" y2="76.1864" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="21.0766" y1="76.1855" x2="29.6028" y2="66.7129" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="12.6251" y1="85.4429" x2="21.1507" y2="94.9159" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="21.0766" y1="94.915" x2="29.6028" y2="85.4424" stroke="#8A8EB0" stroke-linecap="round"/>
+<path d="M97 29C97 23.4772 101.477 19 107 19H129.568C135.09 19 139.568 23.4772 139.568 29V97.5405C139.568 103.063 135.09 107.541 129.568 107.541H107C101.477 107.541 97 103.063 97 97.5405V29Z" fill="#B4B7D1"/>
+<line x1="109.625" y1="29.2535" x2="118.151" y2="38.7264" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="118.077" y1="38.726" x2="126.603" y2="29.2535" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="109.625" y1="47.9835" x2="118.151" y2="57.4564" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="118.077" y1="57.4555" x2="126.603" y2="47.9829" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="109.625" y1="66.7134" x2="118.151" y2="76.1864" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="118.077" y1="76.1855" x2="126.603" y2="66.7129" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="109.625" y1="85.4429" x2="118.151" y2="94.9159" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="118.077" y1="94.915" x2="126.603" y2="85.4424" stroke="#8A8EB0" stroke-linecap="round"/>
+<line x1="22.5" y1="1.5" x2="22.5" y2="124.5" stroke="#8A8EB0" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 5"/>
+<line x1="119" y1="1" x2="119" y2="125" stroke="#8A8EB0" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 5"/>
+<line x1="23.7573" y1="61.5" x2="122.513" y2="61.5315" stroke="#B4B7D1" stroke-width="3"/>
+<circle cx="69.7298" cy="61.2972" r="8.51351" fill="#8A8EB0"/>
+</svg>
