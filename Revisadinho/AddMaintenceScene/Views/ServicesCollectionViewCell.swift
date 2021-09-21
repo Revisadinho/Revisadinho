@@ -29,10 +29,11 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     lazy var iconLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: Fonts.light, size: Fonts.sizeForBody)
+        label.font = UIFont(name: Fonts.light, size: 13)
         label.textColor = .mainColor
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -55,9 +56,9 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
-    public func setIconContents(withName iconName: String) {
-        iconImageView.image = UIImage(named: iconName)
-        iconLabel.text = iconName
+    public func setIconContents(withItem item: MaintenanceItem) {
+        iconImageView.image = UIImage(named: "\(item)")
+        iconLabel.text = item.description
     }
     
     public func updateBorder() {
@@ -80,7 +81,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
             iconImageView.centerYAnchor.constraint(equalTo: iconView.centerYAnchor),
             
             iconLabel.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 5),
-            iconLabel.widthAnchor.constraint(equalToConstant: 90),
+            iconLabel.widthAnchor.constraint(equalToConstant: 95),
             iconLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             iconLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
