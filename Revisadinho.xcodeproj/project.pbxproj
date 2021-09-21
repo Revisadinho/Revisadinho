@@ -19,6 +19,8 @@
 		6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */; };
 		6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43526F22D6000A424E7 /* ModelTests.swift */; };
 		6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */; };
+		6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
+		6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
 		D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D85EF6DF26F8B40C00AC5617 /* FSCalendar */; };
@@ -42,8 +44,6 @@
 		EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */; };
 		EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */; };
 		EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */; };
-		EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
-		EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* MaintenanceViewController.swift */; };
 		EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */; };
 		EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */; };
@@ -556,17 +556,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */,
+				6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */,
 				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */,
-				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
 				D87B793126F3748A00D51642 /* CustomButton.swift in Sources */,
 				D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */,
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
 				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
-				EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 				6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */,
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
@@ -577,12 +577,10 @@
 				6E0FBB6C26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift in Sources */,
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
 				EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */,
-				EFE12CDD26EF76E4005FB2B2 /* AppDelegate.swift in Sources */,
 				EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */,
 				EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */,
 				EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */,
 				6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */,
-				EFE12CDF26EF76E4005FB2B2 /* SceneDelegate.swift in Sources */,
 				6E0FBB5E26F8A73C00C762B7 /* Model.xcdatamodeld in Sources */,
 				6E0FBB5F26F8A73C00C762B7 /* MaintenanceItem.swift in Sources */,
 			);
