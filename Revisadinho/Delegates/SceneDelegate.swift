@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Jhennyfer Rodrigues de Oliveira on 13/09/21.
-// swiftlint:disable line_length
+// swiftlint:disable line_length trailing_whitespace
 
 import UIKit
 
@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let viewController = MaintenanceViewController()
-        window.rootViewController = viewController
+                    
+        let mainRouter = MainRouter()
+        window.rootViewController = mainRouter.getMaintenanceViewController()
+      
         self.window = window
         window.makeKeyAndVisible()
     }
