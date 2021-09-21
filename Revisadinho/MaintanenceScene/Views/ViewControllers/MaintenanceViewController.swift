@@ -88,6 +88,5 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
 extension MaintenanceViewController: PlusButtonDelegate {
     func addNewMaintenance() {
         maintenanceRouter?.displayAddMaintenance()
-        print("adding maintenance")
     }
 }
