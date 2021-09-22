@@ -45,9 +45,11 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         let maintenances = getMaintenances()
         if maintenances.count<1 {
             placeholderText?.isHidden = false
+            MaintenanceViewController.tableView?.bounces = false
             return 0
         } else {
             placeholderText?.isHidden = true
+            MaintenanceViewController.tableView?.bounces = true
             return maintenances.count
         }
         
