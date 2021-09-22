@@ -20,6 +20,7 @@ class MaintenanceViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         MaintenanceViewController.tableView?.reloadData()
     }
     

@@ -21,6 +21,7 @@ class AddMaintenceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         setCalendarTextFieldDelegate()
     }
     

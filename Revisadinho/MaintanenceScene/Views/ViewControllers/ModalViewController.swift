@@ -15,6 +15,7 @@ class ModalViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        overrideUserInterfaceStyle = .light
         let modalView = ModalView()
         modalView.collectionView.delegate = self
         modalView.collectionView.dataSource = self
