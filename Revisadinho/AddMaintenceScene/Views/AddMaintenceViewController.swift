@@ -43,6 +43,7 @@ class AddMaintenceViewController: UIViewController {
         if let totalKm = Double(hodometerText) {
             if viewModel.saveMaintenance(hodometer: totalKm, date: date, maintenanceItens: services) {
                 dismiss(animated: true, completion: nil)
+                MaintenanceViewController.tableView?.reloadData()
             } else {
                 print("ERROR")
             }
