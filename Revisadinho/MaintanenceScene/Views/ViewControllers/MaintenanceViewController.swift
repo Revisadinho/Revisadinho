@@ -11,6 +11,7 @@ import Foundation
 class MaintenanceViewController: UIViewController {
 
     let maintenanceViewModel = MaintenanceViewModel()
+    var placeholderText: UILabel?
     let maintenanceView = MaintenanceView()
     var tableViewHeader: UIView?
     var maintenanceRouter: MaintenanceRouter?
@@ -27,6 +28,7 @@ class MaintenanceViewController: UIViewController {
         super.loadView()
         maintenanceView.viewController = self
         maintenanceView.delegate = self
+        placeholderText = maintenanceView.placeholderText
         MaintenanceViewController.tableView = maintenanceView.tableView
         maintenanceView.tableView.delegate = self
         maintenanceView.tableView.dataSource = self
@@ -41,7 +43,13 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let maintenances = getMaintenances()
-        return maintenances.count
+        if maintenances.count<1 {
+            placeholderText?.isHidden = false
+            return 0
+        } else {
+            return maintenances.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -55,10 +63,11 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         let formatedDate = formatDate(date: maintenances[indexPath.row].date)
         cell?.dateLabel.text = formatedDate
         cell?.cardCollectionView.delegate = self
-        cell?.cardCollectionView.dataSource = self        
+        cell?.cardCollectionView.dataSource = self
         if indexPath.row == 0 {
-            cell?.lineUp.isHidden = true
+                cell?.lineUp.isHidden = true
         }
+        
         return cell ?? MaintenanceTableViewCell()
     }
     
@@ -98,6 +107,8 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         let controller = ModalViewController()
         controller.maintenanceItems = maintenances[indexPath.row].maintenanceItens
         controller.maintenanceDate = formatDate(date: maintenances[indexPath.row].date)
+        let hodometerInt = Int(maintenances[indexPath.row].hodometer)
+        controller.hodometer = String(hodometerInt) + " " + "km"
         self.present(controller, animated: true, completion: nil)
     }
 }

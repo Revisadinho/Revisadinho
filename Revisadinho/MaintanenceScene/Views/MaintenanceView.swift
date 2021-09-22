@@ -21,8 +21,8 @@ class MaintenanceView: UIView {
         super.init(frame: .zero)
         self.backgroundColor = .blueBackground
         setUpViewHierarchy()
+        setUpPlaceholderConstraints()
         setUpTableViewConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +41,19 @@ class MaintenanceView: UIView {
         component.isUserInteractionEnabled = true
         component.translatesAutoresizingMaskIntoConstraints = false
         return component
+    }()
+    
+    lazy var placeholderText: UILabel = {
+        let label = UILabel()
+        label.text = "Nenhuma manutenção cadastrada para este mês"
+        label.textColor = .grayPlaceholderText
+        label.isHidden = true
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont(name: "Quicksand-Bold", size: 19)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     lazy var tableView: UITableView = {
@@ -81,6 +94,7 @@ class MaintenanceView: UIView {
     
     func setUpViewHierarchy() {
         self.addSubview(tableView)
+        self.addSubview(placeholderText)
     }
     
     func setUpViewForTableViewHeaderConstraints() {
@@ -96,6 +110,15 @@ class MaintenanceView: UIView {
         setUpTitleLabelConstraints()
         setUpPlusButtonConstraints()
         setUpDateComponentConstraints()
+    }
+    
+    func setUpPlaceholderConstraints() {
+        NSLayoutConstraint.activate([
+            placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 280),
+            placeholderText.widthAnchor.constraint(equalToConstant: 300),
+            placeholderText.heightAnchor.constraint(equalToConstant: 100),
+            placeholderText.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
     }
     
     func setUpTitleLabelConstraints() {

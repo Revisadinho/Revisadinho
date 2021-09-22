@@ -11,6 +11,7 @@ import UIKit
 class ModalViewController: UIViewController {
     var maintenanceDate: String?
     var maintenanceItems: [MaintenanceItem]?
+    var hodometer: String?
     
     override func loadView() {
         super.loadView()
@@ -18,6 +19,7 @@ class ModalViewController: UIViewController {
         modalView.collectionView.delegate = self
         modalView.collectionView.dataSource = self
         modalView.dateLabel.text = maintenanceDate
+        modalView.hodometerLabel.text = hodometer
         modalView.controller = self
         view = modalView
     }
