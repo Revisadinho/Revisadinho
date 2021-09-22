@@ -56,6 +56,7 @@ class DateComponent: UIView {
         let label = UILabel()
         label.text = currentDate.convertMonthIntToString(monthInt: currentDate.getCurrentMonth())
         label.textColor = .grayText
+        label.font = UIFont(name: "Quicksand-Bold", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,6 +64,7 @@ class DateComponent: UIView {
     lazy var yearLabel: UILabel = {
         let label = UILabel()
         label.textColor = .grayText
+        label.font = UIFont(name: "Quicksand-Bold", size: 17)
         label.text = String(currentDate.getCurrentYear())
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -117,7 +119,7 @@ class DateComponent: UIView {
             monthLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             monthLabel.leftAnchor.constraint(equalTo: dateCard.leftAnchor, constant: 16),
             monthLabel.heightAnchor.constraint(equalTo: dateCard.heightAnchor),
-            monthLabel.widthAnchor.constraint(equalToConstant: 90)
+            monthLabel.widthAnchor.constraint(equalToConstant: 95)
         ])
     }
     

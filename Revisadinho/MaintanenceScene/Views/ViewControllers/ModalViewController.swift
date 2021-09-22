@@ -37,7 +37,7 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         customCell.setUpItemNameLabelConstraintsForModalVisualization()
         guard let maintenanceItems = maintenanceItems else {return MaintenanceCollectionViewCell()}
         customCell.itemNameLabel.text = maintenanceItems[indexPath.row].description
-        customCell.itemNameLabel.font = customCell.itemNameLabel.font.withSize(17)
+        customCell.itemNameLabel.font = UIFont(name: "Quicksand-Medium", size: 17)
         customCell.item.image = UIImage(named: "\(String(describing: maintenanceItems[indexPath.row]))")
         return customCell
     }

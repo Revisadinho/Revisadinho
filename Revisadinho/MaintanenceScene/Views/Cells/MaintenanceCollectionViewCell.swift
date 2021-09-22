@@ -83,7 +83,7 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             itemNameLabel.centerXAnchor.constraint(equalTo: itemSquare.centerXAnchor),
             itemNameLabel.topAnchor.constraint(equalTo: itemSquare.bottomAnchor, constant: 6),
-            itemNameLabel.widthAnchor.constraint(equalToConstant: 95),
+            itemNameLabel.widthAnchor.constraint(equalToConstant: 100),
             itemNameLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }

@@ -16,7 +16,7 @@ class MaintenanceTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "20 Setembro, 2021"
         label.textColor = .grayText
-        label.font = label.font.withSize(19)
+        label.font = UIFont(name: "Quicksand-Medium", size: 19)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

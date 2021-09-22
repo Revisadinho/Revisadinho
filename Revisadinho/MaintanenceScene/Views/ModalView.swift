@@ -28,7 +28,7 @@ class ModalView: UIView {
         let label = UILabel()
         label.text = "20 Setembro, 2021"
         label.textColor = .grayText
-        label.font = label.font.withSize(23)
+        label.font = UIFont(name: "Quicksand-Bold", size: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
