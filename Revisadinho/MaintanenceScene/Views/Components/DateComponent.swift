@@ -10,12 +10,19 @@ import UIKit
 
 protocol DateComponentActionDelegate: AnyObject {
     func goToPreviousMonth()
-    func goToNextMonth() 
+    func goToNextMonth()
+    
+}
+
+protocol ReloadTableViewDelegate: AnyObject {
+    func reloadTableViewForPreviousMonth()
+    func reloadTableViewForNextMonth()
 }
 
 class DateComponent: UIView {
     static var dateComponent = DateComponent()
     let currentDate = DateModel()
+    weak var delegateReloadTableView: ReloadTableViewDelegate?
     var delegate: DateComponentActionDelegate = DateComponentController.sharedInstance
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -80,10 +87,12 @@ class DateComponent: UIView {
     
     @objc func delegatesBackButtonActionToController(sender: UIButton) {
         delegate.goToPreviousMonth()
+        delegateReloadTableView?.reloadTableViewForPreviousMonth()
     }
     
     @objc func delegatesForwardButtonActionToController(sender: UIButton) {
         delegate.goToNextMonth()
+        delegateReloadTableView?.reloadTableViewForNextMonth()
     }
     
     func setUpViewHierarchy() {
