@@ -23,7 +23,6 @@ class MaintenanceViewController: UIViewController {
         
     }
     
-    
     override func loadView() {
         super.loadView()
         maintenanceView.viewController = self
@@ -116,7 +115,7 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
         customCell.setUpItemNameLabelConstraintsForCardVisualization()
         customCell.itemNameLabel.text = maintenances[collectionViewMaintenanceIndex].maintenanceItens[indexPath.row].description
         customCell.item.image = UIImage(named: "\(maintenances[collectionViewMaintenanceIndex].maintenanceItens[indexPath.row])")
-        customCell.itemNameLabel.font = cell?.itemNameLabel.font.withSize(15)
+        customCell.itemNameLabel.font = UIFont(name: "Quicksand-Medium", size: 15)
         
         return cell ?? MaintenanceCollectionViewCell()
     }
