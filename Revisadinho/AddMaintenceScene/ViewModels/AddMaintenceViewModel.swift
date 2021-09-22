@@ -15,7 +15,6 @@ class AddMaintenanceViewModel {
             return Double(item.rawValue)
         }
         let result = model.createMaintenance(uuid: id, date: date, hodometer: hodometer, maintenanceItens: items, viewContext: viewContext)
-        
         if result == nil {
             throw AddMaintenceError.couldntSaveData
         }
