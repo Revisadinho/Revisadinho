@@ -190,21 +190,14 @@ extension AddMaintenceView: UICollectionViewDataSource {
 extension AddMaintenceView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
-                cell.updateBorder()
-            
             servicesSelected.append(allMaintenceItems[indexPath.item])
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? ServicesCollectionViewCell {
-                cell.updateBorder()
-            if servicesSelected.contains(allMaintenceItems[indexPath.item]) {
-                if let index = servicesSelected.firstIndex(where: {$0 == allMaintenceItems[indexPath.item]}) {
+        if servicesSelected.contains(allMaintenceItems[indexPath.item]) {
+            if let index = servicesSelected.firstIndex(where: {$0 == allMaintenceItems[indexPath.item]}) {
                     servicesSelected.remove(at: index)
                 }
-            }
         }
     }
 }
@@ -212,7 +205,6 @@ extension AddMaintenceView: UICollectionViewDelegate {
 extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: 100, height: 120)
     }
 }
