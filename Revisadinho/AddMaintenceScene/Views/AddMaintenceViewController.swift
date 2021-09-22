@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum AddMaintenceError: Error {
-    case couldntSaveData
-}
-
 class AddMaintenceViewController: UIViewController {
     
     lazy var contentView = AddMaintenceView()
@@ -41,10 +37,9 @@ class AddMaintenceViewController: UIViewController {
     @objc
     func saveInputs() {
         guard let hodometerText = contentView.hodometerTextField.text else {return}
-        print("SAVE BUTTON")
         guard let date = bottomSheetViewController.selectedDate else {return}
         let services = contentView.servicesSelected
-        
+        print(services)
         let totalKm = Double(hodometerText) ?? 0.0
         
         do {
@@ -101,6 +96,7 @@ extension AddMaintenceViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == contentView.calendarTextField {
             showBottomSheetView()
+            bottomSheetViewController.setTextFieldCurrentDate()
         }
     }
 }

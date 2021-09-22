@@ -16,6 +16,7 @@ class BottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTextFieldCurrentDate()
         hideBottomSheetView()
         setFSCalendarDelegate()
         setSelectButtonTarget()
@@ -51,9 +52,10 @@ extension BottomSheetViewController: FSCalendarDelegate {
         contentView.fsCalendar.delegate = self
     }
     
-    private func setTextFieldCurrentDate() {
+    public func setTextFieldCurrentDate() {
         if textField != nil {
             textField?.text = getDateString(contentView.fsCalendar.today ?? Date())
+            selectedDate = contentView.fsCalendar.today
         }
     }
     
