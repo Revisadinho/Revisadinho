@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum AddMaintenceError: Error {
+    case couldntSaveData
+}
+
 class AddMaintenceViewController: UIViewController {
     
     lazy var contentView = AddMaintenceView()
@@ -37,17 +41,54 @@ class AddMaintenceViewController: UIViewController {
     @objc
     func saveInputs() {
         guard let hodometerText = contentView.hodometerTextField.text else {return}
+        print("SAVE BUTTON")
         guard let date = bottomSheetViewController.selectedDate else {return}
         let services = contentView.servicesSelected
         
-        if let totalKm = Double(hodometerText) {
-            if viewModel.saveMaintenance(hodometer: totalKm, date: date, maintenanceItens: services) {
-                dismiss(animated: true, completion: nil)
-                MaintenanceViewController.tableView?.reloadData()
-            } else {
-                print("ERROR")
-            }
+        let totalKm = Double(hodometerText) ?? 0.0
+        
+        do {
+            try viewModel.saveMaintenance(hodometer: totalKm, date: date, maintenanceItens: services)
+            clearAddMaintenceView()
+            dismiss(animated: true, completion: nil)
+            
+        } catch AddMaintenceError.couldntSaveData {
+                showAlert()
+        } catch {
+            //All other errors
         }
+    }
+    
+    private func showAlert() {
+        
+        let title = "ERRO"
+        let message = "Não foi possível adicionar a manutenção.\nTente novamente!"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let attrsTitle = [NSAttributedString.Key.font : UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
+        let attrsMessage = [NSAttributedString.Key.font : UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
+        
+        let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage)
+        
+        let attrStringTitle = NSAttributedString(string: alert.title ?? "", attributes: attrsTitle)
+        
+        alert.setValue(attrStringTitle, forKey: "attributedTitle")
+        alert.setValue(attrStringMessage, forKey: "attributedMessage")
+        
+        present(alert, animated: true) {
+            sleep(3)
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func clearAddMaintenceView() {
+        guard let date = bottomSheetViewController.selectedDate else {return}
+        contentView.servicesSelected.removeAll()
+        contentView.servicesCollectionView.deselectAllItems()
+        contentView.calendarTextField.text?.removeAll()
+        contentView.hodometerTextField.text?.removeAll()
+        bottomSheetViewController.contentView.fsCalendar.deselect(date)
     }
 }
 

@@ -10,14 +10,14 @@ import CoreData
 class AddMaintenanceViewModel {
     private let model: Model = Model.shared
 
-    func saveMaintenance(id: UUID = UUID(), hodometer: Double, date: Date, maintenanceItens: [MaintenanceItem], viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> Bool {
+    func saveMaintenance(id: UUID = UUID(), hodometer: Double, date: Date, maintenanceItens: [MaintenanceItem], viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext)  throws {
         let items = maintenanceItens.map { item in
             return Double(item.rawValue)
         }
         let result = model.createMaintenance(uuid: id, date: date, hodometer: hodometer, maintenanceItens: items, viewContext: viewContext)
-        if result != nil {
-            return true
+        
+        if result == nil {
+            throw AddMaintenceError.couldntSaveData
         }
-        return false
     }
 }
