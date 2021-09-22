@@ -40,7 +40,7 @@ class DateComponent: UIView {
     }
     
     lazy var dateCard: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 309, height: 55))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 65))
         view.backgroundColor = .white
         view.layer.cornerRadius = 13
         view.layer.shadowColor = UIColor.black.cgColor
@@ -107,10 +107,8 @@ class DateComponent: UIView {
     
     func setUpDateCardConstraint() {
         NSLayoutConstraint.activate([
-            dateCard.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            dateCard.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            dateCard.widthAnchor.constraint(equalToConstant: 309),
-            dateCard.heightAnchor.constraint(equalToConstant: 55)
+            dateCard.widthAnchor.constraint(equalToConstant: dateCard.frame.width),
+            dateCard.heightAnchor.constraint(equalToConstant: 65)
         ])
     }
     
@@ -136,17 +134,17 @@ class DateComponent: UIView {
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             backButton.leftAnchor.constraint(equalTo: yearLabel.rightAnchor, constant: 50),
-            backButton.heightAnchor.constraint(equalToConstant: 22.1),
-            backButton.widthAnchor.constraint(equalToConstant: 13)
+            backButton.heightAnchor.constraint(equalToConstant: 26.1),
+            backButton.widthAnchor.constraint(equalToConstant: 17)
         ])
     }
     
     func setUpForwardButtonConstraint() {
         NSLayoutConstraint.activate([
             forwardButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            forwardButton.rightAnchor.constraint(equalTo: dateCard.rightAnchor, constant: -24),
-            forwardButton.heightAnchor.constraint(equalToConstant: 22.1),
-            forwardButton.widthAnchor.constraint(equalToConstant: 13)
+            forwardButton.rightAnchor.constraint(equalTo: dateCard.rightAnchor, constant: -34),
+            forwardButton.heightAnchor.constraint(equalToConstant: 26.1),
+            forwardButton.widthAnchor.constraint(equalToConstant: 17)
         ])
     }
 }

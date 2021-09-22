@@ -45,7 +45,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     }()
     
     lazy var cardCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 315, height: 130), collectionViewLayout: MaintenanceCollectionViewCell.collectionViewLayout())
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 330, height: 130), collectionViewLayout: MaintenanceCollectionViewCell.collectionViewLayout())
         collectionView.register(MaintenanceCollectionViewCell.self, forCellWithReuseIdentifier: MaintenanceCollectionViewCell.identifier)
         collectionView.backgroundColor = .white
         collectionView.layer.cornerRadius = 15
@@ -63,7 +63,7 @@ class MaintenanceTableViewCell: UITableViewCell {
             dateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             dateLabel.widthAnchor.constraint(equalToConstant: 200),
             dateLabel.heightAnchor.constraint(equalToConstant: 41),
-            dateLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 26)
+            dateLabel.leftAnchor.constraint(equalTo: circle.leftAnchor, constant: 24)
         ])
     }
     
@@ -72,7 +72,7 @@ class MaintenanceTableViewCell: UITableViewCell {
             circle.topAnchor.constraint(equalTo: dateLabel.topAnchor, constant: 13.5),
             circle.widthAnchor.constraint(equalToConstant: 13),
             circle.heightAnchor.constraint(equalToConstant: 13.42),
-            circle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4)
+            circle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 24)
         ])
     }
     
@@ -97,9 +97,10 @@ class MaintenanceTableViewCell: UITableViewCell {
     func setUpCardViewConstraints() {
         NSLayoutConstraint.activate([
             cardCollectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
-            cardCollectionView.widthAnchor.constraint(equalToConstant: 315),
+            cardCollectionView.widthAnchor.constraint(equalToConstant: 330),
             cardCollectionView.heightAnchor.constraint(equalToConstant: 130),
-            cardCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 26)
+            cardCollectionView.leftAnchor.constraint(equalTo: circle.leftAnchor, constant: 24),
+            cardCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
         ])
     }
     
