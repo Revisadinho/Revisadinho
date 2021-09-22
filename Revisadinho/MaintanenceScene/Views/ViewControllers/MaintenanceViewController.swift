@@ -20,8 +20,8 @@ class MaintenanceViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         MaintenanceViewController.tableView?.reloadData()
-        
     }
     
     override func loadView() {
@@ -46,6 +46,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         if maintenances.count<1 {
             placeholderText?.isHidden = false
             MaintenanceViewController.tableView?.bounces = false
+            collectionViewMaintenanceIndex = 0
             return 0
         } else {
             placeholderText?.isHidden = true
@@ -67,6 +68,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         cell?.dateLabel.text = formatedDate
         cell?.cardCollectionView.delegate = self
         cell?.cardCollectionView.dataSource = self
+        cell?.cardCollectionView.reloadData()
         if indexPath.row == 0 {
                 cell?.lineUp.isHidden = true
         }
@@ -102,7 +104,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        240
+        260
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,7 +121,13 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
 extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let maintenance = getMaintenances()
-        return maintenance[collectionViewMaintenanceIndex].maintenanceItens.count
+        print(collectionViewMaintenanceIndex)
+        if maintenance.count == 0 {
+            return 0
+        } else {
+            return maintenance[collectionViewMaintenanceIndex].maintenanceItens.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

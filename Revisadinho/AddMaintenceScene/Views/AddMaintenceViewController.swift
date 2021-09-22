@@ -4,7 +4,7 @@
 //
 //  Created by Jéssica Araujo on 14/09/21.
 //
-// swiftlint:disable trailing_whitespace
+// swiftlint:disable trailing_whitespace line_length
 
 import UIKit
 
@@ -21,6 +21,7 @@ class AddMaintenceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         setCalendarTextFieldDelegate()
     }
     
@@ -60,8 +61,8 @@ class AddMaintenceViewController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let attrsTitle = [NSAttributedString.Key.font : UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
-        let attrsMessage = [NSAttributedString.Key.font : UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
+        let attrsTitle = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
+        let attrsMessage = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
         
         let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage)
         

@@ -16,6 +16,7 @@ class BottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         setTextFieldCurrentDate()
         hideBottomSheetView()
         setFSCalendarDelegate()

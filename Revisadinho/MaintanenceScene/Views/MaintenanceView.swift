@@ -30,7 +30,7 @@ class MaintenanceView: UIView {
     }
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 16, y: 0, width: 350, height: 240))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 340, height: 260))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -58,6 +58,7 @@ class MaintenanceView: UIView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .blueBackground
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
@@ -99,7 +100,7 @@ class MaintenanceView: UIView {
     
     func setUpViewForTableViewHeaderConstraints() {
         NSLayoutConstraint.activate([
-            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.width),
+            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: self.frame.width),
             viewForTableViewHeader.heightAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.height)
         ])
         
@@ -114,7 +115,7 @@ class MaintenanceView: UIView {
     
     func setUpPlaceholderConstraints() {
         NSLayoutConstraint.activate([
-            placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 280),
+            placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 320),
             placeholderText.widthAnchor.constraint(equalToConstant: 300),
             placeholderText.heightAnchor.constraint(equalToConstant: 100),
             placeholderText.centerXAnchor.constraint(equalTo: self.centerXAnchor)
@@ -133,7 +134,7 @@ class MaintenanceView: UIView {
     func setUpPlusButtonConstraints() {
         NSLayoutConstraint.activate([
             plusButton.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -5),
-            plusButton.rightAnchor.constraint(equalTo: viewForTableViewHeader.rightAnchor, constant: -28),
+            plusButton.rightAnchor.constraint(equalTo: viewForTableViewHeader.rightAnchor, constant: -15),
             plusButton.widthAnchor.constraint(equalToConstant: 30),
             plusButton.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -143,17 +144,17 @@ class MaintenanceView: UIView {
         NSLayoutConstraint.activate([
             dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
             dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
-            dateComponent.widthAnchor.constraint(equalToConstant: 309),
-            dateComponent.heightAnchor.constraint(equalToConstant: 55)
+            dateComponent.widthAnchor.constraint(equalToConstant: 350),
+            dateComponent.heightAnchor.constraint(equalToConstant: 65)
         ])
     }
     
     func setUpTableViewConstraints() {
         NSLayoutConstraint.activate([
-            tableView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16 ),
-            tableView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
+            tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.topAnchor.constraint(equalTo: self.topAnchor),
-            tableView.heightAnchor.constraint(equalTo: self.heightAnchor)
+            tableView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
         
