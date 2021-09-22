@@ -10,12 +10,19 @@ import UIKit
 
 protocol DateComponentActionDelegate: AnyObject {
     func goToPreviousMonth()
-    func goToNextMonth() 
+    func goToNextMonth()
+    
+}
+
+protocol ReloadTableViewDelegate: AnyObject {
+    func reloadTableViewForPreviousMonth()
+    func reloadTableViewForNextMonth()
 }
 
 class DateComponent: UIView {
     static var dateComponent = DateComponent()
     let currentDate = DateModel()
+    weak var delegateReloadTableView: ReloadTableViewDelegate?
     var delegate: DateComponentActionDelegate = DateComponentController.sharedInstance
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -49,6 +56,7 @@ class DateComponent: UIView {
         let label = UILabel()
         label.text = currentDate.convertMonthIntToString(monthInt: currentDate.getCurrentMonth())
         label.textColor = .grayText
+        label.font = UIFont(name: "Quicksand-Bold", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,6 +64,7 @@ class DateComponent: UIView {
     lazy var yearLabel: UILabel = {
         let label = UILabel()
         label.textColor = .grayText
+        label.font = UIFont(name: "Quicksand-Bold", size: 17)
         label.text = String(currentDate.getCurrentYear())
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -80,10 +89,12 @@ class DateComponent: UIView {
     
     @objc func delegatesBackButtonActionToController(sender: UIButton) {
         delegate.goToPreviousMonth()
+        delegateReloadTableView?.reloadTableViewForPreviousMonth()
     }
     
     @objc func delegatesForwardButtonActionToController(sender: UIButton) {
         delegate.goToNextMonth()
+        delegateReloadTableView?.reloadTableViewForNextMonth()
     }
     
     func setUpViewHierarchy() {
@@ -108,7 +119,7 @@ class DateComponent: UIView {
             monthLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             monthLabel.leftAnchor.constraint(equalTo: dateCard.leftAnchor, constant: 16),
             monthLabel.heightAnchor.constraint(equalTo: dateCard.heightAnchor),
-            monthLabel.widthAnchor.constraint(equalToConstant: 90)
+            monthLabel.widthAnchor.constraint(equalToConstant: 95)
         ])
     }
     

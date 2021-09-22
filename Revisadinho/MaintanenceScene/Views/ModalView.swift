@@ -13,7 +13,7 @@ class ModalView: UIView {
     var controller: ModalViewController?
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         self.backgroundColor = .blueBackground
         setUpViewHierarchy()
         setUpDateLabelViewConstraints()
@@ -28,14 +28,14 @@ class ModalView: UIView {
         let label = UILabel()
         label.text = "20 Setembro, 2021"
         label.textColor = .grayText
-        label.font = label.font.withSize(23)
+        label.font = UIFont(name: "Quicksand-Bold", size: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var collectionView: UICollectionView = {
         
-        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 350, height: 600), collectionViewLayout: collectionViewLayout())
+        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 315, height: 130), collectionViewLayout: collectionViewLayout())
         collection.register(MaintenanceCollectionViewCell.self, forCellWithReuseIdentifier: MaintenanceCollectionViewCell.identifier)
         collection.backgroundColor = .blueBackground
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -73,10 +73,10 @@ extension ModalView {
     func collectionViewLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 28
-        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 24, bottom: 6, right: 24)
-        flowLayout.itemSize = CGSize(width: 70, height: 120)
+        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 10, bottom: 6, right: 10)
+        flowLayout.itemSize = CGSize(width: 110, height: 120)
         return flowLayout
     }
 }

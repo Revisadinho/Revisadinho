@@ -17,14 +17,14 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
         setUpViewHierarchy()
         setUpItemSquareConstraints()
         setUpItemConstraints()
-        setUpItemNameLabelConstraints()
+//        setUpItemNameLabelConstraints()
 
     }
     
     func setUpViewHierarchy() {
         self.addSubview(itemSquare)
         itemSquare.addSubview(item)
-        self.addSubview(itemNameLabel)
+//        self.addSubview(itemNameLabel)
     }
 
     required init?(coder: NSCoder) {
@@ -32,7 +32,7 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
     }
     
     lazy var itemSquare: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 55))
         view.backgroundColor = .white
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor(red: 0.843, green: 0.859, blue: 0.976, alpha: 1).cgColor
@@ -43,7 +43,7 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
     
     lazy var item: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .black
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -64,7 +64,6 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             itemSquare.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             itemSquare.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            itemSquare.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             itemSquare.widthAnchor.constraint(equalToConstant: itemSquare.frame.width),
             itemSquare.heightAnchor.constraint(equalToConstant: itemSquare.frame.height)
         ])
@@ -74,16 +73,27 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             item.centerXAnchor.constraint(equalTo: itemSquare.centerXAnchor),
             item.centerYAnchor.constraint(equalTo: itemSquare.centerYAnchor),
-            item.widthAnchor.constraint(equalToConstant: 30),
-            item.heightAnchor.constraint(equalToConstant: 30)
+            item.widthAnchor.constraint(equalToConstant: 35),
+            item.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
     
-    func setUpItemNameLabelConstraints() {
+    func setUpItemNameLabelConstraintsForCardVisualization() {
+        self.addSubview(itemNameLabel)
         NSLayoutConstraint.activate([
             itemNameLabel.centerXAnchor.constraint(equalTo: itemSquare.centerXAnchor),
             itemNameLabel.topAnchor.constraint(equalTo: itemSquare.bottomAnchor, constant: 6),
-            itemNameLabel.widthAnchor.constraint(equalToConstant: 70),
+            itemNameLabel.widthAnchor.constraint(equalToConstant: 100),
+            itemNameLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    func setUpItemNameLabelConstraintsForModalVisualization() {
+        self.addSubview(itemNameLabel)
+        NSLayoutConstraint.activate([
+            itemNameLabel.centerXAnchor.constraint(equalTo: itemSquare.centerXAnchor),
+            itemNameLabel.topAnchor.constraint(equalTo: itemSquare.bottomAnchor, constant: 6),
+            itemNameLabel.widthAnchor.constraint(equalToConstant: 110),
             itemNameLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -93,10 +103,10 @@ extension MaintenanceCollectionViewCell {
     
     static func collectionViewLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumInteritemSpacing = 4
         flowLayout.minimumLineSpacing = 38
-        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 5, bottom: 6, right: 5)
-        flowLayout.itemSize = CGSize(width: 70, height: 120)
+        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 6, right: 8)
+        flowLayout.itemSize = CGSize(width: 95, height: 120)
         return flowLayout
     }
 }

@@ -58,7 +58,7 @@ class MaintenanceView: UIView {
         let label = UILabel()
         label.text = "Minhas\nManutenções"
         label.textColor = .grayText
-        label.font = label.font.withSize(34)
+        label.font = UIFont(name: "Quicksand-Medium", size: 34)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +103,7 @@ class MaintenanceView: UIView {
             titleLabel.topAnchor.constraint(equalTo: viewForTableViewHeader.topAnchor, constant: 50),
             titleLabel.leftAnchor.constraint(equalTo: viewForTableViewHeader.leftAnchor, constant: 20),
             titleLabel.widthAnchor.constraint(equalToConstant: 250),
-            titleLabel.heightAnchor.constraint(equalToConstant: 82)
+            titleLabel.heightAnchor.constraint(equalToConstant: 85)
         ])
     }
     
