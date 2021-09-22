@@ -39,7 +39,6 @@ class AddMaintenceViewController: UIViewController {
         guard let hodometerText = contentView.hodometerTextField.text else {return}
         guard let date = bottomSheetViewController.selectedDate else {return}
         let services = contentView.servicesSelected
-        print(services)
         let totalKm = Double(hodometerText) ?? 0.0
         
         do {
