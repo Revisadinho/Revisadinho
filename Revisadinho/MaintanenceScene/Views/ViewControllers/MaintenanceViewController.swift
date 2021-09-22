@@ -47,6 +47,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             placeholderText?.isHidden = false
             return 0
         } else {
+            placeholderText?.isHidden = true
             return maintenances.count
         }
         

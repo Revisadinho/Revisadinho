@@ -51,7 +51,7 @@ class AddMaintenceViewController: UIViewController {
             try viewModel.saveMaintenance(hodometer: totalKm, date: date, maintenanceItens: services)
             clearAddMaintenceView()
             dismiss(animated: true, completion: nil)
-            
+            MaintenanceViewController.tableView?.reloadData()
         } catch AddMaintenceError.couldntSaveData {
                 showAlert()
         } catch {
