@@ -132,13 +132,13 @@ class BottomSheetView: UIView {
             fsCalendar.centerXAnchor.constraint(equalTo: bottomSheet.centerXAnchor),
             fsCalendar.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 10),
             
-            nextMonthButton.heightAnchor.constraint(equalToConstant: 25),
-            nextMonthButton.widthAnchor.constraint(equalToConstant: 20),
+            nextMonthButton.heightAnchor.constraint(equalToConstant: 30),
+            nextMonthButton.widthAnchor.constraint(equalToConstant: 25),
             nextMonthButton.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 20),
             nextMonthButton.trailingAnchor.constraint(equalTo: bottomSheet.trailingAnchor, constant: -15),
             
-            previousMonthButton.heightAnchor.constraint(equalToConstant: 25),
-            previousMonthButton.widthAnchor.constraint(equalToConstant: 20),
+            previousMonthButton.heightAnchor.constraint(equalToConstant: 30),
+            previousMonthButton.widthAnchor.constraint(equalToConstant: 25),
             previousMonthButton.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 20),
             previousMonthButton.trailingAnchor.constraint(equalTo: nextMonthButton.leadingAnchor, constant: -30),
             

@@ -14,6 +14,7 @@ public enum AddMaintenceViewStrings {
     static let hodometerLabel = "Km do veículo"
     static let servicesLabel = "Serviços"
     static let saveButtonLabel = "Salvar"
+    static let cancelButtonLabel = "Cancelar"
     static let bottomSheetButtonLabel = "Selecionar"
     static let calendarPlaceholder = "21 Agosto, 2021"
     static let hodometerPlaceholder = "30.000 km"
@@ -24,7 +25,7 @@ public enum AddMaintenceViewStrings {
 }
 
 class AddMaintenceView: UIView {
-    
+
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +43,7 @@ class AddMaintenceView: UIView {
     lazy var hodometerTextField = CustomTextField()
     
     lazy var saveButton = CustomButton()
-    
+
     lazy var servicesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -80,6 +81,7 @@ class AddMaintenceView: UIView {
     private func setupAddMaintenceView() {
         //dataSource = MaintenanceItem.allCases
         backgroundColor = .appBackgroundColor
+        scrollView.delegate = self
         addSubview(scrollView)
         hideKeyboardWhenTappedAround()
         setLabels()
@@ -132,21 +134,22 @@ class AddMaintenceView: UIView {
     
     private func setButtons() {
         saveButton.setTitle(AddMaintenceViewStrings.saveButtonLabel, for: .normal)
-        scrollView.addSubview(saveButton)
+        addSubview(saveButton)
     }
     
     private func setContraints() {
         NSLayoutConstraint.activate([
+
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 30),
+        
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 40),
             
             calendarLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            calendarLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
+            calendarLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25),
             
             calendarTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             calendarTextField.topAnchor.constraint(equalTo: calendarLabel.bottomAnchor, constant: 8),
@@ -162,11 +165,12 @@ class AddMaintenceView: UIView {
             
             servicesCollectionView.topAnchor.constraint(equalTo: servicesLabel.bottomAnchor, constant: 8),
             servicesCollectionView.widthAnchor.constraint(equalToConstant: 300),
-            servicesCollectionView.heightAnchor.constraint(equalToConstant: 250),
+            servicesCollectionView.heightAnchor.constraint(equalToConstant: 120),
             servicesCollectionView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
-            saveButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            saveButton.topAnchor.constraint(equalTo: servicesCollectionView.bottomAnchor, constant: 40)
+            saveButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            saveButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+
         ])
     }
 }
@@ -206,6 +210,12 @@ extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 120)
+    }
+}
+
+extension AddMaintenceView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0.0
     }
 }
 

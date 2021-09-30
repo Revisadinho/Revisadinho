@@ -24,14 +24,14 @@ class CustomButton: UIButton {
         backgroundColor = .actionColor
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont(name: Fonts.bold, size: Fonts.sizeForBody)
-        layer.cornerRadius = 10
+        layer.cornerRadius = 15
         setConstraints()
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 40),
-            widthAnchor.constraint(equalToConstant: 200)
+            heightAnchor.constraint(equalToConstant: 45),
+            widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 100)
         ])
     }
 
