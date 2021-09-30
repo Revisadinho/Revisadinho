@@ -3,7 +3,7 @@
 //  RevisadinhoTests
 //
 //  Created by Hiago Chagas on 20/09/21.
-//  swiftlint:disable line_length
+//
 
 import XCTest
 @testable import Revisadinho
@@ -20,8 +20,8 @@ class AddMaintenanceViewModelTests: XCTestCase {
         date = Date()
     }
 
-    func test_getMaintenancesByDate_shouldReturnThreeMaintenances() {
-        let result = sut.saveMaintenance(hodometer: 10000, date: date, maintenanceItens: [.AirConditioningFilter, .AirFilter])
-        XCTAssertTrue(result)
+    func test_getMaintenancesByDate_shouldReturnThreeMaintenances() throws {
+        let maintenanceItens: [MaintenanceItem] = MaintenanceItem.allCases
+        XCTAssertNoThrow(try sut.saveMaintenance(hodometer: 10000, date: date, maintenanceItens: maintenanceItens))
     }
 }
