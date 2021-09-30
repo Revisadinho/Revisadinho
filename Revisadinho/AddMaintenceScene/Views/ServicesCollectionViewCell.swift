@@ -30,7 +30,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: Fonts.medium, size: 13.7)
-        label.textColor = .mainColor
+        label.textColor = .grayText
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -57,7 +57,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        self.backgroundColor = .appBackgroundColor
+        self.backgroundColor = .blueBackground
         
         addSubview(iconView)
         addSubview(iconLabel)

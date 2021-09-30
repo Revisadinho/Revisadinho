@@ -21,7 +21,7 @@ class AddMaintenceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light
+//        overrideUserInterfaceStyle = .light
         setCalendarTextFieldDelegate()
     }
     
@@ -50,7 +50,7 @@ class AddMaintenceViewController: UIViewController {
         } catch AddMaintenceError.couldntSaveData {
                 showAlert()
         } catch {
-            //All other errors
+            // All other errors
         }
     }
     
@@ -61,8 +61,8 @@ class AddMaintenceViewController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let attrsTitle = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
-        let attrsMessage = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor : UIColor.mainColor]
+        let attrsTitle = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor: UIColor.grayText]
+        let attrsMessage = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor: UIColor.grayText]
         
         let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage)
         
