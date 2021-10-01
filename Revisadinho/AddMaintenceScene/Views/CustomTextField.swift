@@ -13,7 +13,7 @@ public enum Constants {
     static let placeholderSize: CGFloat = 16
     static let height: CGFloat = 60
     static let width: CGFloat = 300
-    static let scrollViewContentSize: CGFloat = 450
+    static let scrollViewContentSize: CGFloat = 550
    
 }
 
