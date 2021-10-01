@@ -245,6 +245,22 @@ extension UIColor {
         }
     }()
 
+    static let calenderDaysOutColor: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    // Return the color for Dark Mode
+                    return .darkGray
+                } else {
+                    // Return the color for Light Mode
+                    return .lightGray
+                }
+            }
+        } else {
+            return .lightGray
+        }
+    }()
+
     static var inactiveColor: UIColor = {
         return .gray
     }()

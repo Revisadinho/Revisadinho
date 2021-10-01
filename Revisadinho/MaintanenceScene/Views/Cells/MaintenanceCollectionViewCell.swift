@@ -21,6 +21,11 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
 
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        itemSquare.layer.borderColor = UIColor.borderServiceItem.cgColor
+    }
+    
     func setUpViewHierarchy() {
         self.addSubview(itemSquare)
         itemSquare.addSubview(item)

@@ -10,6 +10,16 @@ import UIKit
 
 class ServicesCollectionViewCell: UICollectionViewCell {
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if self.isSelected {
+            iconView.layer.borderColor = UIColor.purpleAction.cgColor
+            iconView.layer.borderWidth = 1.5
+        } else {
+            iconView.layer.borderColor = UIColor.borderServiceItem.cgColor
+            iconView.layer.borderWidth = 1
+        }
+    }
     lazy var iconView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false

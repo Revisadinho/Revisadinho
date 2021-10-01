@@ -96,6 +96,7 @@ class BottomSheetView: UIView {
         fsCalendar.appearance.todayColor = .selecCalendar
         fsCalendar.appearance.titleDefaultColor = .calenderDaysColor
         fsCalendar.appearance.titleSelectionColor = .buttonLabelText
+        fsCalendar.appearance.titlePlaceholderColor = .calenderDaysOutColor
 
         fsCalendar.appearance.headerTitleAlignment = .left
         fsCalendar.appearance.headerTitleOffset = CGPoint(x: bottomSheet.bounds.size.width - 78, y: 0)
