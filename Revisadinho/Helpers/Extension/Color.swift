@@ -17,6 +17,7 @@ extension UIColor {
                    // Return the color for Dark Mode
                    // 6, 13, 16
                    return UIColor(red: 18/255, green: 16/255, blue: 28/255, alpha: 1)
+//                   return UIColor(red: 46/255, green: 44/255, blue: 54/255, alpha: 1)
                } else {
                    // Return the color for Light Mode
                    return UIColor(red: 249/255, green: 251/255, blue: 252/255, alpha: 1)
@@ -33,7 +34,9 @@ extension UIColor {
            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
                if UITraitCollection.userInterfaceStyle == .dark {
                    // Return the color for Dark Mode
-                   return UIColor(red: 72/255, green: 70/255, blue: 93/255, alpha: 1)
+//                   return UIColor(red: 72/255, green: 70/255, blue: 93/255, alpha: 1)
+//                   return UIColor(red: 52/255, green: 50/255, blue: 63/255, alpha: 1)
+                   return UIColor(red: 26/255, green: 23/255, blue: 39/255, alpha: 1)
                } else {
                    // Return the color for Light Mode
                    return .white
@@ -51,7 +54,8 @@ extension UIColor {
                 if UITraitCollection.userInterfaceStyle == .dark {
                     // Return the color for Dark Mode
                     // 6, 13, 16
-                    return UIColor(red: 197/255, green: 180/255, blue: 253/255, alpha: 1)
+//                    return UIColor(red: 197/255, green: 180/255, blue: 253/255, alpha: 1)
+                    return UIColor(red: 150/255, green: 121/255, blue: 247/255, alpha: 1)
                 } else {
                     // Return the color for Light Mode
                     return UIColor(red: 150/255, green: 121/255, blue: 247/255, alpha: 1)
@@ -100,7 +104,8 @@ extension UIColor {
             return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
                 if UITraitCollection.userInterfaceStyle == .dark {
                     // Return the color for Dark Mode
-                    return UIColor(red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
+//                    return UIColor(red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
+                    return UIColor(red: 249/255, green: 251/255, blue: 252/255, alpha: 1)
                 } else {
                     // Return the color for Light Mode
                     return UIColor(red: 249/255, green: 251/255, blue: 252/255, alpha: 1)
@@ -213,6 +218,7 @@ extension UIColor {
                 if UITraitCollection.userInterfaceStyle == .dark {
                     // Return the color for Dark Mode
                     return UIColor(red: 104/255, green: 101/255, blue: 134/255, alpha: 1)
+//                    return UIColor(red: 46/255, green: 43/255, blue: 60/255, alpha: 1)
                 } else {
                     // Return the color for Light Mode
                     return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
@@ -242,6 +248,23 @@ extension UIColor {
     static var inactiveColor: UIColor = {
         return .gray
     }()
+
+    static let borderServiceItem: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    // Return the color for Dark Mode
+                    return UIColor(red: 46/255, green: 43/255, blue: 60/255, alpha: 1)
+                } else {
+                    // Return the color for Light Mode
+                    return UIColor(red: 215/255, green: 219/255, blue: 249/255, alpha: 1)
+                }
+            }
+        } else {
+            return UIColor(red: 215/255, green: 219/255, blue: 249/255, alpha: 1)
+        }
+    }()
+
 }
 
 // extension UIColor {

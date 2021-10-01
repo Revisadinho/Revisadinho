@@ -15,7 +15,8 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.iconsBorderColor.cgColor
+        view.layer.borderColor = UIColor.borderServiceItem.cgColor
+        view.backgroundColor = .monthCardBackground
         return view
     }()
     
@@ -41,8 +42,10 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         didSet {
             if self.isSelected {
                 iconView.layer.borderColor = UIColor.purpleAction.cgColor
+                iconView.layer.borderWidth = 1.5
             } else {
-                iconView.layer.borderColor = UIColor.iconsBorderColor.cgColor
+                iconView.layer.borderColor = UIColor.borderServiceItem.cgColor
+                iconView.layer.borderWidth = 1
             }
         }
     }

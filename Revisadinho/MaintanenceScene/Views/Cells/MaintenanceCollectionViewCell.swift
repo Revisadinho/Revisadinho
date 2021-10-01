@@ -35,7 +35,7 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 55))
         view.backgroundColor = .monthCardBackground
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor(red: 0.843, green: 0.859, blue: 0.976, alpha: 1).cgColor
+        view.layer.borderColor = UIColor.borderServiceItem.cgColor
         view.layer.cornerRadius = 7
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
