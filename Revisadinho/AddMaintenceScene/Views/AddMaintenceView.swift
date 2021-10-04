@@ -56,7 +56,7 @@ class AddMaintenceView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = true
-        collectionView.backgroundColor = .appBackgroundColor
+        collectionView.backgroundColor = .blueBackground
         collectionView.isScrollEnabled = true
         return collectionView
     }()
@@ -81,7 +81,7 @@ class AddMaintenceView: UIView {
     }
     
     private func setupAddMaintenceView() {
-        //dataSource = MaintenanceItem.allCases
+        // dataSource = MaintenanceItem.allCases
         backgroundColor = .blueBackground
         scrollView.delegate = self
         addSubview(scrollView)

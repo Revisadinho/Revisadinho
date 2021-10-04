@@ -81,7 +81,7 @@ class CustomTextField: UITextField {
     
     func commomInit() {
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.purpleAction.cgColor
+        self.layer.borderColor = UIColor.inactiveColor.cgColor
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
         font = UIFont(name: Fonts.medium, size: Fonts.sizeForBody)
@@ -95,7 +95,7 @@ class CustomTextField: UITextField {
         let icon = UIImage(systemName: icon, withConfiguration: largeConfiguration)
         symbolButton.setImage(icon, for: .normal)
         symbolButton.frame = CGRect(x: CGFloat(self.frame.size.width - 40), y: CGFloat(5), width: CGFloat(32), height: CGFloat(32))
-        symbolButton.tintColor = .purpleAction
+        symbolButton.tintColor = .inactiveColor
         self.rightView = symbolButton
         self.rightViewMode = .always
     }
