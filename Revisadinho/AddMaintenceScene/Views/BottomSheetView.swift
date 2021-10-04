@@ -60,7 +60,6 @@ class BottomSheetView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupBottomSheetView()
-        print(UIScreen.main.bounds.size.height / 2)
     }
     
     required init?(coder: NSCoder) {
