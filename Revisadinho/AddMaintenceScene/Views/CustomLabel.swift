@@ -20,7 +20,7 @@ class CustomLabel: UILabel {
     }
     
     func commomInit() {
-        self.textColor = .mainColor
+        self.textColor = .grayText
         self.translatesAutoresizingMaskIntoConstraints = false
         setConstraints()
     }
