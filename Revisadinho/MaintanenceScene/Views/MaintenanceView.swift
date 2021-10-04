@@ -30,7 +30,7 @@ class MaintenanceView: UIView {
     }
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 340, height: 260))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -58,12 +58,11 @@ class MaintenanceView: UIView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .blueBackground
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
         tableView.separatorColor = .gray
         tableView.separatorColor = .blueBackground
+        tableView.backgroundColor = .blueBackground
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -100,7 +99,7 @@ class MaintenanceView: UIView {
     
     func setUpViewForTableViewHeaderConstraints() {
         NSLayoutConstraint.activate([
-            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: self.frame.width),
+            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.width),
             viewForTableViewHeader.heightAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.height)
         ])
         
@@ -143,8 +142,8 @@ class MaintenanceView: UIView {
     func setUpDateComponentConstraints() {
         NSLayoutConstraint.activate([
             dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
-            dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
-            dateComponent.widthAnchor.constraint(equalToConstant: 350),
+            dateComponent.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            dateComponent.rightAnchor.constraint(equalTo: plusButton.leftAnchor),
             dateComponent.heightAnchor.constraint(equalToConstant: 65)
         ])
     }

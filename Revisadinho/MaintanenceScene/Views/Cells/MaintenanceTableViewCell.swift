@@ -97,7 +97,6 @@ class MaintenanceTableViewCell: UITableViewCell {
     func setUpCardViewConstraints() {
         NSLayoutConstraint.activate([
             cardCollectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
-            cardCollectionView.widthAnchor.constraint(equalToConstant: 330),
             cardCollectionView.heightAnchor.constraint(equalToConstant: 130),
             cardCollectionView.leftAnchor.constraint(equalTo: circle.leftAnchor, constant: 24),
             cardCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)

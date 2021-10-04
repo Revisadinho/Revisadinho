@@ -129,7 +129,6 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
 extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let maintenance = getMaintenances()
-        print(collectionViewMaintenanceIndex)
         if maintenance.count == 0 {
             return 0
         } else {
