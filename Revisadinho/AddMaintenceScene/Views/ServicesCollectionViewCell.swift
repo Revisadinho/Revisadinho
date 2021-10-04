@@ -71,7 +71,6 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     
     private func commonInit() {
         self.backgroundColor = .blueBackground
-        
         addSubview(iconView)
         addSubview(iconLabel)
         iconView.addSubview(iconImageView)

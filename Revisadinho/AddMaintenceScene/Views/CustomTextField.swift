@@ -13,7 +13,7 @@ public enum Constants {
     static let placeholderSize: CGFloat = 16
     static let height: CGFloat = 60
     static let width: CGFloat = 300
-    static let scrollViewContentSize: CGFloat = 800
+    static let scrollViewContentSize: CGFloat = 550
    
 }
 
@@ -27,6 +27,7 @@ public enum Fonts {
     static let sizeForSubtitles: CGFloat = 20
     static let sizeForBody: CGFloat = 15
     static let sizeForWeekdayCalendar: CGFloat = 12
+    static let sizeModalButtons: CGFloat = 18
 }
 
 class CustomTextField: UITextField {
