@@ -43,7 +43,6 @@ class DateComponent: UIView {
     
     lazy var dateCard: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*0.9, height: 65))
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 65))
         view.backgroundColor = .monthCardBackground
         view.layer.cornerRadius = 13
         view.layer.shadowColor = UIColor.black.cgColor
