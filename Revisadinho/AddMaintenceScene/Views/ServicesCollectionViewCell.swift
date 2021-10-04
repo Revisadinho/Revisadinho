@@ -10,12 +10,23 @@ import UIKit
 
 class ServicesCollectionViewCell: UICollectionViewCell {
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if self.isSelected {
+            iconView.layer.borderColor = UIColor.purpleAction.cgColor
+            iconView.layer.borderWidth = 1.5
+        } else {
+            iconView.layer.borderColor = UIColor.borderServiceItem.cgColor
+            iconView.layer.borderWidth = 1
+        }
+    }
     lazy var iconView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.iconsBorderColor.cgColor
+        view.layer.borderColor = UIColor.borderServiceItem.cgColor
+        view.backgroundColor = .monthCardBackground
         return view
     }()
     
@@ -30,7 +41,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: Fonts.medium, size: 13.7)
-        label.textColor = .mainColor
+        label.textColor = .grayText
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -41,8 +52,10 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         didSet {
             if self.isSelected {
                 iconView.layer.borderColor = UIColor.purpleAction.cgColor
+                iconView.layer.borderWidth = 1.5
             } else {
-                iconView.layer.borderColor = UIColor.iconsBorderColor.cgColor
+                iconView.layer.borderColor = UIColor.borderServiceItem.cgColor
+                iconView.layer.borderWidth = 1
             }
         }
     }
@@ -57,7 +70,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        backgroundColor = .clear
+        self.backgroundColor = .blueBackground
         addSubview(iconView)
         addSubview(iconLabel)
         iconView.addSubview(iconImageView)

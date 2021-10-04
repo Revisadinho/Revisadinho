@@ -81,11 +81,11 @@ class CustomTextField: UITextField {
     
     func commomInit() {
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.inactiveColor.cgColor
+        self.layer.borderColor = UIColor.purpleAction.cgColor
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
         font = UIFont(name: Fonts.medium, size: Fonts.sizeForBody)
-        textColor = UIColor.mainColor
+        textColor = UIColor.grayText
         addTarget(self, action: #selector(updateColors), for: .allEditingEvents)
         setConstraints()
     }
@@ -95,14 +95,14 @@ class CustomTextField: UITextField {
         let icon = UIImage(systemName: icon, withConfiguration: largeConfiguration)
         symbolButton.setImage(icon, for: .normal)
         symbolButton.frame = CGRect(x: CGFloat(self.frame.size.width - 40), y: CGFloat(5), width: CGFloat(32), height: CGFloat(32))
-        symbolButton.tintColor = .inactiveColor
+        symbolButton.tintColor = .purpleAction
         self.rightView = symbolButton
         self.rightViewMode = .always
     }
     
     private func setPlaceholderColor() {
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [
-                                                            NSAttributedString.Key.foregroundColor: placeholderColor])
+            NSAttributedString.Key.foregroundColor: UIColor.grayText])
     }
     
     private func setConstraints() {
@@ -114,7 +114,7 @@ class CustomTextField: UITextField {
     
     @objc
     private func updateColors() {
-        let currentColor: UIColor = isFirstResponder ? .actionColor : .inactiveColor
+        let currentColor: UIColor = isFirstResponder ? .purpleAction : .inactiveColor
         UIView.animate(withDuration: 0.25) {
             self.layer.borderColor = currentColor.cgColor
             self.symbolButton.tintColor = currentColor

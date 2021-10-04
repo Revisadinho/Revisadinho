@@ -29,7 +29,7 @@ class AddMaintenceView: UIView {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .appBackgroundColor
+        scrollView.backgroundColor = .blueBackground
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: Constants.scrollViewContentSize)
         return scrollView
     }()
@@ -52,6 +52,7 @@ class AddMaintenceView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .blueBackground
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = true
@@ -59,7 +60,7 @@ class AddMaintenceView: UIView {
         collectionView.isScrollEnabled = true
         return collectionView
     }()
-    
+
     var dataSource = [String]() {
         didSet {
             servicesCollectionView.reloadData()
@@ -96,18 +97,22 @@ class AddMaintenceView: UIView {
     private func setLabels() {
         titleLabel.text = AddMaintenceViewStrings.title
         titleLabel.textAlignment = .center
+        titleLabel.textColor = .grayText
         titleLabel.font = UIFont(name: Fonts.bold, size: Fonts.sizeForTitles)
         
         calendarLabel.text = AddMaintenceViewStrings.calendarLabel
         calendarLabel.textAlignment = .left
+        calendarLabel.textColor = .grayText
         calendarLabel.font = UIFont(name: Fonts.regular, size: Fonts.sizeForSubtitles)
         
         hodometerLabel.text = AddMaintenceViewStrings.hodometerLabel
         hodometerLabel.textAlignment = .left
+        hodometerLabel.textColor = .grayText
         hodometerLabel.font = UIFont(name: Fonts.regular, size: Fonts.sizeForSubtitles)
         
         servicesLabel.text = AddMaintenceViewStrings.servicesLabel
         servicesLabel.textAlignment = .left
+        servicesLabel.textColor = .grayText
         servicesLabel.font = UIFont(name: Fonts.regular, size: Fonts.sizeForSubtitles)
         
         scrollView.addSubview(titleLabel)
@@ -218,34 +223,6 @@ extension AddMaintenceView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0.0
     }
-}
-
-// MARK: - Temporary UIColor extension
-
-extension UIColor {
-    static var appBackgroundColor: UIColor = {
-        return UIColor(displayP3Red: 249/255, green: 251/255, blue: 252/255, alpha: 1)
-    }()
-    
-    static var actionColor: UIColor = {
-        return UIColor(displayP3Red: 150/255, green: 121/255, blue: 247/255, alpha: 1)
-    }()
-    
-    static var inactiveColor: UIColor = {
-        return .gray
-    }()
-    
-    static var mainColor: UIColor = {
-       return UIColor(displayP3Red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
-    }()
-    
-    static var iconsBorderColor: UIColor = {
-        return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
-    }()
-    
-    static var secondColor: UIColor = {
-        return UIColor(displayP3Red: 138/255, green: 142/255, blue: 176/255, alpha: 1)
-    }()
 }
 
 // MARK: - Temporary UIView extension
