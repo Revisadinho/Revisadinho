@@ -16,7 +16,7 @@ class BottomSheetView: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 30
-        view.backgroundColor = .appBackgroundColor
+        view.backgroundColor = .monthCardBackground
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         return view
     }()
@@ -39,20 +39,21 @@ class BottomSheetView: UIView {
     lazy var selectButton: CustomButton = {
         let button = CustomButton()
         button.setTitle(AddMaintenceViewStrings.bottomSheetButtonLabel, for: .normal)
+        button.tintColor = .buttonLabelText
         return button
     }()
     
     lazy var nextMonthButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .actionColor
+        button.tintColor = .purpleAction
         return button
     }()
     
     lazy var previousMonthButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .actionColor
+        button.tintColor = .purpleAction
         return button
     }()
     
@@ -89,11 +90,14 @@ class BottomSheetView: UIView {
         fsCalendar.appearance.titleFont = UIFont(name: Fonts.regular, size: Fonts.sizeForBody)
         
         fsCalendar.backgroundColor = .clear
-        fsCalendar.appearance.headerTitleColor = .mainColor
-        fsCalendar.appearance.weekdayTextColor = .secondColor
-        fsCalendar.appearance.selectionColor = .actionColor
-        fsCalendar.appearance.todayColor = .secondColor
-        
+        fsCalendar.appearance.headerTitleColor = .grayText
+        fsCalendar.appearance.weekdayTextColor = .purpleDayNameCalendar
+        fsCalendar.appearance.selectionColor = .purpleAction
+        fsCalendar.appearance.todayColor = .selecCalendar
+        fsCalendar.appearance.titleDefaultColor = .calenderDaysColor
+        fsCalendar.appearance.titleSelectionColor = .buttonLabelText
+        fsCalendar.appearance.titlePlaceholderColor = .calenderDaysOutColor
+
         fsCalendar.appearance.headerTitleAlignment = .left
         fsCalendar.appearance.headerTitleOffset = CGPoint(x: bottomSheet.bounds.size.width - 78, y: 0)
         
@@ -132,13 +136,13 @@ class BottomSheetView: UIView {
             fsCalendar.centerXAnchor.constraint(equalTo: bottomSheet.centerXAnchor),
             fsCalendar.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 10),
             
-            nextMonthButton.heightAnchor.constraint(equalToConstant: 25),
-            nextMonthButton.widthAnchor.constraint(equalToConstant: 20),
+            nextMonthButton.heightAnchor.constraint(equalToConstant: 30),
+            nextMonthButton.widthAnchor.constraint(equalToConstant: 25),
             nextMonthButton.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 20),
             nextMonthButton.trailingAnchor.constraint(equalTo: bottomSheet.trailingAnchor, constant: -15),
             
-            previousMonthButton.heightAnchor.constraint(equalToConstant: 25),
-            previousMonthButton.widthAnchor.constraint(equalToConstant: 20),
+            previousMonthButton.heightAnchor.constraint(equalToConstant: 30),
+            previousMonthButton.widthAnchor.constraint(equalToConstant: 25),
             previousMonthButton.topAnchor.constraint(equalTo: bottomSheet.topAnchor, constant: 20),
             previousMonthButton.trailingAnchor.constraint(equalTo: nextMonthButton.leadingAnchor, constant: -30),
             

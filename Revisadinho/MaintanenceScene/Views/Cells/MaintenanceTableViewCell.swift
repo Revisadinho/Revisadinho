@@ -47,7 +47,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     lazy var cardCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 330, height: 130), collectionViewLayout: MaintenanceCollectionViewCell.collectionViewLayout())
         collectionView.register(MaintenanceCollectionViewCell.self, forCellWithReuseIdentifier: MaintenanceCollectionViewCell.identifier)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .monthCardBackground
         collectionView.layer.cornerRadius = 15
         collectionView.layer.shadowColor = UIColor.black.cgColor
         collectionView.layer.shadowOpacity = 0.1
