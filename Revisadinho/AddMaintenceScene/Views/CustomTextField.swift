@@ -13,7 +13,7 @@ public enum Constants {
     static let placeholderSize: CGFloat = 16
     static let height: CGFloat = 60
     static let width: CGFloat = 300
-    static let scrollViewContentSize: CGFloat = 800
+    static let scrollViewContentSize: CGFloat = 550
    
 }
 
@@ -27,6 +27,7 @@ public enum Fonts {
     static let sizeForSubtitles: CGFloat = 20
     static let sizeForBody: CGFloat = 15
     static let sizeForWeekdayCalendar: CGFloat = 12
+    static let sizeModalButtons: CGFloat = 18
 }
 
 class CustomTextField: UITextField {
@@ -84,7 +85,7 @@ class CustomTextField: UITextField {
         self.layer.cornerRadius = 10
         self.translatesAutoresizingMaskIntoConstraints = false
         font = UIFont(name: Fonts.medium, size: Fonts.sizeForBody)
-        textColor = UIColor.mainColor
+        textColor = UIColor.grayText
         addTarget(self, action: #selector(updateColors), for: .allEditingEvents)
         setConstraints()
     }
@@ -101,7 +102,7 @@ class CustomTextField: UITextField {
     
     private func setPlaceholderColor() {
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [
-                                                            NSAttributedString.Key.foregroundColor: placeholderColor])
+            NSAttributedString.Key.foregroundColor: UIColor.grayText])
     }
     
     private func setConstraints() {
@@ -113,7 +114,7 @@ class CustomTextField: UITextField {
     
     @objc
     private func updateColors() {
-        let currentColor: UIColor = isFirstResponder ? .actionColor : .inactiveColor
+        let currentColor: UIColor = isFirstResponder ? .purpleAction : .inactiveColor
         UIView.animate(withDuration: 0.25) {
             self.layer.borderColor = currentColor.cgColor
             self.symbolButton.tintColor = currentColor

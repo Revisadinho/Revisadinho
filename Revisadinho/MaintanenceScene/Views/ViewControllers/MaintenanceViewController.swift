@@ -18,9 +18,17 @@ class MaintenanceViewController: UIViewController {
     static var tableView: UITableView?
     var collectionViewMaintenanceIndex = 0
         
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        MaintenanceViewController.tableView?.reloadData()
+//        maintenanceView.tableView.reloadData()
+//        print("Switched")
+//
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light
+//        overrideUserInterfaceStyle = .light
         MaintenanceViewController.tableView?.reloadData()
     }
     
@@ -121,7 +129,6 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
 extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let maintenance = getMaintenances()
-        print(collectionViewMaintenanceIndex)
         if maintenance.count == 0 {
             return 0
         } else {

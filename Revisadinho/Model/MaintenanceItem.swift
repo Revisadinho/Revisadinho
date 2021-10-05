@@ -29,7 +29,7 @@ public enum MaintenanceItem: Int, CaseIterable {
     case Battery
     case Clutch
     case Suspension
-    
+
     var description: String {
         switch self {
         case .WheelAlignment: return "Alinhamento"

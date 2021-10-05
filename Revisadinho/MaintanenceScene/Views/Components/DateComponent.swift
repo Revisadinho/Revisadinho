@@ -31,8 +31,10 @@ class DateComponent: UIView {
         setUpDateCardConstraint()
         setUpMonthLabelConstraint()
         setUpYearLabelConstraint()
-        setUpBackButtonConstraint()
         setUpForwardButtonConstraint()
+        setUpForwardButtonImageConstraint()
+        setUpBackButtonConstraint()
+        setUpBackButtonImageConstraint()
     }
 
     required init?(coder: NSCoder) {
@@ -40,8 +42,8 @@ class DateComponent: UIView {
     }
     
     lazy var dateCard: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 65))
-        view.backgroundColor = .white
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*0.9, height: 65))
+        view.backgroundColor = .monthCardBackground
         view.layer.cornerRadius = 13
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.1
@@ -70,9 +72,22 @@ class DateComponent: UIView {
         return label
     }()
     
+    lazy var backButtonImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "chevron.backward")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    lazy var forwardButtonImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "chevron.forward")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     lazy var backButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "chevron.backward")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -80,8 +95,6 @@ class DateComponent: UIView {
     
     lazy var forwardButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(systemName: "chevron.forward")
-        button.setBackgroundImage(UIImage(systemName: "chevron.forward")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(delegatesForwardButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -101,8 +114,10 @@ class DateComponent: UIView {
         self.addSubview(dateCard)
         dateCard.addSubview(monthLabel)
         dateCard.addSubview(yearLabel)
-        dateCard.addSubview(backButton)
+        forwardButton.addSubview(forwardButtonImage)
         dateCard.addSubview(forwardButton)
+        backButton.addSubview(backButtonImage)
+        dateCard.addSubview(backButton)
     }
     
     func setUpDateCardConstraint() {
@@ -133,18 +148,36 @@ class DateComponent: UIView {
     func setUpBackButtonConstraint() {
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            backButton.leftAnchor.constraint(equalTo: yearLabel.rightAnchor, constant: 50),
-            backButton.heightAnchor.constraint(equalToConstant: 26.1),
-            backButton.widthAnchor.constraint(equalToConstant: 17)
+            backButton.heightAnchor.constraint(equalTo: dateCard.heightAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    func setUpBackButtonImageConstraint() {
+        NSLayoutConstraint.activate([
+            backButtonImage.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            backButtonImage.centerXAnchor.constraint(equalTo: backButton.centerXAnchor),
+            backButtonImage.heightAnchor.constraint(equalToConstant: 26.1),
+            backButtonImage.widthAnchor.constraint(equalToConstant: 17)
         ])
     }
     
     func setUpForwardButtonConstraint() {
         NSLayoutConstraint.activate([
             forwardButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            forwardButton.rightAnchor.constraint(equalTo: dateCard.rightAnchor, constant: -34),
-            forwardButton.heightAnchor.constraint(equalToConstant: 26.1),
-            forwardButton.widthAnchor.constraint(equalToConstant: 17)
+            forwardButton.leftAnchor.constraint(equalTo: backButton.rightAnchor, constant: 10),
+            forwardButton.rightAnchor.constraint(equalTo: dateCard.rightAnchor, constant: -8),
+            forwardButton.heightAnchor.constraint(equalTo: dateCard.heightAnchor),
+            forwardButton.widthAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    func setUpForwardButtonImageConstraint() {
+        NSLayoutConstraint.activate([
+            forwardButtonImage.centerYAnchor.constraint(equalTo: forwardButton.centerYAnchor),
+            forwardButtonImage.centerXAnchor.constraint(equalTo: forwardButton.centerXAnchor),
+            forwardButtonImage.heightAnchor.constraint(equalToConstant: 26.1),
+            forwardButtonImage.widthAnchor.constraint(equalToConstant: 17)
         ])
     }
 }

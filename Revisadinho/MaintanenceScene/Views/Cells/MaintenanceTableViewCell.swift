@@ -47,7 +47,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     lazy var cardCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 330, height: 130), collectionViewLayout: MaintenanceCollectionViewCell.collectionViewLayout())
         collectionView.register(MaintenanceCollectionViewCell.self, forCellWithReuseIdentifier: MaintenanceCollectionViewCell.identifier)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .monthCardBackground
         collectionView.layer.cornerRadius = 15
         collectionView.layer.shadowColor = UIColor.black.cgColor
         collectionView.layer.shadowOpacity = 0.1
@@ -97,7 +97,6 @@ class MaintenanceTableViewCell: UITableViewCell {
     func setUpCardViewConstraints() {
         NSLayoutConstraint.activate([
             cardCollectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
-            cardCollectionView.widthAnchor.constraint(equalToConstant: 330),
             cardCollectionView.heightAnchor.constraint(equalToConstant: 130),
             cardCollectionView.leftAnchor.constraint(equalTo: circle.leftAnchor, constant: 24),
             cardCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
