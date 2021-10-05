@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Mantendo você em movimento
 
-You can use the [editor on GitHub](https://github.com/Revisadinho/Revisadinho/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Cansado de pagar mais caro por não lembrar de fazer as manutenções do seu veículo no tempo certo? Revisadinho chegou para te manter em movimento. Um aplicativo com interface minimalista que dispõe todas as informações de cada manutenção de forma simples e clara e possibilita o cadastro de novas manutenções rapidamente. Com o Revisadinho você pode:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Cadastrar uma manutenção
+- Visualizar as manutenções cadastradas
+- Visualizar todos os itens, data e o  hodômetro do veículo no dia de cada manutenção
 
-### Markdown
+[Faça o download agora na App Store!](https://apps.apple.com/br/app/revisadinho/id1587033972)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
+### Política de privacidade
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Revisadinho/Revisadinho/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+### Suporte
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Entre em contato conosco através do nosso e-mail ou instagram. 
+
+E-mail: revisadinho@gmail.com
+
+Instagram: [revisadinho](https://instagram.com/revisadinho?utm_medium=copy_link)
