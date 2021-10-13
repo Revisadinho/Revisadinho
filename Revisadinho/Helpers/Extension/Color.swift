@@ -83,6 +83,22 @@ extension UIColor {
         }
     }()
 
+    static let tabBarColor: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    // Return the color for Dark Mode
+                    return UIColor(red: 26/255, green: 23/255, blue: 39/255, alpha: 1)
+                } else {
+                    // Return the color for Light Mode
+                    return UIColor(red: 41/255, green: 48/255, blue: 98/255, alpha: 1)
+                }
+            }
+        } else {
+            return UIColor(red: 41/255, green: 48/255, blue: 98/255, alpha: 1)
+        }
+    }()
+
     static let grayText: UIColor = {
         if #available(iOS 13, *) {
             return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
@@ -121,7 +137,7 @@ extension UIColor {
             return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
                 if UITraitCollection.userInterfaceStyle == .dark {
                     // Return the color for Dark Mode
-                    return UIColor(red: 104/255, green: 101/255, blue: 134/255, alpha: 1)
+                    return UIColor(red: 249/255, green: 251/255, blue: 252/255, alpha: 1)
                 } else {
                     // Return the color for Light Mode
                     return UIColor(red: 215/255, green: 219/255, blue: 249/255, alpha: 1)

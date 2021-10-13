@@ -24,6 +24,7 @@
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73A1355C26FA06D40010AC59 /* MaintenanceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */; };
 		73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355F26FA11C30010AC59 /* MainRouter.swift */; };
+		73BF5315271705CA00C4951E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF5314271705CA00C4951E /* TabBarController.swift */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
 		D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D85EF6DF26F8B40C00AC5617 /* FSCalendar */; };
 		D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */; };
@@ -99,6 +100,7 @@
 		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRouter.swift; sourceTree = "<group>"; };
 		73A1355F26FA11C30010AC59 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		73BF5314271705CA00C4951E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewController.swift; sourceTree = "<group>"; };
 		D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceView.swift; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		73BF53132717059E00C4951E /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				73BF5314271705CA00C4951E /* TabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		73ED397A26F0C9350030CF52 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +399,7 @@
 		EFE12CDB26EF76E4005FB2B2 /* Revisadinho */ = {
 			isa = PBXGroup;
 			children = (
+				73BF53132717059E00C4951E /* TabBarController */,
 				73A1355A26FA06CB0010AC59 /* Router */,
 				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6EE2083926F0CEC1007889EF /* Model */,
@@ -615,6 +626,7 @@
 				6E0FBB6C26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift in Sources */,
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
 				EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */,
+				73BF5315271705CA00C4951E /* TabBarController.swift in Sources */,
 				EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */,
 				EF3D7FED26F8C9DD00DC01CA /* DateModel.swift in Sources */,
 				EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */,
@@ -799,7 +811,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
+				DEVELOPMENT_TEAM = 38KM4K4A3R;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -820,7 +832,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
+				DEVELOPMENT_TEAM = 38KM4K4A3R;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
