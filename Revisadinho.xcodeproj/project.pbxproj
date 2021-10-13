@@ -53,6 +53,7 @@
 		EF3D7FF326FA06FD00DC01CA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */; };
 		EF3D7FF526FB4AA500DC01CA /* DateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */; };
 		EF3D7FF726FB4DF000DC01CA /* MaintenanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */; };
+		EF7F19C627171C49001A7283 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7F19C527171C49001A7283 /* UIView.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* MaintenanceViewController.swift */; };
 		EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */; };
 		EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */; };
@@ -127,6 +128,7 @@
 		EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModelTests.swift; sourceTree = "<group>"; };
 		EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewControllerTests.swift; sourceTree = "<group>"; };
+		EF7F19C527171C49001A7283 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				EF3D7FDA26F0D2A500DC01CA /* Color.swift */,
+				EF7F19C527171C49001A7283 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
 				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
+				EF7F19C627171C49001A7283 /* UIView.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 				6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */,
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
