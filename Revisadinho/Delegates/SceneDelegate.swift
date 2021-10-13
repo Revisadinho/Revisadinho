@@ -19,8 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
                     
         let mainRouter = MainRouter()
-        window.rootViewController = mainRouter.getMaintenanceViewController()
+//        window.rootViewController = mainRouter.getMaintenanceViewController()
       
+        window.rootViewController = mainRouter.getTabBarController()
+
+
         self.window = window
         window.makeKeyAndVisible()
     }
