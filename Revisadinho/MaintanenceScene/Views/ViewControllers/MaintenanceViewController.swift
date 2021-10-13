@@ -77,9 +77,6 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         cell?.cardCollectionView.delegate = self
         cell?.cardCollectionView.dataSource = self
         cell?.cardCollectionView.reloadData()
-        if indexPath.row == 0 {
-                cell?.lineUp.isHidden = true
-        }
         
         return cell ?? MaintenanceTableViewCell()
     }
