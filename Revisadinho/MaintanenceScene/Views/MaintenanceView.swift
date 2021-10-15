@@ -30,7 +30,7 @@ class MaintenanceView: UIView {
     }
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -151,7 +151,7 @@ class MaintenanceView: UIView {
     func setUpTableViewConstraints() {
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tableView.topAnchor.constraint(equalTo: self.topAnchor),
+            tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(TabBarController.tableViewHeight ?? 0))
         ])
