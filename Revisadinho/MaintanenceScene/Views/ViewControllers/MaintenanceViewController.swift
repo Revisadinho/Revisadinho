@@ -17,18 +17,9 @@ class MaintenanceViewController: UIViewController {
     var maintenanceRouter: MaintenanceRouter?
     static var tableView: UITableView?
     var collectionViewMaintenanceIndex = 0
-        
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        MaintenanceViewController.tableView?.reloadData()
-//        maintenanceView.tableView.reloadData()
-//        print("Switched")
-//
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        overrideUserInterfaceStyle = .light
         MaintenanceViewController.tableView?.reloadData()
     }
     
@@ -109,7 +100,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        260
+        250
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
