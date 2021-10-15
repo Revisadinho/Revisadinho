@@ -64,6 +64,10 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         let maintenances = getMaintenances()
         collectionViewMaintenanceIndex = indexPath.row
         let formatedDate = formatDate(date: maintenances[indexPath.row].date)
+        
+        if indexPath.row == 0 {
+            cell?.lineUp.isHidden = true
+        }
         cell?.dateLabel.text = formatedDate
         cell?.cardCollectionView.delegate = self
         cell?.cardCollectionView.dataSource = self

@@ -38,10 +38,29 @@ class MaintenanceTableViewCell: UITableViewCell {
         shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
         shapeLayer.lineWidth = 1
         shapeLayer.lineDashPattern = lineDashPattern
-            
+        
         let path = CGMutablePath()
         path.addLines(between: [CGPoint(x: 0, y: 0),
-                                CGPoint(x: 0, y: 200)])
+                                CGPoint(x: 0, y: 164)])
+        shapeLayer.path = path
+        layer.addSublayer(shapeLayer)
+        view.layer.addSublayer(layer)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var lineUp: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: self.frame.height))
+        let layer = CALayer()
+        let lineDashPattern:[NSNumber] = [5, 2]
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
+        shapeLayer.lineWidth = 1
+        shapeLayer.lineDashPattern = lineDashPattern
+
+        let path = CGMutablePath()
+        path.addLines(between: [CGPoint(x: 0, y: 0),
+                                CGPoint(x: 0, y: 20)])
         shapeLayer.path = path
         layer.addSublayer(shapeLayer)
         view.layer.addSublayer(layer)
@@ -99,11 +118,21 @@ class MaintenanceTableViewCell: UITableViewCell {
         ])
     }
     
+    func setUpLineUpConstraints() {
+        NSLayoutConstraint.activate([
+            lineUp.topAnchor.constraint(equalTo: self.topAnchor),
+            lineUp.widthAnchor.constraint(equalToConstant: 1),
+            lineUp.heightAnchor.constraint(equalTo: self.heightAnchor),
+            lineUp.centerXAnchor.constraint(equalTo: circle.centerXAnchor)
+        ])
+    }
+    
     func setUpViewHierarchy() {
         self.addSubview(dateLabel)
         self.addSubview(cardCollectionView)
         self.addSubview(circle)
         self.addSubview(lineBottom)
+        self.addSubview(lineUp)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -115,6 +144,7 @@ class MaintenanceTableViewCell: UITableViewCell {
         setUpCardViewConstraints()
         setUpCircleConstraints()
         setUpLineBottomConstraints()
+        setUpLineUpConstraints()
     }
     
     required init?(coder: NSCoder) {
