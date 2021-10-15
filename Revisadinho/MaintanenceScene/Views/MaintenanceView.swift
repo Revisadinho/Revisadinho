@@ -152,8 +152,8 @@ class MaintenanceView: UIView {
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.topAnchor.constraint(equalTo: self.topAnchor),
-            tableView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
+            tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(TabBarController.tableViewHeight ?? 0))
         ])
     }
         
