@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class TabBarController: UITabBarController {
+    
+    static var tableViewHeight: CGFloat?
 
     let appearanceTabBar: UITabBarAppearance = {
         let appearance = UITabBarAppearance()
@@ -27,7 +29,8 @@ class TabBarController: UITabBarController {
         return appearance
     }()
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
+        TabBarController.tableViewHeight = self.tabBar.frame.height
         self.tabBar.layer.masksToBounds = true
         self.tabBar.isTranslucent = true
         self.tabBar.layer.cornerRadius = 20
