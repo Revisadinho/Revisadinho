@@ -10,6 +10,7 @@ import UIKit
 
 class MaintenanceTableViewCell: UITableViewCell {
     
+    static var cellHeight = 200
     static var identifier = "MaintenanceTableViewCell"
     
     lazy var dateLabel: UILabel = {
@@ -32,41 +33,28 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     lazy var lineBottom: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: self.frame.height))
-        let layer = CALayer()
-        let lineDashPattern:[NSNumber] = [5, 2]
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
-        shapeLayer.lineWidth = 1
-        shapeLayer.lineDashPattern = lineDashPattern
-        
-        let path = CGMutablePath()
-        path.addLines(between: [CGPoint(x: 0, y: 0),
-                                CGPoint(x: 0, y: 164)])
-        shapeLayer.path = path
-        layer.addSublayer(shapeLayer)
-        view.layer.addSublayer(layer)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var lineUp: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: self.frame.height))
-        let layer = CALayer()
-        let lineDashPattern:[NSNumber] = [5, 2]
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
-        shapeLayer.lineWidth = 1
-        shapeLayer.lineDashPattern = lineDashPattern
-
-        let path = CGMutablePath()
-        path.addLines(between: [CGPoint(x: 0, y: 0),
-                                CGPoint(x: 0, y: 20)])
-        shapeLayer.path = path
-        layer.addSublayer(shapeLayer)
-        view.layer.addSublayer(layer)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+//    lazy var lineUp: UIView = {
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: self.frame.height))
+//        let layer = CALayer()
+//        let lineDashPattern:[NSNumber] = [5, 2]
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
+//        shapeLayer.lineWidth = 1
+//        shapeLayer.lineDashPattern = lineDashPattern
+//
+//        let path = CGMutablePath()
+//        path.addLines(between: [CGPoint(x: 0, y: 0),
+//                                CGPoint(x: 0, y: 20)])
+//        shapeLayer.path = path
+//        layer.addSublayer(shapeLayer)
+//        view.layer.addSublayer(layer)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
     
     lazy var cardCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 330, height: 130), collectionViewLayout: MaintenanceCollectionViewCell.collectionViewLayout())
@@ -102,10 +90,10 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     func setUpLineBottomConstraints() {
         NSLayoutConstraint.activate([
-            lineBottom.topAnchor.constraint(equalTo: circle.bottomAnchor),
+            lineBottom.heightAnchor.constraint(equalToConstant: CGFloat(MaintenanceTableViewCell.cellHeight)),
             lineBottom.widthAnchor.constraint(equalToConstant: 1),
-            lineBottom.heightAnchor.constraint(equalTo: self.heightAnchor),
-            lineBottom.centerXAnchor.constraint(equalTo: circle.centerXAnchor)
+            lineBottom.centerXAnchor.constraint(equalTo: circle.centerXAnchor),
+            lineBottom.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
     
@@ -118,21 +106,21 @@ class MaintenanceTableViewCell: UITableViewCell {
         ])
     }
     
-    func setUpLineUpConstraints() {
-        NSLayoutConstraint.activate([
-            lineUp.topAnchor.constraint(equalTo: self.topAnchor),
-            lineUp.widthAnchor.constraint(equalToConstant: 1),
-            lineUp.heightAnchor.constraint(equalTo: self.heightAnchor),
-            lineUp.centerXAnchor.constraint(equalTo: circle.centerXAnchor)
-        ])
-    }
+//    func setUpLineUpConstraints() {
+//        NSLayoutConstraint.activate([
+//            lineUp.topAnchor.constraint(equalTo: self.topAnchor),
+//            lineUp.widthAnchor.constraint(equalToConstant: 1),
+//            lineUp.heightAnchor.constraint(equalTo: self.heightAnchor),
+//            lineUp.centerXAnchor.constraint(equalTo: circle.centerXAnchor)
+//        ])
+//    }
     
     func setUpViewHierarchy() {
         self.addSubview(dateLabel)
         self.addSubview(cardCollectionView)
         self.addSubview(circle)
         self.addSubview(lineBottom)
-        self.addSubview(lineUp)
+//        self.addSubview(lineUp)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -144,7 +132,22 @@ class MaintenanceTableViewCell: UITableViewCell {
         setUpCardViewConstraints()
         setUpCircleConstraints()
         setUpLineBottomConstraints()
-        setUpLineUpConstraints()
+        
+        let layer = CALayer()
+        let lineDashPattern:[NSNumber] = [5, 2]
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
+        shapeLayer.lineWidth = 1
+        shapeLayer.lineDashPattern = lineDashPattern
+        
+        let path = CGMutablePath()
+        path.addLines(between: [CGPoint(x: 0, y: lineBottom.frame.minY),
+                                CGPoint(x: 0, y: MaintenanceTableViewCell.cellHeight)])
+        shapeLayer.path = path
+        layer.addSublayer(shapeLayer)
+        lineBottom.layer.addSublayer(layer)
+        
+//        setUpLineUpConstraints()
     }
     
     required init?(coder: NSCoder) {

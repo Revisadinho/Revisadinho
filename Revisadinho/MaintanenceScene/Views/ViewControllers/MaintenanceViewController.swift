@@ -10,6 +10,7 @@ import Foundation
 
 class MaintenanceViewController: UIViewController {
 
+    var circle: UIView?
     let maintenanceViewModel = MaintenanceViewModel()
     var placeholderText: UILabel?
     let maintenanceView = MaintenanceView()
@@ -56,7 +57,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return CGFloat(MaintenanceTableViewCell.cellHeight)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,16 +65,22 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         let maintenances = getMaintenances()
         collectionViewMaintenanceIndex = indexPath.row
         let formatedDate = formatDate(date: maintenances[indexPath.row].date)
-        
+                
+        guard let cellUnwrapped = cell else {return MaintenanceTableViewCell()}
+        circle = cellUnwrapped.circle
         if indexPath.row == 0 {
-            cell?.lineUp.isHidden = true
+            cellUnwrapped.lineBottom.constraints.first { $0.firstAnchor == cellUnwrapped.lineBottom.heightAnchor }?.isActive = false
+            cellUnwrapped.lineBottom.heightAnchor.constraint(equalToConstant: 162).isActive = true
+        } else {
+            cellUnwrapped.lineBottom.constraints.first { $0.firstAnchor == cellUnwrapped.lineBottom.heightAnchor }?.isActive = false
+            cellUnwrapped.lineBottom.heightAnchor.constraint(equalToConstant: CGFloat(MaintenanceTableViewCell.cellHeight)).isActive = true
         }
-        cell?.dateLabel.text = formatedDate
-        cell?.cardCollectionView.delegate = self
-        cell?.cardCollectionView.dataSource = self
-        cell?.cardCollectionView.reloadData()
+        cellUnwrapped.dateLabel.text = formatedDate
+        cellUnwrapped.cardCollectionView.delegate = self
+        cellUnwrapped.cardCollectionView.dataSource = self
+        cellUnwrapped.cardCollectionView.reloadData()
         
-        return cell ?? MaintenanceTableViewCell()
+        return cellUnwrapped
     }
     
     func formatDate(date: Date) -> String {
