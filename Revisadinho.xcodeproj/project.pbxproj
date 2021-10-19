@@ -25,6 +25,11 @@
 		73A1355C26FA06D40010AC59 /* MaintenanceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */; };
 		73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355F26FA11C30010AC59 /* MainRouter.swift */; };
 		73BF5315271705CA00C4951E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF5314271705CA00C4951E /* TabBarController.swift */; };
+		73CF4CB7271DAF13002E00FA /* LightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CB6271DAF13002E00FA /* LightsViewController.swift */; };
+		73CF4CB9271DAFA2002E00FA /* LightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CB8271DAFA2002E00FA /* LightsViewModel.swift */; };
+		73CF4CBB271DB1E8002E00FA /* LightsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CBA271DB1E8002E00FA /* LightsRouter.swift */; };
+		73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CBC271DB77D002E00FA /* LightsView.swift */; };
+		73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
 		D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D85EF6DF26F8B40C00AC5617 /* FSCalendar */; };
 		D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */; };
@@ -101,6 +106,11 @@
 		73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRouter.swift; sourceTree = "<group>"; };
 		73A1355F26FA11C30010AC59 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		73BF5314271705CA00C4951E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		73CF4CB6271DAF13002E00FA /* LightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewController.swift; sourceTree = "<group>"; };
+		73CF4CB8271DAFA2002E00FA /* LightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewModel.swift; sourceTree = "<group>"; };
+		73CF4CBA271DB1E8002E00FA /* LightsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsRouter.swift; sourceTree = "<group>"; };
+		73CF4CBC271DB77D002E00FA /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
+		73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewController.swift; sourceTree = "<group>"; };
 		D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceView.swift; sourceTree = "<group>"; };
@@ -273,8 +283,9 @@
 		73A1355A26FA06CB0010AC59 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */,
 				73A1355F26FA11C30010AC59 /* MainRouter.swift */,
+				73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */,
+				73CF4CBA271DB1E8002E00FA /* LightsRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -285,6 +296,49 @@
 				73BF5314271705CA00C4951E /* TabBarController.swift */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		73CF4CB2271DADA3002E00FA /* LightsScene */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CB3271DAEC7002E00FA /* ViewModel */,
+				73CF4CB4271DAECF002E00FA /* Views */,
+			);
+			path = LightsScene;
+			sourceTree = "<group>";
+		};
+		73CF4CB3271DAEC7002E00FA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CB8271DAFA2002E00FA /* LightsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CF4CB4271DAECF002E00FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CBC271DB77D002E00FA /* LightsView.swift */,
+				73CF4CBE271EEF94002E00FA /* Cells */,
+				73CF4CB5271DAEE6002E00FA /* ViewController */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73CF4CB5271DAEE6002E00FA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CB6271DAF13002E00FA /* LightsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		73CF4CBE271EEF94002E00FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		73ED397A26F0C9350030CF52 /* Fonts */ = {
@@ -401,11 +455,12 @@
 			children = (
 				73BF53132717059E00C4951E /* TabBarController */,
 				73A1355A26FA06CB0010AC59 /* Router */,
-				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6EE2083926F0CEC1007889EF /* Model */,
 				EF3D7FD826F0D27E00DC01CA /* Helpers */,
 				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
+				73CF4CB2271DADA3002E00FA /* LightsScene */,
+				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				7375AACD26EF9566006888B8 /* MaintanenceScene */,
 				7375AAD126EF9636006888B8 /* ProgressScene */,
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
@@ -614,10 +669,14 @@
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
+				73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */,
 				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
+				73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 				6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */,
+				73CF4CB7271DAF13002E00FA /* LightsViewController.swift in Sources */,
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
+				73CF4CB9271DAFA2002E00FA /* LightsViewModel.swift in Sources */,
 				EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */,
 				EF3D7FF126FA046300DC01CA /* ModalView.swift in Sources */,
 				73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */,
@@ -629,6 +688,7 @@
 				73BF5315271705CA00C4951E /* TabBarController.swift in Sources */,
 				EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */,
 				EF3D7FED26F8C9DD00DC01CA /* DateModel.swift in Sources */,
+				73CF4CBB271DB1E8002E00FA /* LightsRouter.swift in Sources */,
 				EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */,
 				EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */,
 				6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */,
