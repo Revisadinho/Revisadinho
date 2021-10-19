@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum MaintenanceItem: Int, CaseIterable {
+public enum MaintenanceItem: Int, CaseIterable, Codable {
     case WheelAlignment = 0
     case TireBalance
     case TimingBelt
@@ -53,6 +53,32 @@ public enum MaintenanceItem: Int, CaseIterable {
         case .Battery: return "Bateria"
         case .Clutch: return "Embreagem"
         case .Suspension: return "Suspensão"
+        }
+    }
+
+    var maintenanceInterval: Double {
+        switch self {
+        case .WheelAlignment: return 10000.0
+        case .TireBalance: return 10000.0
+        case .TimingBelt: return 40000.0
+        case .AirFilter: return 10000.0
+        case .AirConditioningFilter: return 15000.0
+        case .FuelFilter: return 10000.0
+        case .Candle: return 10000.0
+        case .EngineOil: return 5000.0 // hardcoded for 5k Km, but it depends on the vehicle model
+        case .RadiatorFluid: return 30000.0
+        case .BrakeFluid: return 20000.0
+        case .BrakePad: return 20000.0
+        case .TireCalibration: return 5000.0
+        case .TireChange: return 35000.0
+        case .WindshieldWiper: return 20000.0
+        case .LightBulbs: return 20000.0
+        case .Exhaust: return 20000.0
+        case .ElectronicInjection: return 20000.0
+        case .Transmission: return 60000.0
+        case .Battery: return 60000.0
+        case .Clutch: return 100000.0
+        case .Suspension: return 50000.0
         }
     }
 }
