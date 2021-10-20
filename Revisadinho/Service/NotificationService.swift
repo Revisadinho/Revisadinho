@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Hiago Chagas on 15/10/21.
-//  swiftlint:disable colon line_length
+//  swiftlint:disable line_length
 
 import Foundation
 import UserNotifications
@@ -16,6 +16,14 @@ class NotificationService {
             return UserDefaults.standard.bool(forKey: "NotificationPermission")
         } set {
             UserDefaults.standard.set(newValue, forKey: "NotificationPermission")
+        }
+    }
+
+    private var isNotFirstBoot: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "NotificationFirstBoot")
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "NotificationFirstBoot")
         }
     }
 
@@ -49,6 +57,18 @@ class NotificationService {
                 self.isNotificationPermitted = granted
             }
         }
+        if !isNotFirstBoot {
+            isNotFirstBoot = true
+            setupDictionary()
+        }
+    }
+
+    private func setupDictionary() {
+        var dictionary: [MaintenanceItem: Double] = [:]
+        for item in MaintenanceItem.allCases {
+            dictionary[item] = 0.0
+        }
+        lastMaintenanceHodometerDictionary = dictionary
     }
 
     public func updateLastMaintenanceHodometer(forMaintenanceItems maintenanceItens: [MaintenanceItem], withHodometer hodometer: Double) {
@@ -100,7 +120,7 @@ class NotificationService {
             content.body.append(", \(item.description)")
         }
         content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2 * 60, repeats: false) // the time interval is equal to 2 min
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
