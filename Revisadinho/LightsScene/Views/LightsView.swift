@@ -17,7 +17,7 @@ class LightsView: UIView {
     }()
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableView.sectionHeaderHeight))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
@@ -38,6 +38,7 @@ class LightsView: UIView {
     lazy var searchButtonInsideView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
         
         let buttonLabel = UILabel()
         buttonLabel.text = "Pesquisar"
@@ -93,6 +94,7 @@ class LightsView: UIView {
     lazy var identifyuttonInsideView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
         
         let buttonLabel = UILabel()
         buttonLabel.text = "Identificar"
@@ -170,6 +172,11 @@ class LightsView: UIView {
     }
     
     func setUpHeaderTableView() {
+        NSLayoutConstraint.activate([
+            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.width),
+            viewForTableViewHeader.heightAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.height)
+        ])
+        
         viewForTableViewHeader.addSubview(titleLabel)
         viewForTableViewHeader.addSubview(searchButton)
         viewForTableViewHeader.addSubview(identifyButton)
@@ -177,15 +184,6 @@ class LightsView: UIView {
         setUpHeaderSearchButton()
         setUpHeaderTitleLabel()
         setUpHeaderIndentiyButton()
-        print(searchButton.frame.size)
-        print(identifyButton.frame.size)
-        
-        NSLayoutConstraint.activate([
-            viewForTableViewHeader.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
-//            viewForTableViewHeader.heightAnchor.constraint(equalTo: viewForTableViewHeader.heightAnchor)
-//            viewForTableViewHeader.bottomAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 28)
-        ])
-        
     }
     
     func setUpHeaderTitleLabel() {

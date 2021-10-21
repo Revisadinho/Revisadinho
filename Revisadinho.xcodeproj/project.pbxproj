@@ -21,6 +21,9 @@
 		6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */; };
 		6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
+		735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 735A47772721A2A800DC7BF0 /* LightsContent.json */; };
+		735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477A2721A3F800DC7BF0 /* JsonModel.swift */; };
+		735A477E2721A70A00DC7BF0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477D2721A70A00DC7BF0 /* JsonParser.swift */; };
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73A1355C26FA06D40010AC59 /* MaintenanceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */; };
 		73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355F26FA11C30010AC59 /* MainRouter.swift */; };
@@ -102,6 +105,9 @@
 		6EE2083C26F0D18A007889EF /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		6EE2083E26F0DBFA007889EF /* MaintenanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
 		6EE2084126F0DE17007889EF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		735A47772721A2A800DC7BF0 /* LightsContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LightsContent.json; sourceTree = "<group>"; };
+		735A477A2721A3F800DC7BF0 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
+		735A477D2721A70A00DC7BF0 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRouter.swift; sourceTree = "<group>"; };
 		73A1355F26FA11C30010AC59 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 		6E299A6D26F9FB3100DF574B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */,
 			);
 			path = ViewModel;
@@ -212,8 +219,26 @@
 				6E0FBB6526F8AA4C00C762B7 /* DatabaseController.swift */,
 				EF3D7FEC26F8C9DD00DC01CA /* DateModel.swift */,
 				6E0FBB6D26F8C39900C762B7 /* Maintenance.swift */,
+				735A47792721A35E00DC7BF0 /* Json Model */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		735A47792721A35E00DC7BF0 /* Json Model */ = {
+			isa = PBXGroup;
+			children = (
+				735A47772721A2A800DC7BF0 /* LightsContent.json */,
+				735A477A2721A3F800DC7BF0 /* JsonModel.swift */,
+			);
+			path = "Json Model";
+			sourceTree = "<group>";
+		};
+		735A477C2721A6E100DC7BF0 /* Json Parser */ = {
+			isa = PBXGroup;
+			children = (
+				735A477D2721A70A00DC7BF0 /* JsonParser.swift */,
+			);
+			path = "Json Parser";
 			sourceTree = "<group>";
 		};
 		7375AAC626EF9273006888B8 /* Views */ = {
@@ -397,6 +422,7 @@
 		EF3D7FD826F0D27E00DC01CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				735A477C2721A6E100DC7BF0 /* Json Parser */,
 				D88D990926FB7A2B00C68F63 /* Enum */,
 				EF3D7FD926F0D28600DC01CA /* Extension */,
 			);
@@ -460,7 +486,6 @@
 				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
 				73CF4CB2271DADA3002E00FA /* LightsScene */,
-				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				7375AACD26EF9566006888B8 /* MaintanenceScene */,
 				7375AAD126EF9636006888B8 /* ProgressScene */,
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
@@ -612,6 +637,7 @@
 				EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */,
 				D8A734CB26F215BE00A4D799 /* Quicksand-Light.ttf in Resources */,
 				EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */,
+				735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */,
 				D8A734CA26F215BE00A4D799 /* Quicksand-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,6 +686,7 @@
 				6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */,
 				6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */,
 				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
+				735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */,
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */,
 				D87B793126F3748A00D51642 /* CustomButton.swift in Sources */,
@@ -682,6 +709,7 @@
 				73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */,
 				6E0FBB6626F8AA4C00C762B7 /* DatabaseController.swift in Sources */,
 				6E0FBB6E26F8C39900C762B7 /* Maintenance.swift in Sources */,
+				735A477E2721A70A00DC7BF0 /* JsonParser.swift in Sources */,
 				6E0FBB6C26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift in Sources */,
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
 				EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */,
