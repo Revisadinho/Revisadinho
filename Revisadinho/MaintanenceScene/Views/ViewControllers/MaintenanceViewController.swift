@@ -58,15 +58,18 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let maintenences = getMaintenances()
+        let totalMaintenenceItems = maintenences[collectionViewMaintenanceIndex].maintenanceItens.count
+        let numberOfLines = calculateNumberOfLines(numberOfItems: totalMaintenenceItems, numberOfItemsPerLine: 3)
+        
         if selectedIndex == indexPath {
             if sameIndex {
                 isExpanded = false
                 return CGFloat(MaintenanceTableViewCell.cellHeight)
             }
-            let numberOfLines = calculateNumberOfLines()
             if numberOfLines > 1 {
                 isExpanded = true
-                return calculateSizeOfExpandedCell()
+                return calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 120, spaceBetweenItems: 38, insetTop: 8, insetBottom: 16)
             }
         }
         return CGFloat(MaintenanceTableViewCell.cellHeight)
@@ -120,22 +123,16 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         MaintenanceViewController.tableView?.reloadData()
     }
     
-    func calculateNumberOfLines() -> Int {
-        let maintenance = getMaintenances()
-        if maintenance[collectionViewMaintenanceIndex].maintenanceItens.count % 3 != 0 {
-              return (maintenance[collectionViewMaintenanceIndex].maintenanceItens.count / 3) + 1
+    func calculateNumberOfLines(numberOfItems: Int, numberOfItemsPerLine: Int) -> Int {
+        if numberOfItems % numberOfItemsPerLine != 0 {
+              return (numberOfItems / 3) + 1
         } else {
-              return (maintenance[collectionViewMaintenanceIndex].maintenanceItens.count / 3)
+              return (numberOfItems / 3)
         }
     }
     
-    func calculateSizeOfExpandedCell() -> CGFloat {
-        let numberOfLines = calculateNumberOfLines()
-        let itemSize = 120
-        let spaceBetweenItems = 38
-        let insetTop = 8
-        let insetBottom = 16
-        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines) + ((insetTop + insetBottom)*2)
+    func calculateSizeOfExpandedCell(numberOfLines: Int, itemSize: Int, spaceBetweenItems: Int, insetTop: Int, insetBottom: Int) -> CGFloat {
+        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines - 1) + ((insetTop + insetBottom)*2)
         return CGFloat(expandedHeight)
     }
     
