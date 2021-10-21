@@ -25,4 +25,20 @@ class MaintenanceViewControllerTests: XCTestCase {
         let maintenances = sut.formatDate(date: date)
         XCTAssertTrue(maintenances == finalString)
     }
+    
+    func test_calculateNumberOfLinesWhenTheRestOfDivisionIsZero() {
+        let numberOfItems = 9
+        let numberOfItemsPerLine = 3
+        let numberOfLines = sut.calculateNumberOfLines(numberOfItems: numberOfItems, numberOfItemsPerLine: numberOfItemsPerLine)
+        let expectedNumberOfLines = 3
+        XCTAssertTrue(numberOfLines == expectedNumberOfLines )
+    }
+    
+    func test_calculateNumberOfLinesWhenTheRestOfDivisionIsNotZeroRoundingUp() {
+        let numberOfItems = 7
+        let numberOfItemsPerLine = 3
+        let numberOfLines = sut.calculateNumberOfLines(numberOfItems: numberOfItems, numberOfItemsPerLine: numberOfItemsPerLine)
+        let expectedNumberOfLines = 3
+        XCTAssertTrue(numberOfLines == expectedNumberOfLines )
+    }
 }
