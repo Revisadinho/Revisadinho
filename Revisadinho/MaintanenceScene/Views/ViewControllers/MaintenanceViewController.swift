@@ -132,7 +132,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func calculateSizeOfExpandedCell(numberOfLines: Int, itemSize: Int, spaceBetweenItems: Int, insetTop: Int, insetBottom: Int) -> CGFloat {
-        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines - 1) + ((insetTop + insetBottom)*2)
+        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines) + ((insetTop + insetBottom)*2)
         return CGFloat(expandedHeight)
     }
     
