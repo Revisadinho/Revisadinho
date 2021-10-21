@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0D80D527199E6600410B15 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D80D427199E6600410B15 /* NotificationService.swift */; };
 		6E0FBB5E26F8A73C00C762B7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5A26F8A73C00C762B7 /* Model.xcdatamodeld */; };
 		6E0FBB5F26F8A73C00C762B7 /* MaintenanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5C26F8A73C00C762B7 /* MaintenanceItem.swift */; };
 		6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5D26F8A73C00C762B7 /* Model.swift */; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E0D80D427199E6600410B15 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		6E0FBB5B26F8A73C00C762B7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6E0FBB5C26F8A73C00C762B7 /* MaintenanceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
 		6E0FBB5D26F8A73C00C762B7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E0D80D327199E4900410B15 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6E0D80D427199E6600410B15 /* NotificationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		6E0FBB4C26F8A59300C762B7 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +409,7 @@
 		EFE12CDB26EF76E4005FB2B2 /* Revisadinho */ = {
 			isa = PBXGroup;
 			children = (
+				6E0D80D327199E4900410B15 /* Service */,
 				73BF53132717059E00C4951E /* TabBarController */,
 				73A1355A26FA06CB0010AC59 /* Router */,
 				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
@@ -603,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */,
+				6E0D80D527199E6600410B15 /* NotificationService.swift in Sources */,
 				6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */,
 				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
@@ -854,7 +866,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
 				INFOPLIST_FILE = RevisadinhoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -876,7 +888,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
 				INFOPLIST_FILE = RevisadinhoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
