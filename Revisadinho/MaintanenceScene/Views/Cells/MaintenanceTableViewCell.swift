@@ -87,7 +87,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     }
     
     func setUpLineBottomConstraints() {
-        NSLayoutConstraint.activate([            
+        NSLayoutConstraint.activate([
             lineBottom.topAnchor.constraint(equalTo: self.topAnchor),
             lineBottom.widthAnchor.constraint(equalToConstant: lineBottom.frame.width),
             lineBottom.centerXAnchor.constraint(equalTo: circle.centerXAnchor),
