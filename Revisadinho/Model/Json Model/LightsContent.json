@@ -1,16 +1,16 @@
 [
     {
-      "name": "Luz de advertência mestre",
+      "name": "Advertência mestre",
       "description": "A luz indicadora geralmente acompanha outra luz de advertência e indica que um ou mais sistemas de advertência foram detectados.",
       "iconName": "advertencia_mestre"
     },
     {
-      "name": "Luz de pressão de óleo",
+      "name": "Pressão de óleo",
       "description": "Esta imagem indica que há um problema com o sistema de pressão de óleo do seu carro. Ou você está com pouco óleo ou sua bomba de óleo não está circulando fluido suficiente para lubrificar adequadamente as superfícies dentro de seu veículo. Isso deve ser resolvido o mais rápido possível, pois o motor pode se desgastar rapidamente sem a lubrificação adequada.",
       "iconName": "pressao_de_oleo"
     },
     {
-      "name": "Luz de advertência da pressão do pneu",
+      "name": "Advertência da pressão do pneu",
       "description": "Também conhecido como símbolo TPMS, esta imagem sinaliza que a pressão em um ou mais pneus está muito baixa ou muito alta e precisa ser corrigida. Dirigir com pneus de baixa ou alta pressão não é seguro e pode causar danos adicionais ao veículo. Normalmente, a pressão dos pneus deve estar entre 30 e 35 psi (libras por polegada quadrada).",
       "iconName": "pressao_do_pneu"
     },
@@ -20,7 +20,7 @@
       "iconName": "temperatura_motor"
     },
     {
-      "name": "Luz de controle de tração",
+      "name": "Controle de tração",
       "description": "Isso indica que o sistema de controle de tração do seu veículo está ativado. O sistema de controle de tração utiliza o freio ABS para determinar se uma roda está girando mais rápido do que outra. Se detectar que uma roda está escorregando, ele aciona os freios até recuperar a tração. Isso é mais útil se você estiver dirigindo na chuva ou neve.",
       "iconName": "controle_de_tracao"
     },
@@ -65,7 +65,7 @@
       "iconName": "off_controle_de_tracao"
     },
     {
-      "name": "Luz de advertência de freio",
+      "name": "Advertência de freio",
       "description": "A luz indicadora significa que o sistema de controle de tração do veículo foi desativado.",
       "iconName": "advertencia_de_freio"
     }

@@ -10,9 +10,13 @@ import UIKit
 
 class LightsView: UIView {
     
+    var viewControllwe: LightsViewController?
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(LightTableViewCell.self, forCellReuseIdentifier: LightTableViewCell.identifier)
+        tableView.isUserInteractionEnabled = true
         return tableView
     }()
     
@@ -45,9 +49,11 @@ class LightsView: UIView {
         buttonLabel.textColor = .buttonLabelText
         buttonLabel.font = UIFont(name: "Quicksand-Medium", size: 17)
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
+        buttonLabel.isUserInteractionEnabled = true
         
         let imageSymbol = UIImageView(image: UIImage(systemName: "magnifyingglass")?.withRenderingMode(.alwaysOriginal).withTintColor(.buttonLabelText))
         imageSymbol.translatesAutoresizingMaskIntoConstraints = false
+        imageSymbol.isUserInteractionEnabled = true
         
         view.addSubview(imageSymbol)
         view.addSubview(buttonLabel)
@@ -77,6 +83,7 @@ class LightsView: UIView {
     
         let insideView = searchButtonInsideView
         insideView.translatesAutoresizingMaskIntoConstraints = false
+        insideView.isUserInteractionEnabled = true
         
         button.addSubview(insideView)
         NSLayoutConstraint.activate([
@@ -101,9 +108,11 @@ class LightsView: UIView {
         buttonLabel.textColor = .buttonLabelText
         buttonLabel.font = UIFont(name: "Quicksand-Medium", size: 17)
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
+        buttonLabel.isUserInteractionEnabled = true
         
         let imageSymbol = UIImageView(image: UIImage(systemName: "camera")?.withRenderingMode(.alwaysOriginal).withTintColor(.buttonLabelText))
         imageSymbol.translatesAutoresizingMaskIntoConstraints = false
+        imageSymbol.isUserInteractionEnabled = true
         
         view.addSubview(imageSymbol)
         view.addSubview(buttonLabel)
@@ -131,6 +140,7 @@ class LightsView: UIView {
     
         let insideView = identifyuttonInsideView
         insideView.translatesAutoresizingMaskIntoConstraints = false
+        insideView.isUserInteractionEnabled = true
         
         button.addSubview(insideView)
         NSLayoutConstraint.activate([
@@ -152,7 +162,7 @@ class LightsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.backgroundColor = .blueBackground
-        tableView.register(LightTableViewCell.self, forCellReuseIdentifier: LightTableViewCell.identifier)
+        
         setUpTableView()
     }
     
@@ -176,6 +186,9 @@ class LightsView: UIView {
             viewForTableViewHeader.widthAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.width),
             viewForTableViewHeader.heightAnchor.constraint(equalToConstant: viewForTableViewHeader.frame.height)
         ])
+        
+        searchButton.isUserInteractionEnabled = true
+        identifyButton.isUserInteractionEnabled = true
         
         viewForTableViewHeader.addSubview(titleLabel)
         viewForTableViewHeader.addSubview(searchButton)

@@ -21,6 +21,9 @@ class JsonParser {
             if let bundlePath = Bundle.main.path(forResource: lightsJson, ofType: "json"),
                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
                 lightsInfo = try decoder.decode([JSLights].self, from: jsonData)
+                lightsInfo = lightsInfo.sorted {
+                    $0.name.lowercased() < $1.name.lowercased()
+                }
                 
                 return lightsInfo
             }

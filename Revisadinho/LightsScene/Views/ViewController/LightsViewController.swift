@@ -13,8 +13,12 @@ class LightsViewController: UIViewController {
     let lightsView = LightsView()
     var tableViewHeader: UIView?
     var jParser = JsonParser()
+    static var tableView: UITableView?
     var lightsInfo: [JSLights] = []
     
+    var selectedIndex: IndexPath?
+    var selected: Bool = false
+
     override func viewWillAppear(_ animated: Bool) {
         lightsInfo = jParser.parsingLights()
         lightsView.tableView.reloadData()
@@ -26,11 +30,10 @@ class LightsViewController: UIViewController {
         lightsView.tableView.delegate = self
         lightsView.tableView.dataSource = self
         self.tableViewHeader = lightsView.viewForTableViewHeader
+        LightsViewController.tableView = lightsView.tableView
+        lightsView.viewControllwe = self
+        
         view = lightsView
-//        lightsView.tableView.tableHeaderView = lightsView.viewForTableViewHeader
-//        lightsView.setUpHeaderTableView()
-//        setupTableView()
-//        view.addSubview(tableView)
     }
 
 }
@@ -48,18 +51,38 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = LightTableViewCell()
-        let imageIn = UIImage(named: lightsInfo[indexPath.row].iconName)?.withRenderingMode(.alwaysOriginal)
+        let cell = tableView.dequeueReusableCell(withIdentifier: LightTableViewCell.identifier, for: indexPath) as? LightTableViewCell
+        cell?.iconImageView.image = UIImage(named: lightsInfo[indexPath.row].iconName)?.withRenderingMode(.alwaysOriginal)
         
-        cell.iconImageView.image = imageIn
-        
-        cell.iconLabel.text = lightsInfo[indexPath.row].name
-        return cell
+        cell?.iconLabel.text = lightsInfo[indexPath.row].name
+        cell?.descriptionLabel.text = lightsInfo[indexPath.row].description
+        cell?.selectionStyle = .none
+        cell?.animate()
+        return cell ?? LightTableViewCell()
     }
-    
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return 56}
+        
+        if selected {
+            let lines = CGFloat(integerLiteral: cell.descriptionLabel.calculateMaxLines())
+            if selectedIndex == indexPath { return 56 + (17 * lines) }
+        } else {
+            return 56
+        }
+        
+        return 56
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected row: \(indexPath.row)")
-        tableView.deselectRow(at: indexPath, animated: true)
+        selectedIndex = indexPath
+        selected.toggle()
+        if let index = selectedIndex {
+            tableView.beginUpdates()
+            tableView.reloadRows(at: [index], with: .none)
+            tableView.endUpdates()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

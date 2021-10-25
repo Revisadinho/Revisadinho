@@ -21,6 +21,7 @@
 		6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */; };
 		6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
+		734B18082726E61000FE6E74 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B18072726E61000FE6E74 /* Labels.swift */; };
 		735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 735A47772721A2A800DC7BF0 /* LightsContent.json */; };
 		735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477A2721A3F800DC7BF0 /* JsonModel.swift */; };
 		735A477E2721A70A00DC7BF0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477D2721A70A00DC7BF0 /* JsonParser.swift */; };
@@ -105,6 +106,7 @@
 		6EE2083C26F0D18A007889EF /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		6EE2083E26F0DBFA007889EF /* MaintenanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
 		6EE2084126F0DE17007889EF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		734B18072726E61000FE6E74 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		735A47772721A2A800DC7BF0 /* LightsContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LightsContent.json; sourceTree = "<group>"; };
 		735A477A2721A3F800DC7BF0 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		735A477D2721A70A00DC7BF0 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				EF3D7FDA26F0D2A500DC01CA /* Color.swift */,
+				734B18072726E61000FE6E74 /* Labels.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 				6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */,
 				73CF4CB7271DAF13002E00FA /* LightsViewController.swift in Sources */,
+				734B18082726E61000FE6E74 /* Labels.swift in Sources */,
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
 				73CF4CB9271DAFA2002E00FA /* LightsViewModel.swift in Sources */,
 				EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */,
