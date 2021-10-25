@@ -118,6 +118,12 @@ class MaintenanceTableViewCell: UITableViewCell {
         self.addSubview(viewForHidingExcedentLineOfFirstCell)
     }
     
+    func animate() {
+        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn) {
+            self.contentView.layoutIfNeeded()
+        }
+    }
+    
     func setUpDashedLayer() {
         let layer = CALayer()
         let lineDashPattern:[NSNumber] = [5, 3]
