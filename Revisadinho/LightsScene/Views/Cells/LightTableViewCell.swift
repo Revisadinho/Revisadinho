@@ -111,10 +111,10 @@ class LightTableViewCell: UITableViewCell {
         imageContainer.addSubview(iconImageView)
         
         NSLayoutConstraint.activate([
-            iconImageView.topAnchor.constraint(equalTo: imageContainer.topAnchor, constant: 2),
-            iconImageView.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor, constant: 2),
-            iconImageView.trailingAnchor.constraint(equalTo: imageContainer.trailingAnchor, constant: -2),
-            iconImageView.bottomAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: -2)
+            iconImageView.topAnchor.constraint(equalTo: imageContainer.topAnchor, constant: 8),
+            iconImageView.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor, constant: 8),
+            iconImageView.trailingAnchor.constraint(equalTo: imageContainer.trailingAnchor, constant: -8),
+            iconImageView.bottomAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: -8)
         
         ])
     }

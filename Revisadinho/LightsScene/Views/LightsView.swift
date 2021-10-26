@@ -21,7 +21,7 @@ class LightsView: UIView {
     }()
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableView.sectionHeaderHeight))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true

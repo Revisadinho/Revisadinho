@@ -39,9 +39,14 @@ class LightsViewController: UIViewController {
 }
 extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 160
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        lightsView.setUpHeaderTableView()
         let viewForHeader = tableViewHeader
+        lightsView.setUpHeaderTableView()
+//        viewForHeader?.frame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 160))
         viewForHeader?.isUserInteractionEnabled = true
         return viewForHeader
     }
@@ -83,10 +88,6 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.reloadRows(at: [index], with: .none)
             tableView.endUpdates()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 160
     }
     
 }
