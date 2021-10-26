@@ -45,7 +45,7 @@ class MaintenanceViewControllerTests: XCTestCase {
     func test_calculateSizeOfExpandableCellRealCellSize() {
         let numberOfLines = sut.calculateNumberOfLines(numberOfItems: 9, numberOfItemsPerLine: 3)
         print(numberOfLines)
-        let expectedResult = ((120+38)*numberOfLines) + (8+16)*2
+        let expectedResult = ((120+38)*numberOfLines) + (8+16)*2 + 49
         // using values of the real cell
         let expandedCellSize = sut.calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 120, spaceBetweenItems: 38, insetTop: 8, insetBottom: 16)
         print(expandedCellSize)
@@ -54,7 +54,7 @@ class MaintenanceViewControllerTests: XCTestCase {
     
     func test_calculateSizeOfExpandableCellFakeCellSize() {
         let numberOfLines = sut.calculateNumberOfLines(numberOfItems: 9, numberOfItemsPerLine: 3)
-        let expectedResult = ((150+38)*numberOfLines) + (8+8)*2
+        let expectedResult = ((150+38)*numberOfLines) + (8+8)*2 + 49
         // using values of a fake cell
         let expandedCellSize = sut.calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 150, spaceBetweenItems: 38, insetTop: 8, insetBottom: 8)
         XCTAssertTrue(expectedResult == Int(expandedCellSize))
