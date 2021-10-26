@@ -89,7 +89,8 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = true
         }
-        
+         
+        cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: maintenances[indexPath.row].hodometer)
         collectionView = cellUnwrapped.cardCollectionView
         cellUnwrapped.dateLabel.text = formatedDate
         cellUnwrapped.cardCollectionView.delegate = self
@@ -98,6 +99,12 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         cellUnwrapped.animate()
         
         return cellUnwrapped
+    }
+    
+    func formatHodometerText(hodometer: Double) -> String {
+        let intHodometer = Int(hodometer)
+        let stringHodometer = String(intHodometer)
+        return stringHodometer + " " + "km"
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -159,7 +166,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func calculateSizeOfExpandedCell(numberOfLines: Int, itemSize: Int, spaceBetweenItems: Int, insetTop: Int, insetBottom: Int) -> CGFloat {
-        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines) + ((insetTop + insetBottom)*2)
+        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines) + ((insetTop + insetBottom)*2) + 49
         return CGFloat(expandedHeight)
     }
     
