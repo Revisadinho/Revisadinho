@@ -10,7 +10,7 @@ import UIKit
 
 class MaintenanceTableViewCell: UITableViewCell {
     
-    static var cellHeight = 200
+    static var cellHeight = 249
     static var collectionViewHeight = 130
     static var identifier = "MaintenanceTableViewCell"
     
@@ -59,6 +59,23 @@ class MaintenanceTableViewCell: UITableViewCell {
         return collectionView
     }()
     
+    lazy var hodometerImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "speedometer")?.withTintColor(.purpleDayNameCalendar).withRenderingMode(.alwaysOriginal)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var hodometerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "5000 km"
+        label.textColor = .purpleDayNameCalendar
+        label.font = UIFont(name: "Quicksand-Medium", size: 15)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     func setUpViewForHidingLineConstraints() {
         NSLayoutConstraint.activate([
             viewForHidingExcedentLineOfFirstCell.topAnchor.constraint(equalTo: self.topAnchor),
@@ -97,10 +114,28 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     func setUpCardViewConstraints() {
         NSLayoutConstraint.activate([
-            cardCollectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            cardCollectionView.topAnchor.constraint(equalTo: hodometerImage.bottomAnchor, constant: 20),
             cardCollectionView.leftAnchor.constraint(equalTo: circle.leftAnchor, constant: 24),
             cardCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             cardCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
+        ])
+    }
+    
+    func setUpHodometerImageConstraints() {
+        NSLayoutConstraint.activate([
+            hodometerImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 6),
+            hodometerImage.leftAnchor.constraint(equalTo: dateLabel.leftAnchor),
+            hodometerImage.widthAnchor.constraint(equalToConstant: 23),
+            hodometerImage.heightAnchor.constraint(equalToConstant: 23)
+        ])
+    }
+    
+    func setUpHodometerLabelConstraints() {
+        NSLayoutConstraint.activate([
+            hodometerLabel.centerYAnchor.constraint(equalTo: hodometerImage.centerYAnchor),
+            hodometerLabel.leftAnchor.constraint(equalTo: hodometerImage.rightAnchor, constant: 8),
+            hodometerLabel.widthAnchor.constraint(equalToConstant: 100),
+            hodometerLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -113,6 +148,8 @@ class MaintenanceTableViewCell: UITableViewCell {
     func setUpViewHierarchy() {
         self.addSubview(dateLabel)
         self.addSubview(cardCollectionView)
+        self.addSubview(hodometerImage)
+        self.addSubview(hodometerLabel)
         self.addSubview(circle)
         self.addSubview(lineBottom)
         self.addSubview(viewForHidingExcedentLineOfFirstCell)
@@ -148,6 +185,8 @@ class MaintenanceTableViewCell: UITableViewCell {
         setUpViewHierarchy()
         setUpDateLabelConstraints()
         setUpCardViewConstraints()
+        setUpHodometerImageConstraints()
+        setUpHodometerLabelConstraints()
         setUpCircleConstraints()
         setUpLineBottomConstraints()
         setUpViewForHidingLineConstraints()
