@@ -9,10 +9,10 @@ import UIKit
 
 class LightsViewController: UIViewController {
 
+    var lightsViewModel = LightsViewModel()
     var lightsRouter: LightsRouter?
     let lightsView = LightsView()
     var tableViewHeader: UIView?
-    var jParser = JsonParser()
     static var tableView: UITableView?
     var lightsInfo: [JSLights] = []
     
@@ -20,7 +20,7 @@ class LightsViewController: UIViewController {
     var selected: Bool = false
 
     override func viewWillAppear(_ animated: Bool) {
-        lightsInfo = jParser.parsingLights()
+        lightsInfo = lightsViewModel.getLightsInfo()
         lightsView.tableView.reloadData()
     }
     
@@ -32,6 +32,7 @@ class LightsViewController: UIViewController {
         self.tableViewHeader = lightsView.viewForTableViewHeader
         LightsViewController.tableView = lightsView.tableView
         lightsView.viewControllwe = self
+        lightsView.searchBar.delegate = self
         
         view = lightsView
     }
@@ -90,4 +91,10 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+extension LightsViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print(searchBar.text!)
+    }
 }

@@ -20,6 +20,17 @@ class LightsView: UIView {
         return tableView
     }()
     
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
+        searchBar.showsCancelButton = true
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search Here....."
+        searchBar.sizeToFit()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
     lazy var viewForTableViewHeader: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
         view.backgroundColor = .blueBackground
@@ -49,11 +60,11 @@ class LightsView: UIView {
         buttonLabel.textColor = .buttonLabelText
         buttonLabel.font = UIFont(name: "Quicksand-Medium", size: 17)
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
-        buttonLabel.isUserInteractionEnabled = true
+        buttonLabel.isUserInteractionEnabled = false
         
         let imageSymbol = UIImageView(image: UIImage(systemName: "magnifyingglass")?.withRenderingMode(.alwaysOriginal).withTintColor(.buttonLabelText))
         imageSymbol.translatesAutoresizingMaskIntoConstraints = false
-        imageSymbol.isUserInteractionEnabled = true
+        imageSymbol.isUserInteractionEnabled = false
         
         view.addSubview(imageSymbol)
         view.addSubview(buttonLabel)
@@ -80,10 +91,10 @@ class LightsView: UIView {
         button.backgroundColor = .purpleAction
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
-    
+        
         let insideView = searchButtonInsideView
         insideView.translatesAutoresizingMaskIntoConstraints = false
-        insideView.isUserInteractionEnabled = true
+        insideView.isUserInteractionEnabled = false
         
         button.addSubview(insideView)
         NSLayoutConstraint.activate([
@@ -94,7 +105,7 @@ class LightsView: UIView {
         ])
         
         button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
-
+        
         return button
     }()
     
@@ -108,11 +119,11 @@ class LightsView: UIView {
         buttonLabel.textColor = .buttonLabelText
         buttonLabel.font = UIFont(name: "Quicksand-Medium", size: 17)
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
-        buttonLabel.isUserInteractionEnabled = true
+        buttonLabel.isUserInteractionEnabled = false
         
         let imageSymbol = UIImageView(image: UIImage(systemName: "camera")?.withRenderingMode(.alwaysOriginal).withTintColor(.buttonLabelText))
         imageSymbol.translatesAutoresizingMaskIntoConstraints = false
-        imageSymbol.isUserInteractionEnabled = true
+        imageSymbol.isUserInteractionEnabled = false
         
         view.addSubview(imageSymbol)
         view.addSubview(buttonLabel)
@@ -137,10 +148,10 @@ class LightsView: UIView {
         button.backgroundColor = .purpleAction
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
-    
+        
         let insideView = identifyuttonInsideView
         insideView.translatesAutoresizingMaskIntoConstraints = false
-        insideView.isUserInteractionEnabled = true
+        insideView.isUserInteractionEnabled = false
         
         button.addSubview(insideView)
         NSLayoutConstraint.activate([
@@ -150,13 +161,21 @@ class LightsView: UIView {
             insideView.heightAnchor.constraint(equalTo: button.heightAnchor)
         ])
         
-        button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
+        button.addTarget(self, action: #selector(identifyLights), for: .touchUpInside)
         
         return button
     }()
     
     @objc func toPrint() {
         print("Button Pressed")
+        searchButton.removeFromSuperview()
+        identifyButton.removeFromSuperview()
+        viewForTableViewHeader.addSubview(searchBar)
+        setUpSearchBar()
+    }
+    
+    @objc func identifyLights() {
+        print("Aqui Jessica!")
     }
     
     override init(frame: CGRect) {
@@ -224,6 +243,14 @@ class LightsView: UIView {
             identifyButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 28),
             identifyButton.widthAnchor.constraint(equalToConstant: 158),
             identifyButton.heightAnchor.constraint(equalToConstant: 38)
+        ])
+    }
+    
+    func setUpSearchBar() {
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: viewForTableViewHeader.leadingAnchor, constant: 20),
+            searchBar.trailingAnchor.constraint(equalTo: viewForTableViewHeader.trailingAnchor, constant: -20)
         ])
     }
     
