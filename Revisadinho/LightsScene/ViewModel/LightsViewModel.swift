@@ -16,4 +16,17 @@ class LightsViewModel {
         lightsInfo = jParser.parsingLights()
         return lightsInfo
     }
+    
+    func getLightsByName(name: String) -> [JSLights] {
+        lightsInfo = jParser.parsingLights()
+        var lightsFind = [JSLights]()
+        
+        for light in lightsInfo {
+            if light.name.localizedStandardContains(name) {
+                lightsFind.append(light)
+            }
+        }
+        
+        return lightsFind
+    }
 }

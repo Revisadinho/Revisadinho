@@ -97,4 +97,31 @@ extension LightsViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print(searchBar.text!)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        if searchText == "" {
+            lightsInfo = lightsViewModel.getLightsInfo()
+
+        } else {
+            lightsInfo = lightsViewModel.getLightsByName(name: searchText)
+        }
+        lightsView.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        lightsView.searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Canceled")
+        lightsView.removeSearchBar()
+        searchBar.endEditing(true)
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        lightsInfo = lightsViewModel.getLightsInfo()
+        selectedIndex = nil
+        selected = false
+        lightsView.tableView.reloadSections(IndexSet(integer: 0), with: .none)
+    }
 }
