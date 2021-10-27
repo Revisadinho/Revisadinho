@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
         window.rootViewController = mainRouter.getTabBarController()
 
-
         self.window = window
         window.makeKeyAndVisible()
     }

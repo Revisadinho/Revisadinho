@@ -1,0 +1,72 @@
+[
+    {
+      "name": "Advertência mestre",
+      "description": "A luz indicadora geralmente acompanha outra luz de advertência e indica que um ou mais sistemas de advertência foram detectados.",
+      "iconName": "advertencia_mestre"
+    },
+    {
+      "name": "Pressão de óleo",
+      "description": "Esta imagem indica que há um problema com o sistema de pressão de óleo do seu carro. Ou você está com pouco óleo ou sua bomba de óleo não está circulando fluido suficiente para lubrificar adequadamente as superfícies dentro de seu veículo. Isso deve ser resolvido o mais rápido possível, pois o motor pode se desgastar rapidamente sem a lubrificação adequada.",
+      "iconName": "pressao_de_oleo"
+    },
+    {
+      "name": "Advertência da pressão do pneu",
+      "description": "Também conhecido como símbolo TPMS, esta imagem sinaliza que a pressão em um ou mais pneus está muito baixa ou muito alta e precisa ser corrigida. Dirigir com pneus de baixa ou alta pressão não é seguro e pode causar danos adicionais ao veículo. Normalmente, a pressão dos pneus deve estar entre 30 e 35 psi (libras por polegada quadrada).",
+      "iconName": "pressao_do_pneu"
+    },
+    {
+      "name": "Aviso de temperatura do motor",
+      "description": "Este símbolo significa que seu motor está superaquecido. Isso provavelmente tem a ver com o refrigerante (também chamado de anticongelante), mas pode acontecer por vários motivos. É importante resolver isso imediatamente para evitar mais danos.",
+      "iconName": "temperatura_motor"
+    },
+    {
+      "name": "Controle de tração",
+      "description": "Isso indica que o sistema de controle de tração do seu veículo está ativado. O sistema de controle de tração utiliza o freio ABS para determinar se uma roda está girando mais rápido do que outra. Se detectar que uma roda está escorregando, ele aciona os freios até recuperar a tração. Isso é mais útil se você estiver dirigindo na chuva ou neve.",
+      "iconName": "controle_de_tracao"
+    },
+    {
+      "name": "Símbolo ABS",
+      "description": "Significa que algo está errado com o sistema ABS. Como você sabe, seus freios antibloqueio funcionam para manter seu carro em contato com a estrada com segurança, por isso é importante diagnosticar o problema o mais rápido possível. Lembre-se de que toda vez que você liga o veículo, o sistema faz uma autoverificação e pode acender por apenas alguns segundos. Se ele desaparecer imediatamente, seu sistema está funcionando bem.",
+      "iconName": "simbolo_abs"
+    },
+    {
+      "name": "Mau funcionamento do controle de tração",
+      "description": "Significa que algo está errado com o sistema ABS. Como você sabe, seus freios antibloqueio funcionam para manter seu carro em contato com a estrada com segurança, por isso é importante diagnosticar o problema o mais rápido possível. Lembre-se de que toda vez que você liga o veículo, o sistema faz uma autoverificação e pode acender por apenas alguns segundos. Se ele desaparecer imediatamente, seu sistema está funcionando bem.",
+      "iconName": "bad_controle_tracao"
+    },
+    {
+      "name": "Alerta do motor",
+      "description": "A luz do motor de verificação pode aparecer por vários motivos. Às vezes, pode indicar um problema sério e exigir que você pare imediatamente. Isso pode indicar baixa pressão do óleo ou superaquecimento. Outras vezes, essa luz aparecerá se a tampa do tanque estiver aberta, solta ou rachada, fazendo com que o combustível evapore.",
+      "iconName": "alerta_do_motor"
+    },
+    {
+      "name": "Alerta de bateria",
+      "description": "Este símbolo indica que há um problema com o sistema de carregamento do veículo. Embora possa indicar que você tem um cabo de bateria solto ou danificado, também pode indicar que a correia do alternador está quebrada. Se for sua bateria, ocasionalmente você notará que seu relógio está acabando ou seus faróis estão diminuindo. Se você esperar muito tempo, seu veículo pode travar completamente.",
+      "iconName": "alerta_da_bateria"
+    },
+    {
+      "name": "Indicador de airbag",
+      "description": "A luz indicadora acende quando o airbag frontal é desligado. Se esta luz se acender ou piscar, há uma falha no airbag ou no sistema de cinto de segurança.",
+      "iconName": "indicador_airbag"
+    },
+    {
+      "name": "Indicador do cinto de segurança",
+      "description": "A luz indicadora significa que o cinto de segurança não foi colocado para o passageiro do veículo.",
+      "iconName": "indicador_do_cinto"
+    },
+    {
+      "name": "Temperatura de transmissão",
+      "description": "A luz indicadora significa que a temperatura do motor excedeu os limites normais. Verifique o nível do líquido refrigerante, a operação do ventilador, a tampa do radiador e os vazamentos do líquido refrigerante.",
+      "iconName": "temperatura_transmissão"
+    },
+    {
+      "name": "Controle de tração desligado",
+      "description": "A luz indicadora significa que o sistema de controle de tração do veículo foi desativado.",
+      "iconName": "off_controle_de_tracao"
+    },
+    {
+      "name": "Advertência de freio",
+      "description": "A luz indicadora significa que o sistema de controle de tração do veículo foi desativado.",
+      "iconName": "advertencia_de_freio"
+    }
+  ]

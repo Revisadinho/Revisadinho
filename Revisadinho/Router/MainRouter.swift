@@ -13,17 +13,17 @@ class MainRouter: NSObject, UITabBarControllerDelegate {
     let maintenanceRouter: MaintenanceRouter
     let maintenanceViewController = MaintenanceViewController()
     
-    let tabBarController = TabBarController()
+    let lightsRouter: LightsRouter
+    let lightsViewController = LightsViewController()
     
-    let viewControll: UIViewController = {
-        let view = UIViewController()
-        view.view.backgroundColor = .blueBackground
-        return view
-    }()
+    let tabBarController = TabBarController()
     
     override init() {
         maintenanceRouter = MaintenanceRouter(rootViewController: maintenanceViewController)
         maintenanceViewController.maintenanceRouter = maintenanceRouter
+        
+        lightsRouter = LightsRouter(rootViewController: lightsViewController)
+        lightsViewController.lightsRouter = lightsRouter
         
         super.init()
         tabBarController.delegate = self
@@ -36,9 +36,9 @@ class MainRouter: NSObject, UITabBarControllerDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.purpleTabBarItem], for: .selected)
         
         setupVc(viewController: maintenanceRouter.rootViewController, image: UIImage(named: "tool")!, title: "Manutenção")
-        setupVc(viewController: viewControll, image: UIImage(named: "light")!, title: "Luzes do Painel")
+        setupVc(viewController: lightsRouter.rootViewController, image: UIImage(named: "light")!, title: "Luzes do Painel")
         
-        tabBarController.viewControllers = [maintenanceRouter.rootViewController, viewControll]
+        tabBarController.viewControllers = [maintenanceRouter.rootViewController, lightsRouter.rootViewController]
         tabBarController.tabBar.isHidden = false
     }
     
@@ -58,5 +58,9 @@ class MainRouter: NSObject, UITabBarControllerDelegate {
     
     func getMaintenanceViewController() -> MaintenanceViewController {
         return maintenanceViewController
+    }
+    
+    func getLightsViewController() -> LightsViewController {
+        return lightsViewController
     }
 }
