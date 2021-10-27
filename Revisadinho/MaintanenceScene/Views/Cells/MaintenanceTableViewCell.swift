@@ -87,7 +87,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     }
     
     func setUpLineBottomConstraints() {
-        NSLayoutConstraint.activate([            
+        NSLayoutConstraint.activate([
             lineBottom.topAnchor.constraint(equalTo: self.topAnchor),
             lineBottom.widthAnchor.constraint(equalToConstant: lineBottom.frame.width),
             lineBottom.centerXAnchor.constraint(equalTo: circle.centerXAnchor),
@@ -116,6 +116,12 @@ class MaintenanceTableViewCell: UITableViewCell {
         self.addSubview(circle)
         self.addSubview(lineBottom)
         self.addSubview(viewForHidingExcedentLineOfFirstCell)
+    }
+    
+    func animate() {
+        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn) {
+            self.contentView.layoutIfNeeded()
+        }
     }
     
     func setUpDashedLayer() {

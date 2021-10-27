@@ -54,12 +54,12 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             placeholderText?.isHidden = true
             MaintenanceViewController.tableView?.bounces = true
             return maintenances.count
-        }        
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let maintenences = getMaintenances()
-        let totalMaintenenceItems = maintenences[collectionViewMaintenanceIndex].maintenanceItens.count
+        let totalMaintenenceItems = maintenences[indexPath.row].maintenanceItens.count
         let numberOfLines = calculateNumberOfLines(numberOfItems: totalMaintenenceItems, numberOfItemsPerLine: 3)
         
         if selectedIndex == indexPath {
@@ -77,6 +77,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
+        
         let maintenances = getMaintenances()
         collectionViewMaintenanceIndex = indexPath.row
         let formatedDate = formatDate(date: maintenances[indexPath.row].date)
@@ -88,12 +89,13 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = true
         }
-
+        
         collectionView = cellUnwrapped.cardCollectionView
         cellUnwrapped.dateLabel.text = formatedDate
         cellUnwrapped.cardCollectionView.delegate = self
         cellUnwrapped.cardCollectionView.dataSource = self
         cellUnwrapped.cardCollectionView.reloadData()
+        cellUnwrapped.animate()
         
         return cellUnwrapped
     }
@@ -110,6 +112,8 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let oldIndex = selectedIndex?.row ?? 0
         if selectedIndex == indexPath { // user taps more than once in the same cell
             if isExpanded == false {
                 sameIndex = false
@@ -120,14 +124,37 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             sameIndex = false
             selectedIndex = indexPath
         }
-        MaintenanceViewController.tableView?.reloadData()
+        // shake animation for cards that have 3 or less items
+        guard let cell = (tableView.cellForRow(at: indexPath)) as? MaintenanceTableViewCell else {return}
+        if cell.cardCollectionView.numberOfItems(inSection: 0) <= 3 {
+            shakeAnimation(cell: cell)
+        } else {
+            // expanding and collapsing animation
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.3, animations: {
+                tableView.performBatchUpdates {
+                    if self.sameIndex == false {
+                        tableView.reloadRows(at: [indexPath, IndexPath(row: oldIndex, section: 0)], with: .none)
+                    } else {
+                        tableView.reloadRows(at: [indexPath], with: .none)
+                    }
+                }
+            }, completion: nil)
+        }
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+    }
+    
+    func shakeAnimation(cell: MaintenanceTableViewCell) {
+        cell.cardCollectionView.transform = CGAffineTransform(translationX: 20, y: 0)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            cell.cardCollectionView.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
     
     func calculateNumberOfLines(numberOfItems: Int, numberOfItemsPerLine: Int) -> Int {
         if numberOfItems % numberOfItemsPerLine != 0 {
-              return (numberOfItems / 3) + 1
+            return (numberOfItems / 3) + 1
         } else {
-              return (numberOfItems / 3)
+            return (numberOfItems / 3)
         }
     }
     
