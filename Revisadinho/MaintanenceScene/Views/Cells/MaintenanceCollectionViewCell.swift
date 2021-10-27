@@ -17,8 +17,6 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
         setUpViewHierarchy()
         setUpItemSquareConstraints()
         setUpItemConstraints()
-//        setUpItemNameLabelConstraints()
-
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -29,7 +27,6 @@ class MaintenanceCollectionViewCell: UICollectionViewCell {
     func setUpViewHierarchy() {
         self.addSubview(itemSquare)
         itemSquare.addSubview(item)
-//        self.addSubview(itemNameLabel)
     }
 
     required init?(coder: NSCoder) {
@@ -110,7 +107,7 @@ extension MaintenanceCollectionViewCell {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 4
         flowLayout.minimumLineSpacing = 38
-        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 6, right: 8)
+        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 16, right: 8)
         flowLayout.itemSize = CGSize(width: 95, height: 120)
         return flowLayout
     }
