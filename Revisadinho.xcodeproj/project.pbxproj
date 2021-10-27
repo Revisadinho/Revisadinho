@@ -52,6 +52,7 @@
 		D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */; };
 		D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */; };
 		D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */; };
+		D8DAA96F27298C67005B0586 /* LightsDetection in Frameworks */ = {isa = PBXBuildFile; productRef = D8DAA96E27298C67005B0586 /* LightsDetection */; };
 		EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDA26F0D2A500DC01CA /* Color.swift */; };
 		EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */; };
 		EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */; };
@@ -170,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */,
+				D8DAA96F27298C67005B0586 /* LightsDetection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +554,7 @@
 			name = Revisadinho;
 			packageProductDependencies = (
 				D85EF6DF26F8B40C00AC5617 /* FSCalendar */,
+				D8DAA96E27298C67005B0586 /* LightsDetection */,
 			);
 			productName = Revisadinho;
 			productReference = EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */;
@@ -626,6 +629,7 @@
 			mainGroup = EFE12CD026EF76E4005FB2B2;
 			packageReferences = (
 				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */,
 			);
 			productRefGroup = EFE12CDA26EF76E4005FB2B2 /* Products */;
 			projectDirPath = "";
@@ -915,7 +919,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
+				DEVELOPMENT_TEAM = 2V8P924DLJ;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -936,7 +940,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
+				DEVELOPMENT_TEAM = 2V8P924DLJ;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1084,6 +1088,14 @@
 				minimumVersion = 2.8.2;
 			};
 		};
+		D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Revisadinho/LightSymbolsRecognition";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1091,6 +1103,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		D8DAA96E27298C67005B0586 /* LightsDetection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */;
+			productName = LightsDetection;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -161,8 +161,6 @@ class LightsView: UIView {
             insideView.heightAnchor.constraint(equalTo: button.heightAnchor)
         ])
         
-        button.addTarget(self, action: #selector(identifyLights), for: .touchUpInside)
-        
         return button
     }()
     
@@ -172,10 +170,6 @@ class LightsView: UIView {
         identifyButton.removeFromSuperview()
         viewForTableViewHeader.addSubview(searchBar)
         setUpSearchBar()
-    }
-    
-    @objc func identifyLights() {
-        print("Aqui Jessica!")
     }
     
     override init(frame: CGRect) {
