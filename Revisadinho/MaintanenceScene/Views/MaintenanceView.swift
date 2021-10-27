@@ -46,7 +46,7 @@ class MaintenanceView: UIView {
     lazy var placeholderText: UILabel = {
         let label = UILabel()
         label.text = "Nenhuma manutenção cadastrada para este mês"
-        label.textColor = .grayPlaceholderText
+        label.textColor = .purpleDayNameCalendar
         label.isHidden = true
         label.textAlignment = .center
         label.numberOfLines = 0
