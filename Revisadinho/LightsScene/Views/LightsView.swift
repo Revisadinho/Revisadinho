@@ -123,7 +123,6 @@ class LightsView: UIView {
         ])
         
         button.addTarget(self, action: #selector(searchLights), for: .touchUpInside)
-        
         return button
     }()
     
@@ -179,8 +178,7 @@ class LightsView: UIView {
             insideView.heightAnchor.constraint(equalTo: button.heightAnchor)
         ])
         
-        button.addTarget(self, action: #selector(identifyLights), for: .touchUpInside)
-        
+        button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
         return button
     }()
     
@@ -189,10 +187,6 @@ class LightsView: UIView {
         searchButton.isHidden = true
         identifyButton.isHidden = true
         searchBar.isHidden = false
-    }
-    
-    @objc func identifyLights() {
-        print("Aqui Jessica!")
     }
     
     override init(frame: CGRect) {

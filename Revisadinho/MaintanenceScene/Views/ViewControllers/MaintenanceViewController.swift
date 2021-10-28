@@ -9,7 +9,9 @@ import UIKit
 import Foundation
 
 class MaintenanceViewController: UIViewController {
-
+    
+    var collectionView: UICollectionView?
+    var selectedIndex: IndexPath?
     let maintenanceViewModel = MaintenanceViewModel()
     var placeholderText: UILabel?
     let maintenanceView = MaintenanceView()
@@ -17,18 +19,11 @@ class MaintenanceViewController: UIViewController {
     var maintenanceRouter: MaintenanceRouter?
     static var tableView: UITableView?
     var collectionViewMaintenanceIndex = 0
-        
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        MaintenanceViewController.tableView?.reloadData()
-//        maintenanceView.tableView.reloadData()
-//        print("Switched")
-//
-//    }
+    var sameIndex: Bool = false
+    var isExpanded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        overrideUserInterfaceStyle = .light
         MaintenanceViewController.tableView?.reloadData()
     }
     
@@ -41,10 +36,9 @@ class MaintenanceViewController: UIViewController {
         maintenanceView.tableView.delegate = self
         maintenanceView.tableView.dataSource = self
         maintenanceView.dateComponent.delegateReloadTableView = self
-        self.tableViewHeader = maintenanceView.viewForTableViewHeader        
+        self.tableViewHeader = maintenanceView.viewForTableViewHeader
         view = maintenanceView
     }
-
 }
 
 extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,27 +55,119 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             MaintenanceViewController.tableView?.bounces = true
             return maintenances.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        let maintenences = getMaintenances()
+        let totalMaintenenceItems = maintenences[indexPath.row].maintenanceItens.count
+        let numberOfLines = calculateNumberOfLines(numberOfItems: totalMaintenenceItems, numberOfItemsPerLine: 3)
+        
+        if selectedIndex == indexPath {
+            if sameIndex {
+                isExpanded = false
+                return CGFloat(MaintenanceTableViewCell.cellHeight)
+            }
+            if numberOfLines > 1 {
+                isExpanded = true
+                return calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 120, spaceBetweenItems: 38, insetTop: 8, insetBottom: 16)
+            }
+        }
+        return CGFloat(MaintenanceTableViewCell.cellHeight)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
+        
         let maintenances = getMaintenances()
         collectionViewMaintenanceIndex = indexPath.row
         let formatedDate = formatDate(date: maintenances[indexPath.row].date)
-        cell?.dateLabel.text = formatedDate
-        cell?.cardCollectionView.delegate = self
-        cell?.cardCollectionView.dataSource = self
-        cell?.cardCollectionView.reloadData()
-        if indexPath.row == 0 {
-                cell?.lineUp.isHidden = true
-        }
         
-        return cell ?? MaintenanceTableViewCell()
+        guard let cellUnwrapped = cell else {return MaintenanceTableViewCell()}
+        
+        if indexPath.row == 0 {
+            cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = false
+        } else {
+            cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = true
+        }
+         
+        cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: maintenances[indexPath.row].hodometer)
+        collectionView = cellUnwrapped.cardCollectionView
+        cellUnwrapped.dateLabel.text = formatedDate
+        cellUnwrapped.cardCollectionView.delegate = self
+        cellUnwrapped.cardCollectionView.dataSource = self
+        cellUnwrapped.cardCollectionView.reloadData()
+        cellUnwrapped.animate()
+        
+        return cellUnwrapped
+    }
+    
+    func formatHodometerText(hodometer: Double) -> String {
+        let intHodometer = Int(hodometer)
+        let stringHodometer = String(intHodometer)
+        return stringHodometer + " " + "km"
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let viewForHeader = tableViewHeader
+        viewForHeader?.isUserInteractionEnabled = true
+        maintenanceView.setUpViewForTableViewHeaderConstraints()
+        return viewForHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        250
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let oldIndex = selectedIndex?.row ?? 0
+        if selectedIndex == indexPath { // user taps more than once in the same cell
+            if isExpanded == false {
+                sameIndex = false
+            } else {
+                sameIndex = true
+            }
+        } else { // user taps in diferent cell
+            sameIndex = false
+            selectedIndex = indexPath
+        }
+        // shake animation for cards that have 3 or less items
+        guard let cell = (tableView.cellForRow(at: indexPath)) as? MaintenanceTableViewCell else {return}
+        if cell.cardCollectionView.numberOfItems(inSection: 0) <= 3 {
+            shakeAnimation(cell: cell)
+        } else {
+            // expanding and collapsing animation
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.3, animations: {
+                tableView.performBatchUpdates {
+                    if self.sameIndex == false {
+                        tableView.reloadRows(at: [indexPath, IndexPath(row: oldIndex, section: 0)], with: .none)
+                    } else {
+                        tableView.reloadRows(at: [indexPath], with: .none)
+                    }
+                }
+            }, completion: nil)
+        }
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+    }
+    
+    func shakeAnimation(cell: MaintenanceTableViewCell) {
+        cell.cardCollectionView.transform = CGAffineTransform(translationX: 20, y: 0)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            cell.cardCollectionView.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+    
+    func calculateNumberOfLines(numberOfItems: Int, numberOfItemsPerLine: Int) -> Int {
+        if numberOfItems % numberOfItemsPerLine != 0 {
+            return (numberOfItems / 3) + 1
+        } else {
+            return (numberOfItems / 3)
+        }
+    }
+    
+    func calculateSizeOfExpandedCell(numberOfLines: Int, itemSize: Int, spaceBetweenItems: Int, insetTop: Int, insetBottom: Int) -> CGFloat {
+        let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines) + ((insetTop + insetBottom)*2) + 49
+        return CGFloat(expandedHeight)
     }
     
     func formatDate(date: Date) -> String {
@@ -103,27 +189,6 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         let maintenances = maintenanceViewModel.getMaintenances(byMonth: lastMonthState, andYear: lastYearState)
         return maintenances
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let viewForHeader = tableViewHeader
-        viewForHeader?.isUserInteractionEnabled = true
-        maintenanceView.setUpViewForTableViewHeaderConstraints()
-        return viewForHeader
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        260
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let maintenances = getMaintenances()
-        let controller = ModalViewController()
-        controller.maintenanceItems = maintenances[indexPath.row].maintenanceItens
-        controller.maintenanceDate = formatDate(date: maintenances[indexPath.row].date)
-        let hodometerInt = Int(maintenances[indexPath.row].hodometer)
-        controller.hodometer = String(hodometerInt) + " " + "km"
-        self.present(controller, animated: true, completion: nil)
-    }
 }
 
 extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -134,7 +199,6 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             return maintenance[collectionViewMaintenanceIndex].maintenanceItens.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

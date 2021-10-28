@@ -10,6 +10,7 @@ import UIKit
 
 class AddMaintenceViewController: UIViewController {
     
+    private let notificationService = NotificationService.shared
     lazy var contentView = AddMaintenceView()
     lazy var bottomSheetViewController: BottomSheetViewController = {
         let viewController = BottomSheetViewController()
@@ -47,6 +48,7 @@ class AddMaintenceViewController: UIViewController {
             clearAddMaintenceView()
             dismiss(animated: true, completion: nil)
             MaintenanceViewController.tableView?.reloadData()
+            notificationService.updateLastMaintenanceHodometer(forMaintenanceItems: services, withHodometer: totalKm)
         } catch AddMaintenceError.couldntSaveData {
                 showAlert()
         } catch {
