@@ -179,5 +179,6 @@ extension LightsViewController: SymbolDetection {
         lightsDetectionViewController.dismissViewController()
         lightsView.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         lightsView.tableView.delegate?.tableView?(lightsView.tableView, didSelectRowAt: indexPath)
+        lightsView.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 }
