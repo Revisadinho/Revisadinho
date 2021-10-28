@@ -178,7 +178,6 @@ class LightsView: UIView {
             insideView.heightAnchor.constraint(equalTo: button.heightAnchor)
         ])
         
-        button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
         return button
     }()
     
