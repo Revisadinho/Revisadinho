@@ -31,23 +31,19 @@ class MainRouter: NSObject, UITabBarControllerDelegate {
     }
     
     func setupTabBar() {
-        
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.green], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.purpleTabBarItem], for: .selected)
-        
-        setupVc(viewController: maintenanceRouter.rootViewController, image: UIImage(named: "tool")!, title: "Manutenção")
-        setupVc(viewController: lightsRouter.rootViewController, image: UIImage(named: "light")!, title: "Luzes do Painel")
+        tabBarController.appearenceItemTabBar.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.purpleNoSelectedItemTabBar]
+        tabBarController.appearenceItemTabBar.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.purpleTabBarItem]
+        setupVc(viewController: maintenanceRouter.rootViewController, imageSelected: UIImage(named: "tool")!, imageUnselected: UIImage(named: "toolUnselected")!, title: "Manutenção")
+        setupVc(viewController: lightsRouter.rootViewController, imageSelected: UIImage(named: "light")!, imageUnselected: UIImage(named: "lightUnselected")!, title: "Luzes do Painel")
         
         tabBarController.viewControllers = [maintenanceRouter.rootViewController, lightsRouter.rootViewController]
         tabBarController.tabBar.isHidden = false
     }
     
-    func setupVc(viewController: UIViewController, image: UIImage, title: String) {
+    func setupVc(viewController: UIViewController, imageSelected: UIImage, imageUnselected: UIImage, title: String) {
         viewController.tabBarController?.tabBar.tintColor = .blueTabBar
-        viewController.tabBarItem.image = image
-        viewController.tabBarItem.selectedImage = image.withTintColor(.purpleTabBarItem)
-        viewController.tabBarItem.image?.withRenderingMode(.alwaysOriginal)
-        viewController.tabBarItem.selectedImage?.withRenderingMode(.alwaysOriginal)
+        viewController.tabBarItem.image = imageUnselected.withTintColor(.purpleNoSelectedItemTabBar).withRenderingMode(.alwaysOriginal)
+        viewController.tabBarItem.selectedImage = imageSelected.withTintColor(.purpleTabBarItem).withRenderingMode(.alwaysOriginal)
         viewController.title = title
         
     }

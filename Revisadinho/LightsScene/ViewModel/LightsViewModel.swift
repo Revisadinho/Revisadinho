@@ -3,6 +3,8 @@
 //  Revisadinho
 //
 //  Created by Leonardo Gomes Fernandes on 18/10/21.
+
+import Foundation
 // swiftlint:disable trailing_whitespace
 
 import Foundation

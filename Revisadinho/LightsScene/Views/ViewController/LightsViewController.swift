@@ -55,7 +55,7 @@ class LightsViewController: UIViewController {
     
     var selectedIndex: IndexPath?
     var selected: Bool = false
-    
+
     lazy var lightsDetectionViewController: LightSymbols = {
        return LightSymbols(controller: self)
     }()
@@ -83,7 +83,6 @@ class LightsViewController: UIViewController {
         LightsViewController.tableView = lightsView.tableView
         lightsView.viewControllwe = self
         lightsView.searchBar.delegate = self
-        
         view = lightsView
     }
 

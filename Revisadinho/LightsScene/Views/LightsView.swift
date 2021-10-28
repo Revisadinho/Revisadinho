@@ -105,7 +105,6 @@ class LightsView: UIView {
         ])
         
         button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
-        
         return button
     }()
     
@@ -161,6 +160,7 @@ class LightsView: UIView {
             insideView.heightAnchor.constraint(equalTo: button.heightAnchor)
         ])
         
+        button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
         return button
     }()
     
@@ -247,5 +247,4 @@ class LightsView: UIView {
             searchBar.trailingAnchor.constraint(equalTo: viewForTableViewHeader.trailingAnchor, constant: -20)
         ])
     }
-    
 }
