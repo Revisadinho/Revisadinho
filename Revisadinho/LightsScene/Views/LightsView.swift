@@ -14,21 +14,39 @@ class LightsView: UIView {
     
     let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = .blueBackground
+        tableView.keyboardDismissMode = .onDrag
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(LightTableViewCell.self, forCellReuseIdentifier: LightTableViewCell.identifier)
         tableView.isUserInteractionEnabled = true
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
+//        searchBar.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         searchBar.showsCancelButton = true
-        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.isHidden = true
+        searchBar.searchBarStyle = UISearchBar.Style.minimal
         searchBar.placeholder = " Search Here....."
+        searchBar.backgroundColor = .blueBackground
         searchBar.sizeToFit()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
+    }()
+    
+    lazy var placeholderText: UILabel = {
+        let label = UILabel()
+        label.text = "Nenhuma luz identificada"
+        label.textColor = .grayPlaceholderText
+        label.isHidden = true
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont(name: "Quicksand-Bold", size: 19)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     lazy var viewForTableViewHeader: UIView = {
@@ -104,7 +122,7 @@ class LightsView: UIView {
             insideView.heightAnchor.constraint(equalTo: button.heightAnchor)
         ])
         
-        button.addTarget(self, action: #selector(toPrint), for: .touchUpInside)
+        button.addTarget(self, action: #selector(searchLights), for: .touchUpInside)
         return button
     }()
     
@@ -164,23 +182,28 @@ class LightsView: UIView {
         return button
     }()
     
-    @objc func toPrint() {
+    @objc func searchLights() {
         print("Button Pressed")
-        searchButton.removeFromSuperview()
-        identifyButton.removeFromSuperview()
-        viewForTableViewHeader.addSubview(searchBar)
-        setUpSearchBar()
+        searchButton.isHidden = true
+        identifyButton.isHidden = true
+        searchBar.isHidden = false
     }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.backgroundColor = .blueBackground
-        
         setUpTableView()
+        setUpPlaceholderConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func removeSearchBar() {
+        searchBar.isHidden = true
+        searchButton.isHidden = false
+        identifyButton.isHidden = false
     }
     
     func setUpTableView() {
@@ -188,8 +211,8 @@ class LightsView: UIView {
         
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tableView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            tableView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
@@ -210,6 +233,9 @@ class LightsView: UIView {
         setUpHeaderSearchButton()
         setUpHeaderTitleLabel()
         setUpHeaderIndentiyButton()
+        
+        viewForTableViewHeader.addSubview(searchBar)
+        setUpSearchBar()
     }
     
     func setUpHeaderTitleLabel() {
@@ -242,9 +268,19 @@ class LightsView: UIView {
     
     func setUpSearchBar() {
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: viewForTableViewHeader.leadingAnchor, constant: 20),
-            searchBar.trailingAnchor.constraint(equalTo: viewForTableViewHeader.trailingAnchor, constant: -20)
+            searchBar.centerYAnchor.constraint(equalTo: searchButton.centerYAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: viewForTableViewHeader.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: viewForTableViewHeader.trailingAnchor)
+        ])
+    }
+    
+    func setUpPlaceholderConstraints() {
+        self.addSubview(placeholderText)
+        NSLayoutConstraint.activate([
+            placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 320),
+//            placeholderText.widthAnchor.constraint(equalToConstant: 300),
+//            placeholderText.heightAnchor.constraint(equalToConstant: 100),
+            placeholderText.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
