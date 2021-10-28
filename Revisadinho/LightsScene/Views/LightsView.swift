@@ -36,6 +36,19 @@ class LightsView: UIView {
         return searchBar
     }()
     
+    lazy var placeholderText: UILabel = {
+        let label = UILabel()
+        label.text = "Nenhuma luz identificada"
+        label.textColor = .grayPlaceholderText
+        label.isHidden = true
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont(name: "Quicksand-Bold", size: 19)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     lazy var viewForTableViewHeader: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
         view.backgroundColor = .blueBackground
@@ -185,8 +198,8 @@ class LightsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.backgroundColor = .blueBackground
-        
         setUpTableView()
+        setUpPlaceholderConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -267,4 +280,13 @@ class LightsView: UIView {
         ])
     }
     
+    func setUpPlaceholderConstraints() {
+        self.addSubview(placeholderText)
+        NSLayoutConstraint.activate([
+            placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 320),
+//            placeholderText.widthAnchor.constraint(equalToConstant: 300),
+//            placeholderText.heightAnchor.constraint(equalToConstant: 100),
+            placeholderText.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+    }
 }
