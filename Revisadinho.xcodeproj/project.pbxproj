@@ -22,10 +22,19 @@
 		6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */; };
 		6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
+		734B18082726E61000FE6E74 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B18072726E61000FE6E74 /* Labels.swift */; };
+		735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 735A47772721A2A800DC7BF0 /* LightsContent.json */; };
+		735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477A2721A3F800DC7BF0 /* JsonModel.swift */; };
+		735A477E2721A70A00DC7BF0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477D2721A70A00DC7BF0 /* JsonParser.swift */; };
 		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
 		73A1355C26FA06D40010AC59 /* MaintenanceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */; };
 		73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355F26FA11C30010AC59 /* MainRouter.swift */; };
 		73BF5315271705CA00C4951E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF5314271705CA00C4951E /* TabBarController.swift */; };
+		73CF4CB7271DAF13002E00FA /* LightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CB6271DAF13002E00FA /* LightsViewController.swift */; };
+		73CF4CB9271DAFA2002E00FA /* LightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CB8271DAFA2002E00FA /* LightsViewModel.swift */; };
+		73CF4CBB271DB1E8002E00FA /* LightsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CBA271DB1E8002E00FA /* LightsRouter.swift */; };
+		73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CBC271DB77D002E00FA /* LightsView.swift */; };
+		73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
 		D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D85EF6DF26F8B40C00AC5617 /* FSCalendar */; };
 		D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */; };
@@ -43,6 +52,7 @@
 		D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */; };
 		D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */; };
 		D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */; };
+		D8DAA96F27298C67005B0586 /* LightsDetection in Frameworks */ = {isa = PBXBuildFile; productRef = D8DAA96E27298C67005B0586 /* LightsDetection */; };
 		EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDA26F0D2A500DC01CA /* Color.swift */; };
 		EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */; };
 		EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */; };
@@ -99,10 +109,19 @@
 		6EE2083C26F0D18A007889EF /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		6EE2083E26F0DBFA007889EF /* MaintenanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
 		6EE2084126F0DE17007889EF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		734B18072726E61000FE6E74 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		735A47772721A2A800DC7BF0 /* LightsContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LightsContent.json; sourceTree = "<group>"; };
+		735A477A2721A3F800DC7BF0 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
+		735A477D2721A70A00DC7BF0 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRouter.swift; sourceTree = "<group>"; };
 		73A1355F26FA11C30010AC59 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		73BF5314271705CA00C4951E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		73CF4CB6271DAF13002E00FA /* LightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewController.swift; sourceTree = "<group>"; };
+		73CF4CB8271DAFA2002E00FA /* LightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewModel.swift; sourceTree = "<group>"; };
+		73CF4CBA271DB1E8002E00FA /* LightsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsRouter.swift; sourceTree = "<group>"; };
+		73CF4CBC271DB77D002E00FA /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
+		73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewController.swift; sourceTree = "<group>"; };
 		D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceView.swift; sourceTree = "<group>"; };
@@ -152,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */,
+				D8DAA96F27298C67005B0586 /* LightsDetection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +216,7 @@
 		6E299A6D26F9FB3100DF574B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */,
 			);
 			path = ViewModel;
@@ -212,8 +233,26 @@
 				6E0FBB6526F8AA4C00C762B7 /* DatabaseController.swift */,
 				EF3D7FEC26F8C9DD00DC01CA /* DateModel.swift */,
 				6E0FBB6D26F8C39900C762B7 /* Maintenance.swift */,
+				735A47792721A35E00DC7BF0 /* Json Model */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		735A47792721A35E00DC7BF0 /* Json Model */ = {
+			isa = PBXGroup;
+			children = (
+				735A47772721A2A800DC7BF0 /* LightsContent.json */,
+				735A477A2721A3F800DC7BF0 /* JsonModel.swift */,
+			);
+			path = "Json Model";
+			sourceTree = "<group>";
+		};
+		735A477C2721A6E100DC7BF0 /* Json Parser */ = {
+			isa = PBXGroup;
+			children = (
+				735A477D2721A70A00DC7BF0 /* JsonParser.swift */,
+			);
+			path = "Json Parser";
 			sourceTree = "<group>";
 		};
 		7375AAC626EF9273006888B8 /* Views */ = {
@@ -283,8 +322,9 @@
 		73A1355A26FA06CB0010AC59 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */,
 				73A1355F26FA11C30010AC59 /* MainRouter.swift */,
+				73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */,
+				73CF4CBA271DB1E8002E00FA /* LightsRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -295,6 +335,49 @@
 				73BF5314271705CA00C4951E /* TabBarController.swift */,
 			);
 			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		73CF4CB2271DADA3002E00FA /* LightsScene */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CB3271DAEC7002E00FA /* ViewModel */,
+				73CF4CB4271DAECF002E00FA /* Views */,
+			);
+			path = LightsScene;
+			sourceTree = "<group>";
+		};
+		73CF4CB3271DAEC7002E00FA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CB8271DAFA2002E00FA /* LightsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CF4CB4271DAECF002E00FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CBC271DB77D002E00FA /* LightsView.swift */,
+				73CF4CBE271EEF94002E00FA /* Cells */,
+				73CF4CB5271DAEE6002E00FA /* ViewController */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73CF4CB5271DAEE6002E00FA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CB6271DAF13002E00FA /* LightsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		73CF4CBE271EEF94002E00FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		73ED397A26F0C9350030CF52 /* Fonts */ = {
@@ -353,6 +436,7 @@
 		EF3D7FD826F0D27E00DC01CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				735A477C2721A6E100DC7BF0 /* Json Parser */,
 				D88D990926FB7A2B00C68F63 /* Enum */,
 				EF3D7FD926F0D28600DC01CA /* Extension */,
 			);
@@ -363,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				EF3D7FDA26F0D2A500DC01CA /* Color.swift */,
+				734B18072726E61000FE6E74 /* Labels.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -412,11 +497,11 @@
 				6E0D80D327199E4900410B15 /* Service */,
 				73BF53132717059E00C4951E /* TabBarController */,
 				73A1355A26FA06CB0010AC59 /* Router */,
-				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6EE2083926F0CEC1007889EF /* Model */,
 				EF3D7FD826F0D27E00DC01CA /* Helpers */,
 				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
+				73CF4CB2271DADA3002E00FA /* LightsScene */,
 				7375AACD26EF9566006888B8 /* MaintanenceScene */,
 				7375AAD126EF9636006888B8 /* ProgressScene */,
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
@@ -469,6 +554,7 @@
 			name = Revisadinho;
 			packageProductDependencies = (
 				D85EF6DF26F8B40C00AC5617 /* FSCalendar */,
+				D8DAA96E27298C67005B0586 /* LightsDetection */,
 			);
 			productName = Revisadinho;
 			productReference = EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */;
@@ -543,6 +629,7 @@
 			mainGroup = EFE12CD026EF76E4005FB2B2;
 			packageReferences = (
 				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */,
 			);
 			productRefGroup = EFE12CDA26EF76E4005FB2B2 /* Products */;
 			projectDirPath = "";
@@ -568,6 +655,7 @@
 				EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */,
 				D8A734CB26F215BE00A4D799 /* Quicksand-Light.ttf in Resources */,
 				EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */,
+				735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */,
 				D8A734CA26F215BE00A4D799 /* Quicksand-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +705,7 @@
 				6E0D80D527199E6600410B15 /* NotificationService.swift in Sources */,
 				6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */,
 				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
+				735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */,
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */,
 				D87B793126F3748A00D51642 /* CustomButton.swift in Sources */,
@@ -626,21 +715,28 @@
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
+				73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */,
 				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
+				73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
 				6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */,
+				73CF4CB7271DAF13002E00FA /* LightsViewController.swift in Sources */,
+				734B18082726E61000FE6E74 /* Labels.swift in Sources */,
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
+				73CF4CB9271DAFA2002E00FA /* LightsViewModel.swift in Sources */,
 				EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */,
 				EF3D7FF126FA046300DC01CA /* ModalView.swift in Sources */,
 				73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */,
 				6E0FBB6626F8AA4C00C762B7 /* DatabaseController.swift in Sources */,
 				6E0FBB6E26F8C39900C762B7 /* Maintenance.swift in Sources */,
+				735A477E2721A70A00DC7BF0 /* JsonParser.swift in Sources */,
 				6E0FBB6C26F8BDC800C762B7 /* MaintenanceDAO+CoreDataProperties.swift in Sources */,
 				EF3D7FDB26F0D2A500DC01CA /* Color.swift in Sources */,
 				EF3D7FE526F239CF00DC01CA /* MaintenanceTableViewCell.swift in Sources */,
 				73BF5315271705CA00C4951E /* TabBarController.swift in Sources */,
 				EF3D7FE326F21B9D00DC01CA /* DateComponentController.swift in Sources */,
 				EF3D7FED26F8C9DD00DC01CA /* DateModel.swift in Sources */,
+				73CF4CBB271DB1E8002E00FA /* LightsRouter.swift in Sources */,
 				EF3D7FDD26F0DA5900DC01CA /* MaintenanceView.swift in Sources */,
 				EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */,
 				6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */,
@@ -823,7 +919,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
+				DEVELOPMENT_TEAM = 2V8P924DLJ;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -844,7 +940,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
+				DEVELOPMENT_TEAM = 2V8P924DLJ;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -992,6 +1088,14 @@
 				minimumVersion = 2.8.2;
 			};
 		};
+		D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Revisadinho/LightSymbolsRecognition";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -999,6 +1103,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		D8DAA96E27298C67005B0586 /* LightsDetection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */;
+			productName = LightsDetection;
 		};
 /* End XCSwiftPackageProductDependency section */
 
