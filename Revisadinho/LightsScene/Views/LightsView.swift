@@ -189,7 +189,8 @@ class LightsView: UIView {
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            tableView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            //tableView.heightAnchor.constraint(equalToCo: self.heightAnchor),
+            tableView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height + 100),
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
