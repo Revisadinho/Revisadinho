@@ -60,6 +60,11 @@ class LightTableViewCell: UITableViewCell {
         return view
     }()
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        imageContainer.layer.borderColor = UIColor.borderServiceItem.cgColor
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .blueBackground
