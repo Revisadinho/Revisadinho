@@ -14,7 +14,7 @@ enum DashboardLights: CaseIterable {
     case airbag
     case battery
     case brake
-    case eletronic_injection
+    case electronic_injection
     case engine_temperature
     case master
     case oil_pressure
@@ -30,7 +30,7 @@ enum DashboardLights: CaseIterable {
         case .brake: return 1
         case .master: return 2
         case .battery: return 3
-        case .eletronic_injection: return 4
+        case .electronic_injection: return 4
         case .engine_temperature: return 5
         case .traction_control: return 6
         case .traction_control_off: return 7
@@ -69,7 +69,7 @@ class LightsViewController: UIViewController {
     
     var rowIdentified: Int = -1 {
         didSet {
-            if oldValue != rowIdentified {
+            if oldValue != rowIdentified && rowIdentified > -1 {
                 self.deselectCellAt(row: oldValue)
                 self.selectCellAt(row: rowIdentified)
             }
@@ -81,20 +81,18 @@ class LightsViewController: UIViewController {
         lightsView.tableView.reloadData()
         setupIdentifyButton()
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         lightsView.tableView.delegate = self
         lightsView.tableView.dataSource = self
         self.tableViewHeader = lightsView.viewForTableViewHeader
         LightsViewController.tableView = lightsView.tableView
+        print(lightsView.tableView.contentSize)
         lightsView.viewControllwe = self
         lightsView.searchBar.delegate = self
-        
         view = lightsView
     }
-
 }
 extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -149,9 +147,10 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let index = selectedIndex {
-            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             tableView.beginUpdates()
+            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             tableView.reloadRows(at: [index], with: .none)
+            rowIdentified = -1
             tableView.endUpdates()
         }
     }
@@ -190,6 +189,7 @@ extension LightsViewController: SymbolDetection {
     }
     
     @objc func identifyLights() {
+        print(rowIdentified)
         setupLightsDetectionViewController()
     }
     
