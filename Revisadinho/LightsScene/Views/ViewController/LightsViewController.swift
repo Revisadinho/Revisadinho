@@ -62,7 +62,7 @@ class LightsViewController: UIViewController {
     var selected: Bool = false
     
     var selector: DeselectCell = .user
-    
+
     lazy var lightsDetectionViewController: LightSymbols = {
        return LightSymbols(controller: self)
     }()
@@ -109,7 +109,16 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lightsInfo.count
+        if lightsInfo.count < 1 {
+            lightsView.placeholderText.isHidden = false
+            lightsView.tableView.bounces = false
+            return 0
+        } else {
+            lightsView.placeholderText.isHidden = true
+            lightsView.tableView.bounces = true
+            return lightsInfo.count
+        }
+//        return lightsInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -165,6 +174,33 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 extension LightsViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print(searchBar.text!)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        if searchText == "" {
+            lightsInfo = lightsViewModel.getLightsInfo()
+
+        } else {
+            lightsInfo = lightsViewModel.getLightsByName(name: searchText)
+        }
+        lightsView.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        lightsView.searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Canceled")
+        lightsView.removeSearchBar()
+        searchBar.endEditing(true)
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        lightsInfo = lightsViewModel.getLightsInfo()
+        selectedIndex = nil
+        selected = false
+        lightsView.tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
 }
 
