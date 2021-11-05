@@ -89,6 +89,12 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = true
         }
+        
+        if isExpanded && indexPath.row == selectedIndex?.row {
+            cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardCollapsingIndicator")
+        } else {
+            cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardExpansionIndicator")
+        }
          
         cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: maintenances[indexPath.row].hodometer)
         collectionView = cellUnwrapped.cardCollectionView
