@@ -19,7 +19,7 @@ enum DashboardLights: CaseIterable {
     case master
     case oil_pressure
     case seat_belt
-    case transmission_temperature
+    case trasmission_temperature
     case traction_control_malfunction
     case traction_control
     case traction_control_off
@@ -39,9 +39,14 @@ enum DashboardLights: CaseIterable {
         case .traction_control_malfunction: return 10
         case .oil_pressure: return 11
         case .abs: return 12
-        case .transmission_temperature: return 13
+        case .trasmission_temperature: return 13
         }
     }
+}
+
+enum DeselectCell {
+    case camera
+    case user
 }
 
 class LightsViewController: UIViewController {
@@ -55,7 +60,8 @@ class LightsViewController: UIViewController {
     
     var selectedIndex: IndexPath?
     var selected: Bool = false
-
+    var selector: DeselectCell = .user
+    
     lazy var lightsDetectionViewController: LightSymbols = {
        return LightSymbols(controller: self)
     }()
@@ -63,6 +69,7 @@ class LightsViewController: UIViewController {
     var rowIdentified: Int = -1 {
         didSet {
             if oldValue != rowIdentified {
+                self.deselectCellAt(row: oldValue)
                 self.selectCellAt(row: rowIdentified)
             }
         }
@@ -139,16 +146,28 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row: \(indexPath.row)")
         selectedIndex = indexPath
-        selected.toggle()
+        
+        if selector == .camera {
+            selected = true
+            selector = .user
+        } else {
+            selected.toggle()
+        }
+        
         if let index = selectedIndex {
+            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             tableView.beginUpdates()
             tableView.reloadRows(at: [index], with: .none)
             tableView.endUpdates()
         }
     }
-    
+        
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedIndex = nil
+        selected = false
+        tableView.reloadData()
+    }
 }
 
 extension LightsViewController: UISearchBarDelegate {
@@ -198,10 +217,9 @@ extension LightsViewController: SymbolDetection {
     }
     
     func getSymbolDetected(symbolName: String) {
-        for light in DashboardLights.allCases {
-            if "\(light)" == symbolName {
+        for light in DashboardLights.allCases where "\(light)" == symbolName {
+                print(symbolName)
                 rowIdentified = light.number
-            }
         }
     }
     
@@ -212,8 +230,12 @@ extension LightsViewController: SymbolDetection {
     private func selectCellAt(row: Int) {
         let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
         lightsDetectionViewController.dismissViewController()
-        lightsView.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         lightsView.tableView.delegate?.tableView?(lightsView.tableView, didSelectRowAt: indexPath)
-        lightsView.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
+    private func deselectCellAt(row: Int) {
+        let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
+        lightsView.tableView.deselectRow(at: indexPath, animated: true)
+        selector = .camera
     }
 }
