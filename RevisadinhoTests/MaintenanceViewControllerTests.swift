@@ -17,11 +17,17 @@ class MaintenanceViewControllerTests: XCTestCase {
         let date = Date()
         let calendar = Calendar.current
         let dateModel = DateModel()
-        let day =  String(calendar.component(.day, from: date))
+        let day = calendar.component(.day, from: date)
+        var dayString: String
+        if day < 10 {
+            dayString = "0" + String(day)
+        } else {
+            dayString = String(day)
+        }
         let month =  calendar.component(.month, from: date)
         let year = String(calendar.component(.year, from: date))
         let monthInString = dateModel.convertMonthIntToString(monthInt: month)
-        let finalString: String = day + " " + (monthInString ?? "") + ", " + year
+        let finalString: String = dayString + " " + (monthInString ?? "") + ", " + year
         let maintenances = sut.formatDate(date: date)
         XCTAssertTrue(maintenances == finalString)
     }
