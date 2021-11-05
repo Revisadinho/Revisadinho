@@ -12,9 +12,9 @@ class LightsView: UIView {
     
     var viewControllwe: LightsViewController?
     var tableViewHeightConstraint: NSLayoutConstraint!
-    var tableViewHeightConstant: CGFloat = 0 {
+    var tableViewHeightConstant: CGFloat = UIScreen.main.bounds.height {
         didSet {
-            tableViewHeightConstraint.constant = tableViewHeightConstant
+            tableView.updateConstraints()
             tableView.reloadData()
         }
     }
@@ -191,12 +191,11 @@ class LightsView: UIView {
     
     func setUpTableView() {
         self.addSubview(tableView)
-        tableViewHeightConstraint = tableView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
-        tableViewHeightConstraint.isActive = true
+        tableViewHeightConstraint = tableView.heightAnchor.constraint(equalToConstant: tableViewHeightConstant)
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            tableView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10),
+            tableViewHeightConstraint,
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
