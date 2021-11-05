@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Leonardo Gomes Fernandes on 18/10/21.
-// swiftlint:disable trailing_whitespace line_length variable_name
+// swiftlint:disable trailing_whitespace line_length variable_name inclusive_language
 
 import UIKit
 import LightsDetection
@@ -53,6 +53,9 @@ class LightsViewController: UIViewController {
     static var tableView: UITableView?
     var lightsInfo: [JSLights] = []
     
+    var descriptionLines: Int = 20
+    var titleLines: Int = 1
+    
     var selectedIndex: IndexPath?
     var selected: Bool = false
 
@@ -96,7 +99,6 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewForHeader = tableViewHeader
         lightsView.setUpHeaderTableView()
-//        viewForHeader?.frame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 160))
         viewForHeader?.isUserInteractionEnabled = true
         return viewForHeader
     }
@@ -122,17 +124,20 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.descriptionLabel.text = lightsInfo[indexPath.row].description
         cell?.selectionStyle = .none
         cell?.animate()
+        
         return cell ?? LightTableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return 56}
         
         if selected {
-            let lines = CGFloat(integerLiteral: cell.descriptionLabel.calculateMaxLines())
-            if selectedIndex == indexPath { return 56 + (17 * lines) }
+            if selectedIndex == indexPath { return CGFloat(56 + descriptionLines) }
         } else {
-            return 56
+            
+            if indexPath.row == 10 {
+                return CGFloat(56 + 4)
+                
+            }
         }
         
         return 56
@@ -140,13 +145,20 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected row: \(indexPath.row)")
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return }
+        
         selectedIndex = indexPath
         selected.toggle()
         if let index = selectedIndex {
+            descriptionLines = cell.descriptionLabel.calculateMaxLines() * 18
+            
+            print("Lines of Title: \(cell.iconLabel.calculateMaxLines())")
             tableView.beginUpdates()
             tableView.reloadRows(at: [index], with: .none)
             tableView.endUpdates()
         }
+        lightsView.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
 }
@@ -164,7 +176,7 @@ extension LightsViewController: UISearchBarDelegate {
         } else {
             lightsInfo = lightsViewModel.getLightsByName(name: searchText)
         }
-        lightsView.tableView.reloadData()
+//        lightsView.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
