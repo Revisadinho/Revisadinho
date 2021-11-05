@@ -78,10 +78,16 @@ class MaintenanceView: UIView {
         return label
     }()
     
+    lazy var plusImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "plus")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal)
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     lazy var plusButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "plus")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
-        
         button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -105,10 +111,12 @@ class MaintenanceView: UIView {
         
         viewForTableViewHeader.addSubview(titleLabel)
         viewForTableViewHeader.addSubview(plusButton)
+        plusButton.addSubview(plusImage)
         viewForTableViewHeader.addSubview(dateComponent)
         
         setUpTitleLabelConstraints()
         setUpPlusButtonConstraints()
+        setUpPlusImageConstraints()
         setUpDateComponentConstraints()
     }
     
@@ -130,12 +138,21 @@ class MaintenanceView: UIView {
         ])
     }
     
+    func setUpPlusImageConstraints() {
+        NSLayoutConstraint.activate([
+            plusImage.bottomAnchor.constraint(equalTo: plusButton.bottomAnchor),
+            plusImage.centerXAnchor.constraint(equalTo: plusButton.centerXAnchor),
+            plusImage.widthAnchor.constraint(equalToConstant: 30),
+            plusImage.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
     func setUpPlusButtonConstraints() {
         NSLayoutConstraint.activate([
             plusButton.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -5),
             plusButton.rightAnchor.constraint(equalTo: viewForTableViewHeader.rightAnchor, constant: -15),
-            plusButton.widthAnchor.constraint(equalToConstant: 30),
-            plusButton.heightAnchor.constraint(equalToConstant: 30)
+            plusButton.widthAnchor.constraint(equalToConstant: 100),
+            plusButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     

@@ -44,6 +44,11 @@ enum DashboardLights: CaseIterable {
     }
 }
 
+enum DeselectCell {
+    case camera
+    case user
+}
+
 class LightsViewController: UIViewController {
 
     var lightsViewModel = LightsViewModel()
@@ -64,7 +69,7 @@ class LightsViewController: UIViewController {
     
     var rowIdentified: Int = -1 {
         didSet {
-            if oldValue != rowIdentified && rowIdentified > -1 {
+            if oldValue != rowIdentified {
                 self.deselectCellAt(row: oldValue)
                 self.selectCellAt(row: rowIdentified)
             }
@@ -141,7 +146,7 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath
-    
+  
         if manualScrolling {
             selected.toggle()
         } else {

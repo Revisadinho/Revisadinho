@@ -10,7 +10,8 @@ import UIKit
 
 class MaintenanceTableViewCell: UITableViewCell {
     
-    static var cellHeight = 249
+//    static var cellHeight = 249
+    static var cellHeight = 255
     static var collectionViewHeight = 130
     static var identifier = "MaintenanceTableViewCell"
     
@@ -63,6 +64,14 @@ class MaintenanceTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "speedometer")?.withTintColor(.purpleDayNameCalendar).withRenderingMode(.alwaysOriginal)
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var cardExpansionIndicator: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "cardExpansionIndicator")
+//        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -130,6 +139,15 @@ class MaintenanceTableViewCell: UITableViewCell {
         ])
     }
     
+    func setUpCardExpansionIndicatorConstraints() {
+        NSLayoutConstraint.activate([
+            cardExpansionIndicator.widthAnchor.constraint(equalToConstant: 15),
+            cardExpansionIndicator.heightAnchor.constraint(equalToConstant: 15),
+            cardExpansionIndicator.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
+            cardExpansionIndicator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
+        ])
+    }
+    
     func setUpHodometerLabelConstraints() {
         NSLayoutConstraint.activate([
             hodometerLabel.centerYAnchor.constraint(equalTo: hodometerImage.centerYAnchor),
@@ -148,6 +166,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     func setUpViewHierarchy() {
         self.addSubview(dateLabel)
         self.addSubview(cardCollectionView)
+        cardCollectionView.addSubview(cardExpansionIndicator)
         self.addSubview(hodometerImage)
         self.addSubview(hodometerLabel)
         self.addSubview(circle)
@@ -185,6 +204,7 @@ class MaintenanceTableViewCell: UITableViewCell {
         setUpViewHierarchy()
         setUpDateLabelConstraints()
         setUpCardViewConstraints()
+        setUpCardExpansionIndicatorConstraints()
         setUpHodometerImageConstraints()
         setUpHodometerLabelConstraints()
         setUpCircleConstraints()
