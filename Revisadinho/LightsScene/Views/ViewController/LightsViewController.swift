@@ -176,7 +176,7 @@ extension LightsViewController: UISearchBarDelegate {
         } else {
             lightsInfo = lightsViewModel.getLightsByName(name: searchText)
         }
-//        lightsView.tableView.reloadData()
+        lightsView.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
