@@ -14,7 +14,7 @@ enum DashboardLights: CaseIterable {
     case airbag
     case battery
     case brake
-    case eletronic_injection
+    case electronic_injection
     case engine_temperature
     case master
     case oil_pressure
@@ -30,7 +30,7 @@ enum DashboardLights: CaseIterable {
         case .brake: return 1
         case .master: return 2
         case .battery: return 3
-        case .eletronic_injection: return 4
+        case .electronic_injection: return 4
         case .engine_temperature: return 5
         case .traction_control: return 6
         case .traction_control_off: return 7
@@ -63,7 +63,8 @@ class LightsViewController: UIViewController {
     
     var selectedIndex: IndexPath?
     var selected: Bool = false
-    var selector: DeselectCell = .user
+    
+    var manualScrolling = true
     
     lazy var lightsDetectionViewController: LightSymbols = {
        return LightSymbols(controller: self)
@@ -83,10 +84,9 @@ class LightsViewController: UIViewController {
         lightsView.tableView.reloadData()
         setupIdentifyButton()
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         lightsView.tableView.delegate = self
         lightsView.tableView.dataSource = self
         self.tableViewHeader = lightsView.viewForTableViewHeader
@@ -95,7 +95,6 @@ class LightsViewController: UIViewController {
         lightsView.searchBar.delegate = self
         view = lightsView
     }
-
 }
 extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -155,24 +154,24 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return }
         selectedIndex = indexPath
-        
-        if selector == .camera {
-            selected = true
-            selector = .user
-        } else {
+  
+        if manualScrolling {
             selected.toggle()
+        } else {
+            selected = true
+            manualScrolling = true
         }
         
-        if let index = selectedIndex {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.09) {
+            guard let index = self.selectedIndex else {return}
             descriptionLines = cell.descriptionLabel.calculateMaxLines() * 18
-            
-            print("Lines of Title: \(cell.iconLabel.calculateMaxLines())")
-            tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             tableView.beginUpdates()
+            tableView.scrollToRow(at: index, at: .middle, animated: false)
             tableView.reloadRows(at: [index], with: .none)
             tableView.endUpdates()
         }
-        lightsView.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                                      
+        rowIdentified = -1
     }
         
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -248,6 +247,6 @@ extension LightsViewController: SymbolDetection {
     private func deselectCellAt(row: Int) {
         let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
         lightsView.tableView.deselectRow(at: indexPath, animated: true)
-        selector = .camera
+        manualScrolling = false
     }
 }
