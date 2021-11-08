@@ -30,7 +30,7 @@ class MaintenanceView: UIView {
     }
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -46,7 +46,7 @@ class MaintenanceView: UIView {
     lazy var placeholderText: UILabel = {
         let label = UILabel()
         label.text = "Nenhuma manutenção cadastrada para este mês"
-        label.textColor = .grayPlaceholderText
+        label.textColor = .purpleDayNameCalendar
         label.isHidden = true
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -78,10 +78,16 @@ class MaintenanceView: UIView {
         return label
     }()
     
+    lazy var plusImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "plus")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal)
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     lazy var plusButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "plus")?.withTintColor(.purpleAction).withRenderingMode(.alwaysOriginal), for: .normal)
-        
         button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(delegatesBackButtonActionToController(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -105,10 +111,12 @@ class MaintenanceView: UIView {
         
         viewForTableViewHeader.addSubview(titleLabel)
         viewForTableViewHeader.addSubview(plusButton)
+        plusButton.addSubview(plusImage)
         viewForTableViewHeader.addSubview(dateComponent)
         
         setUpTitleLabelConstraints()
         setUpPlusButtonConstraints()
+        setUpPlusImageConstraints()
         setUpDateComponentConstraints()
     }
     
@@ -130,12 +138,21 @@ class MaintenanceView: UIView {
         ])
     }
     
+    func setUpPlusImageConstraints() {
+        NSLayoutConstraint.activate([
+            plusImage.bottomAnchor.constraint(equalTo: plusButton.bottomAnchor),
+            plusImage.centerXAnchor.constraint(equalTo: plusButton.centerXAnchor),
+            plusImage.widthAnchor.constraint(equalToConstant: 30),
+            plusImage.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
     func setUpPlusButtonConstraints() {
         NSLayoutConstraint.activate([
             plusButton.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -5),
             plusButton.rightAnchor.constraint(equalTo: viewForTableViewHeader.rightAnchor, constant: -15),
-            plusButton.widthAnchor.constraint(equalToConstant: 30),
-            plusButton.heightAnchor.constraint(equalToConstant: 30)
+            plusButton.widthAnchor.constraint(equalToConstant: 100),
+            plusButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -143,7 +160,7 @@ class MaintenanceView: UIView {
         NSLayoutConstraint.activate([
             dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
             dateComponent.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            dateComponent.rightAnchor.constraint(equalTo: plusButton.leftAnchor),
+            dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
             dateComponent.heightAnchor.constraint(equalToConstant: 65)
         ])
     }
@@ -151,9 +168,9 @@ class MaintenanceView: UIView {
     func setUpTableViewConstraints() {
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tableView.topAnchor.constraint(equalTo: self.topAnchor),
-            tableView.heightAnchor.constraint(equalTo: self.heightAnchor),
-            tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
+            tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(TabBarController.tableViewHeight ?? 0))
         ])
     }
         
