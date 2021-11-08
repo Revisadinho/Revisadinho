@@ -150,7 +150,6 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row: \(indexPath.row)")
         
         guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return }
         selectedIndex = indexPath
@@ -164,7 +163,7 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.09) {
             guard let index = self.selectedIndex else {return}
-            descriptionLines = cell.descriptionLabel.calculateMaxLines() * 18
+            self.descriptionLines = cell.descriptionLabel.calculateMaxLines() * 18
             tableView.beginUpdates()
             tableView.scrollToRow(at: index, at: .middle, animated: false)
             tableView.reloadRows(at: [index], with: .none)
@@ -182,12 +181,8 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension LightsViewController: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print(searchBar.text!)
-    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         if searchText == "" {
             lightsInfo = lightsViewModel.getLightsInfo()
 
@@ -202,7 +197,6 @@ extension LightsViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Canceled")
         lightsView.removeSearchBar()
         searchBar.endEditing(true)
         searchBar.text = nil
@@ -229,7 +223,6 @@ extension LightsViewController: SymbolDetection {
     
     func getSymbolDetected(symbolName: String) {
         for light in DashboardLights.allCases where "\(light)" == symbolName {
-                print(symbolName)
                 rowIdentified = light.number
         }
     }
