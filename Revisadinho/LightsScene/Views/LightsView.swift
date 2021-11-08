@@ -189,7 +189,6 @@ class LightsView: UIView {
     }()
     
     @objc func searchLights() {
-        print("Button Pressed")
         searchButton.isHidden = true
         identifyButton.isHidden = true
         searchBar.isHidden = false
@@ -213,15 +212,14 @@ class LightsView: UIView {
     }
     
     func setUpTableView() {
-        self.addSubview(tableView)
-        tableViewHeightConstraint = tableView.heightAnchor.constraint(equalToConstant: tableViewHeightConstant)
-        NSLayoutConstraint.activate([
-            tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tableView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10),
-            tableViewHeightConstraint,
-            tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
-        ])
-    }
+            self.addSubview(tableView)
+            NSLayoutConstraint.activate([
+                tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
+                tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            ])
+        }
     
     func setUpHeaderTableView() {
         NSLayoutConstraint.activate([

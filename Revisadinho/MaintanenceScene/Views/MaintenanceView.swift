@@ -160,7 +160,7 @@ class MaintenanceView: UIView {
         NSLayoutConstraint.activate([
             dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
             dateComponent.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            dateComponent.rightAnchor.constraint(equalTo: plusButton.leftAnchor),
+            dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
             dateComponent.heightAnchor.constraint(equalToConstant: 65)
         ])
     }
