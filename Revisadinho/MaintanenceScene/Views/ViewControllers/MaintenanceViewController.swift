@@ -49,9 +49,18 @@ class MaintenanceViewController: UIViewController {
 
 extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func isTableViewEmpty() -> Bool {
         let maintenances = getMaintenances()
         if maintenances.count<1 {
+            return true
+        } else {
+            return false
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let maintenances = getMaintenances()
+        if isTableViewEmpty() {
             placeholderText?.isHidden = false
             MaintenanceViewController.tableView?.bounces = false
             collectionViewMaintenanceIndex = 0
@@ -117,11 +126,17 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return maintenanceView.viewForSections(section: 0)
+        if !isTableViewEmpty() {
+            if section == 0 {
+                return maintenanceView.viewForSections(section: 0)
+            } else {
+                return maintenanceView.viewForSections(section: 1)
+            }
         } else {
-            return maintenanceView.viewForSections(section: 1)
-        }      
+            let view = UIView()
+            view.backgroundColor = .clear
+            return view
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
