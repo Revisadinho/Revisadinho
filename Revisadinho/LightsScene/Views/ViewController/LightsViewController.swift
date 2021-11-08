@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Leonardo Gomes Fernandes on 18/10/21.
-// swiftlint:disable trailing_whitespace line_length variable_name
+// swiftlint:disable trailing_whitespace line_length variable_name inclusive_language
 
 import UIKit
 import LightsDetection
@@ -14,12 +14,12 @@ enum DashboardLights: CaseIterable {
     case airbag
     case battery
     case brake
-    case eletronic_injection
+    case electronic_injection
     case engine_temperature
     case master
     case oil_pressure
     case seat_belt
-    case transmission_temperature
+    case trasmission_temperature
     case traction_control_malfunction
     case traction_control
     case traction_control_off
@@ -30,7 +30,7 @@ enum DashboardLights: CaseIterable {
         case .brake: return 1
         case .master: return 2
         case .battery: return 3
-        case .eletronic_injection: return 4
+        case .electronic_injection: return 4
         case .engine_temperature: return 5
         case .traction_control: return 6
         case .traction_control_off: return 7
@@ -39,9 +39,14 @@ enum DashboardLights: CaseIterable {
         case .traction_control_malfunction: return 10
         case .oil_pressure: return 11
         case .abs: return 12
-        case .transmission_temperature: return 13
+        case .trasmission_temperature: return 13
         }
     }
+}
+
+enum DeselectCell {
+    case camera
+    case user
 }
 
 class LightsViewController: UIViewController {
@@ -53,9 +58,14 @@ class LightsViewController: UIViewController {
     static var tableView: UITableView?
     var lightsInfo: [JSLights] = []
     
+    var descriptionLines: Int = 20
+    var titleLines: Int = 1
+    
     var selectedIndex: IndexPath?
     var selected: Bool = false
-
+    
+    var manualScrolling = true
+    
     lazy var lightsDetectionViewController: LightSymbols = {
        return LightSymbols(controller: self)
     }()
@@ -63,6 +73,7 @@ class LightsViewController: UIViewController {
     var rowIdentified: Int = -1 {
         didSet {
             if oldValue != rowIdentified {
+                self.deselectCellAt(row: oldValue)
                 self.selectCellAt(row: rowIdentified)
             }
         }
@@ -73,10 +84,9 @@ class LightsViewController: UIViewController {
         lightsView.tableView.reloadData()
         setupIdentifyButton()
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         lightsView.tableView.delegate = self
         lightsView.tableView.dataSource = self
         self.tableViewHeader = lightsView.viewForTableViewHeader
@@ -85,7 +95,6 @@ class LightsViewController: UIViewController {
         lightsView.searchBar.delegate = self
         view = lightsView
     }
-
 }
 extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -96,7 +105,6 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewForHeader = tableViewHeader
         lightsView.setUpHeaderTableView()
-//        viewForHeader?.frame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: 160))
         viewForHeader?.isUserInteractionEnabled = true
         return viewForHeader
     }
@@ -122,42 +130,59 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.descriptionLabel.text = lightsInfo[indexPath.row].description
         cell?.selectionStyle = .none
         cell?.animate()
+        
         return cell ?? LightTableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return 56}
         
         if selected {
-            let lines = CGFloat(integerLiteral: cell.descriptionLabel.calculateMaxLines())
-            if selectedIndex == indexPath { return 56 + (17 * lines) }
+            if selectedIndex == indexPath { return CGFloat(56 + descriptionLines) }
         } else {
-            return 56
+            
+            if indexPath.row == 10 {
+                return CGFloat(56 + 4)
+                
+            }
         }
         
         return 56
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row: \(indexPath.row)")
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? LightTableViewCell else { return }
         selectedIndex = indexPath
-        selected.toggle()
-        if let index = selectedIndex {
+  
+        if manualScrolling {
+            selected.toggle()
+        } else {
+            selected = true
+            manualScrolling = true
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.09) {
+            guard let index = self.selectedIndex else {return}
+            self.descriptionLines = cell.descriptionLabel.calculateMaxLines() * 18
             tableView.beginUpdates()
+            tableView.scrollToRow(at: index, at: .middle, animated: false)
             tableView.reloadRows(at: [index], with: .none)
             tableView.endUpdates()
         }
+                                      
+        rowIdentified = -1
     }
-    
+        
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedIndex = nil
+        selected = false
+        tableView.reloadData()
+    }
 }
 
 extension LightsViewController: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print(searchBar.text!)
-    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         if searchText == "" {
             lightsInfo = lightsViewModel.getLightsInfo()
 
@@ -172,7 +197,6 @@ extension LightsViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Canceled")
         lightsView.removeSearchBar()
         searchBar.endEditing(true)
         searchBar.text = nil
@@ -198,10 +222,8 @@ extension LightsViewController: SymbolDetection {
     }
     
     func getSymbolDetected(symbolName: String) {
-        for light in DashboardLights.allCases {
-            if "\(light)" == symbolName {
+        for light in DashboardLights.allCases where "\(light)" == symbolName {
                 rowIdentified = light.number
-            }
         }
     }
     
@@ -212,8 +234,12 @@ extension LightsViewController: SymbolDetection {
     private func selectCellAt(row: Int) {
         let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
         lightsDetectionViewController.dismissViewController()
-        lightsView.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         lightsView.tableView.delegate?.tableView?(lightsView.tableView, didSelectRowAt: indexPath)
-        lightsView.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
+    private func deselectCellAt(row: Int) {
+        let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
+        lightsView.tableView.deselectRow(at: indexPath, animated: true)
+        manualScrolling = false
     }
 }

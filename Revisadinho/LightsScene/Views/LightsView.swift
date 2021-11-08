@@ -11,6 +11,13 @@ import UIKit
 class LightsView: UIView {
     
     var viewControllwe: LightsViewController?
+    var tableViewHeightConstraint: NSLayoutConstraint!
+    var tableViewHeightConstant: CGFloat = UIScreen.main.bounds.height {
+        didSet {
+            tableView.updateConstraints()
+            tableView.reloadData()
+        }
+    }
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -182,7 +189,6 @@ class LightsView: UIView {
     }()
     
     @objc func searchLights() {
-        print("Button Pressed")
         searchButton.isHidden = true
         identifyButton.isHidden = true
         searchBar.isHidden = false
@@ -206,15 +212,14 @@ class LightsView: UIView {
     }
     
     func setUpTableView() {
-        self.addSubview(tableView)
-        
-        NSLayoutConstraint.activate([
-            tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            tableView.widthAnchor.constraint(equalTo: self.widthAnchor)
-        ])
-    }
+            self.addSubview(tableView)
+            NSLayoutConstraint.activate([
+                tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
+                tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+                tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+            ])
+        }
     
     func setUpHeaderTableView() {
         NSLayoutConstraint.activate([

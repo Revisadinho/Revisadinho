@@ -17,11 +17,17 @@ class MaintenanceViewControllerTests: XCTestCase {
         let date = Date()
         let calendar = Calendar.current
         let dateModel = DateModel()
-        let day =  String(calendar.component(.day, from: date))
+        let day = calendar.component(.day, from: date)
+        var dayString: String
+        if day < 10 {
+            dayString = "0" + String(day)
+        } else {
+            dayString = String(day)
+        }
         let month =  calendar.component(.month, from: date)
         let year = String(calendar.component(.year, from: date))
         let monthInString = dateModel.convertMonthIntToString(monthInt: month)
-        let finalString: String = day + " " + (monthInString ?? "") + ", " + year
+        let finalString: String = dayString + " " + (monthInString ?? "") + ", " + year
         let maintenances = sut.formatDate(date: date)
         XCTAssertTrue(maintenances == finalString)
     }
@@ -44,11 +50,9 @@ class MaintenanceViewControllerTests: XCTestCase {
     
     func test_calculateSizeOfExpandableCellRealCellSize() {
         let numberOfLines = sut.calculateNumberOfLines(numberOfItems: 9, numberOfItemsPerLine: 3)
-        print(numberOfLines)
         let expectedResult = ((120+38)*numberOfLines) + (8+16)*2 + 49
         // using values of the real cell
         let expandedCellSize = sut.calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 120, spaceBetweenItems: 38, insetTop: 8, insetBottom: 16)
-        print(expandedCellSize)
         XCTAssertTrue(expectedResult == Int(expandedCellSize))
     }
     

@@ -7,8 +7,6 @@
 import Foundation
 // swiftlint:disable trailing_whitespace
 
-import Foundation
-
 class LightsViewModel {
     
     var jParser = JsonParser()
