@@ -128,8 +128,9 @@ class LightTableViewCell: UITableViewCell {
         container.addSubview(iconLabel)
         
         NSLayoutConstraint.activate([
-            iconLabel.heightAnchor.constraint(equalToConstant: 40),
+            iconLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 40),
             iconLabel.leadingAnchor.constraint(equalTo: imageContainer.trailingAnchor, constant: 12),
+            iconLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -12),
             iconLabel.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor)
         ])
     }

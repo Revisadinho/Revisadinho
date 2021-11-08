@@ -182,7 +182,7 @@ class MaintenanceTableViewCell: UITableViewCell {
     
     func setUpDashedLayer() {
         let layer = CALayer()
-        let lineDashPattern:[NSNumber] = [5, 3]
+        let lineDashPattern: [NSNumber] = [5, 3]
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = UIColor.blueTabBar.cgColor
         shapeLayer.lineWidth = 1
