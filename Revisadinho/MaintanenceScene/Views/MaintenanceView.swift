@@ -57,7 +57,7 @@ class MaintenanceView: UIView {
     }()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.showsVerticalScrollIndicator = false
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
         tableView.separatorColor = .gray
@@ -120,6 +120,27 @@ class MaintenanceView: UIView {
         setUpDateComponentConstraints()
     }
     
+    func viewForSections(section: Int) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 40))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 45))
+        imageView.image = UIImage.init(named: "sectionMark")
+        let label = UILabel(frame: CGRect(x: 14, y: 0, width: 280, height: 45))
+        label.textColor = .grayText
+        label.textAlignment = .left
+        label.font = UIFont(name: "Quicksand-Bold", size: 19)
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
+        if section == 0 {
+            label.text = "Manutenções agendadas"
+        } else {
+            label.text = "Manutenções anteriores"
+        }
+        imageView.addSubview(label)
+        view.addSubview(imageView)
+        view.backgroundColor = .clear
+        return view
+    }
+    
     func setUpPlaceholderConstraints() {
         NSLayoutConstraint.activate([
             placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 320),
@@ -170,7 +191,7 @@ class MaintenanceView: UIView {
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(TabBarController.tableViewHeight ?? 0))
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
         
