@@ -301,8 +301,7 @@ extension UIColor {
         if #available(iOS 13, *) {
             return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
                 if UITraitCollection.userInterfaceStyle == .dark {
-                    // Return the color for Dark Mode
-                    return UIColor(red: 104/255, green: 101/255, blue: 134/255, alpha: 1)
+                    return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
                 } else {
                     // Return the color for Light Mode
                     return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
@@ -310,6 +309,23 @@ extension UIColor {
             }
         } else {
             return UIColor(displayP3Red: 232/255, green: 234/255, blue: 255/255, alpha: 1)
+        }
+    }()
+    
+    static let sectionMarkLabel: UIColor = {
+        if #available(iOS 13, *) {
+            return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+                if UITraitCollection.userInterfaceStyle == .dark {
+                    // Return the color for Dark Mode
+//                    return UIColor(red: 249/255, green: 251/255, blue: 252/255, alpha: 1)
+                    return UIColor(red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
+                } else {
+                    // Return the color for Light Mode
+                    return UIColor(red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
+                }
+            }
+        } else {
+            return UIColor(red: 61/255, green: 60/255, blue: 80/255, alpha: 1)
         }
     }()
 

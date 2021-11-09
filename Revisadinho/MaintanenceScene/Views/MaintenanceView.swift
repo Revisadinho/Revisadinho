@@ -125,7 +125,7 @@ class MaintenanceView: UIView {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 45))
         imageView.image = UIImage.init(named: "sectionMark")?.withTintColor(.sectionMarkerView)
         let label = UILabel(frame: CGRect(x: 14, y: 0, width: 280, height: 45))
-        label.textColor = .grayText
+        label.textColor = .sectionMarkLabel
         label.textAlignment = .left
         label.font = UIFont(name: "Quicksand-Bold", size: 19)
         label.lineBreakMode = .byWordWrapping
