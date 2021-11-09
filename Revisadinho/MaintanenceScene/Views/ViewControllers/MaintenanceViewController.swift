@@ -19,7 +19,7 @@ class MaintenanceViewController: UIViewController {
     var tableViewSection: UIView?
     var maintenanceRouter: MaintenanceRouter?
     static var tableView: UITableView?
-    var collectionViewMaintenanceIndex = 0
+    var collectionViewMaintenanceIndex: IndexPath?
     var sameIndex: Bool = false
     var isExpanded: Bool = false
     
@@ -31,7 +31,7 @@ class MaintenanceViewController: UIViewController {
         MaintenanceViewController.tableView = maintenanceView.tableView
         maintenanceView.tableView.delegate = self
         maintenanceView.tableView.dataSource = self
-        maintenanceView.dateComponent.delegateReloadTableView = self
+//        maintenanceView.dateComponent.delegateReloadTableView = self
         self.tableViewHeader = maintenanceView.viewForTableViewHeader
         maintenanceView.setUpViewForTableViewHeaderConstraints()
         view = maintenanceView
@@ -48,10 +48,10 @@ class MaintenanceViewController: UIViewController {
 }
 
 extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
+        
     func isTableViewEmpty() -> Bool {
-        let maintenances = getMaintenances()
+//        let maintenances = getMaintenances()
+        let maintenances = maintenanceViewModel.getAllMaintenances()
         if maintenances.count<1 {
             return true
         } else {
@@ -59,23 +59,29 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let maintenances = getMaintenances()
+        let futureMaintenances = maintenanceViewModel.getFutureMaintenances()
+        let pastMaintenances = maintenanceViewModel.getPastMaintenances()
         if isTableViewEmpty() {
             placeholderText?.isHidden = false
             MaintenanceViewController.tableView?.bounces = false
-            collectionViewMaintenanceIndex = 0
+            collectionViewMaintenanceIndex?.row = 0
+            collectionViewMaintenanceIndex?.section = 0
             return 0
         } else {
             placeholderText?.isHidden = true
             MaintenanceViewController.tableView?.bounces = true
-            return maintenances.count
+            if section == 0 {
+                return futureMaintenances.count
+            } else {
+                return pastMaintenances.count
+            }
         }
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let maintenences = getMaintenances()
-        let totalMaintenenceItems = maintenences[indexPath.row].maintenanceItens.count
+        let maintenences = maintenanceViewModel.getFutureAndPastMaintenancesFormattedForTableView()
+        let totalMaintenenceItems = maintenences[indexPath.section][indexPath.row].maintenanceItens.count
         let numberOfLines = calculateNumberOfLines(numberOfItems: totalMaintenenceItems, numberOfItemsPerLine: 3)
         
         if selectedIndex == indexPath {
@@ -95,9 +101,9 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
         
-        let maintenances = getMaintenances()
-        collectionViewMaintenanceIndex = indexPath.row
-        let formatedDate = formatDate(date: maintenances[indexPath.row].date)
+        let maintenances = maintenanceViewModel.getFutureAndPastMaintenancesFormattedForTableView()
+        collectionViewMaintenanceIndex = indexPath
+        let formatedDate = formatDate(date: maintenances[indexPath.section][indexPath.row].date)
              
         guard let cellUnwrapped = cell else {return MaintenanceTableViewCell()}
         
@@ -108,7 +114,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardExpansionIndicator")
         }
          
-        cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: maintenances[indexPath.row].hodometer)
+        cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: maintenances[indexPath.section][indexPath.row].hodometer)
         collectionView = cellUnwrapped.cardCollectionView
         cellUnwrapped.dateLabel.text = formatedDate
         cellUnwrapped.cardCollectionView.delegate = self
@@ -223,21 +229,24 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let maintenance = getMaintenances()
-        if maintenance.count == 0 {
+        let maintenance = maintenanceViewModel.getFutureAndPastMaintenancesFormattedForTableView()
+        
+        guard let collectionMaintenanceIndex = collectionViewMaintenanceIndex else {return 0}
+        if maintenance[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens.count == 0 {
             return 0
         } else {
-            return maintenance[collectionViewMaintenanceIndex].maintenanceItens.count
+            return maintenance[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaintenanceCollectionViewCell.identifier, for: indexPath) as? MaintenanceCollectionViewCell
-        let maintenances = getMaintenances()
+        let maintenances = maintenanceViewModel.getFutureAndPastMaintenancesFormattedForTableView()
         guard let customCell = cell else {return MaintenanceCollectionViewCell() }
+        guard let collectionMaintenanceIndex = collectionViewMaintenanceIndex else {return MaintenanceCollectionViewCell() }
         customCell.setUpItemNameLabelConstraintsForCardVisualization()
-        customCell.itemNameLabel.text = maintenances[collectionViewMaintenanceIndex].maintenanceItens[indexPath.row].description
-        customCell.item.image = UIImage(named: "\(maintenances[collectionViewMaintenanceIndex].maintenanceItens[indexPath.row])")
+        customCell.itemNameLabel.text = maintenances[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens[indexPath.row].description
+        customCell.item.image = UIImage(named: "\(maintenances[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens[indexPath.row])")
         customCell.itemNameLabel.font = UIFont(name: "Quicksand-Medium", size: 15)
         
         return cell ?? MaintenanceCollectionViewCell()
