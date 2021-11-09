@@ -73,6 +73,9 @@ class AddMaintenceView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        allMaintenceItems = allMaintenceItems.sorted {
+            $0.description.folding(options: .diacriticInsensitive, locale: .current) < $1.description.folding(options: .diacriticInsensitive, locale: .current)
+        }
         setupAddMaintenceView()
     }
     
