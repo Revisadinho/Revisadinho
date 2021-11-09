@@ -30,17 +30,10 @@ class MaintenanceView: UIView {
     }
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 180))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }()
-    
-    lazy var dateComponent: DateComponent = {
-        let component = DateComponent.dateComponent
-        component.isUserInteractionEnabled = true
-        component.translatesAutoresizingMaskIntoConstraints = false
-        return component
     }()
     
     lazy var placeholderText: UILabel = {
@@ -112,12 +105,10 @@ class MaintenanceView: UIView {
         viewForTableViewHeader.addSubview(titleLabel)
         viewForTableViewHeader.addSubview(plusButton)
         plusButton.addSubview(plusImage)
-        viewForTableViewHeader.addSubview(dateComponent)
         
         setUpTitleLabelConstraints()
         setUpPlusButtonConstraints()
         setUpPlusImageConstraints()
-        setUpDateComponentConstraints()
     }
     
     func viewForSections(section: Int) -> UIView {
@@ -176,16 +167,7 @@ class MaintenanceView: UIView {
             plusButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
-    func setUpDateComponentConstraints() {
-        NSLayoutConstraint.activate([
-            dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
-            dateComponent.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
-            dateComponent.heightAnchor.constraint(equalToConstant: 65)
-        ])
-    }
-    
+
     func setUpTableViewConstraints() {
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
