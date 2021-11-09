@@ -49,9 +49,11 @@ class NotificationService {
         }
     }
 
-    private init() {}
+    private init() {
+        askForPermissions()
+    }
 
-    public func askForPermissions() {
+    private func askForPermissions() {
         if !isNotificationPermitted {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, _) in
                 self.isNotificationPermitted = granted
@@ -60,6 +62,7 @@ class NotificationService {
         if !isNotFirstBoot {
             isNotFirstBoot = true
             setupDictionary()
+            setupPeriodicNotificationForSimpleItems()
         }
     }
 
@@ -121,6 +124,37 @@ class NotificationService {
         }
         content.sound = UNNotificationSound.default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2 * 60, repeats: false) // the time interval is equal to 2 min
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
+    
+    private func setupPeriodicNotificationForSimpleItems() {
+        let simpleItems: [MaintenanceItem] = [.RadiatorFluid, .TireCalibration, .WindshieldWiper]
+        let content = UNMutableNotificationContent()
+        content.title = "Oi! Você já fez a manutenção básica essa semana?"
+        content.body = "Dê uma olhadinha "
+        for itemIndex in 0..<simpleItems.count {
+            let item = simpleItems[itemIndex]
+            // only item on the list
+            if simpleItems.count == 1 {
+                content.body.append("no seguinte item: \(item.description)")
+                break
+            }
+            // first item on the list
+            if itemIndex == 0 {
+                content.body.append("nos seguintes itens: \(item.description)")
+                continue
+            }
+            // last item on the list
+            if itemIndex == simpleItems.count - 1 {
+                content.body.append(" e \(item.description).")
+                break
+            }
+            // all the other items in the middle of the list
+            content.body.append(", \(item.description)")
+        }
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 3, repeats: true) // the time interval is equal to 7 days
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
