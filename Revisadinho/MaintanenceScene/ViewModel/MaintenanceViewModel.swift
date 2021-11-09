@@ -34,8 +34,11 @@ class MaintenanceViewModel {
             guard let id = maintenance.id else { return []}
             guard let date = maintenance.date else { return []}
             let hodometer = maintenance.hodometer
-            let maintenanceItens = maintenance.maintenanceItens?.map { maintenanceItem in
+            var maintenanceItens = maintenance.maintenanceItens?.map { maintenanceItem in
                 return MaintenanceItem(rawValue: Int(maintenanceItem))!
+            }
+            maintenanceItens = maintenanceItens?.sorted {
+                $0.description.folding(options: .diacriticInsensitive, locale: .current) < $1.description.folding(options: .diacriticInsensitive, locale: .current)
             }
             maintenances.append(Maintenance(id: id, hodometer: hodometer, date: date, maintenanceItens: maintenanceItens ?? []))
         }
