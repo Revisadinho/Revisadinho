@@ -181,7 +181,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
                 }
             }, completion: nil)
         }
-        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
     func shakeAnimation(cell: MaintenanceTableViewCell) {
