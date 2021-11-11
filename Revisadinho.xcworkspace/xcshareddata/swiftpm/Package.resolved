@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FSCalendar",
+        "repositoryURL": "https://github.com/WenchaoD/FSCalendar.git",
+        "state": {
+          "branch": null,
+          "revision": "4e79a201fad268408a4fd9e2ef429497def9594f",
+          "version": "2.8.2"
+        }
+      },
+      {
+        "package": "LightsDetection",
+        "repositoryURL": "https://github.com/Revisadinho/LightSymbolsRecognition",
+        "state": {
+          "branch": null,
+          "revision": "18fadfbad6620470247da4a321054ae6a21f7d28",
+          "version": "1.0.27"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
