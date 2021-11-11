@@ -11,6 +11,7 @@ import UIKit
 class AddMaintenceViewController: UIViewController {
     
     private let notificationService = NotificationService.shared
+    private let eventKitService = EventKitService.shared
     lazy var contentView = AddMaintenceView()
     lazy var bottomSheetViewController: BottomSheetViewController = {
         let viewController = BottomSheetViewController()
