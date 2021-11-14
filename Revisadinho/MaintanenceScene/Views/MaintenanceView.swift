@@ -52,6 +52,7 @@ class MaintenanceView: UIView {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.showsVerticalScrollIndicator = false
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
+        tableView.register(FilterCell.self, forCellReuseIdentifier: FilterCell.identifier)
         tableView.separatorColor = .gray
         tableView.separatorColor = .blueBackground
         tableView.backgroundColor = .blueBackground
