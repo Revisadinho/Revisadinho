@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import DropDown
 
 class MaintenanceViewController: UIViewController {
     
@@ -22,6 +23,8 @@ class MaintenanceViewController: UIViewController {
     var collectionViewMaintenanceIndex: IndexPath?
     var sameIndex: Bool = false
     var isExpanded: Bool = false
+    var filterCell: FilterCell?
+    let dropDown = DropDown()
     
     public var allMaintenances: [[Maintenance]] {
         return maintenanceViewModel.getFutureAndPastMaintenancesFormattedForTableView()
@@ -80,47 +83,76 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let totalMaintenenceItems = allMaintenances[indexPath.section][indexPath.row].maintenanceItens.count
-        let numberOfLines = calculateNumberOfLines(numberOfItems: totalMaintenenceItems, numberOfItemsPerLine: 3)
-        
-        if selectedIndex == indexPath {
-            if sameIndex {
-                isExpanded = false
-                return CGFloat(MaintenanceTableViewCell.cellHeight)
+        if indexPath.section == 1 && indexPath.row == 0 {
+            return 80
+        } else {
+            let totalMaintenenceItems = allMaintenances[indexPath.section][indexPath.row].maintenanceItens.count
+            let numberOfLines = calculateNumberOfLines(numberOfItems: totalMaintenenceItems, numberOfItemsPerLine: 3)
+            
+            if selectedIndex == indexPath {
+                if sameIndex {
+                    isExpanded = false
+                    return CGFloat(MaintenanceTableViewCell.cellHeight)
+                }
+                if numberOfLines > 1 {
+                    isExpanded = true
+                    return calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 120, spaceBetweenItems: 38, insetTop: 8, insetBottom: 16)
+                }
             }
-            if numberOfLines > 1 {
-                isExpanded = true
-                return calculateSizeOfExpandedCell(numberOfLines: numberOfLines, itemSize: 120, spaceBetweenItems: 38, insetTop: 8, insetBottom: 16)
-            }
+            return CGFloat(MaintenanceTableViewCell.cellHeight)
         }
-        return CGFloat(MaintenanceTableViewCell.cellHeight)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
-        
-        collectionViewMaintenanceIndex = indexPath
-        let formatedDate = formatDate(date: allMaintenances[indexPath.section][indexPath.row].date)
-             
-        guard let cellUnwrapped = cell else {return MaintenanceTableViewCell()}
-        
-        cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = true
-        if isExpanded && indexPath.row == selectedIndex?.row {
-            cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardCollapsingIndicator")
+        if indexPath.section == 1 && indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as? FilterCell
+            filterCell = cell
+            
+            dropDown.anchorView = filterCell?.filterView
+            dropDown.dataSource = ["Car", "Motorcycle", "Truck"]
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                filterCell?.filterLabel.text = item
+              print("Selected item: \(item) at index: \(index)")
+            }
+            
+            guard let cellUnwrapped = cell else {return FilterCell()}
+            cellUnwrapped.delegate = self
+            cellUnwrapped.filterButton.tag = indexPath.row
+            return cellUnwrapped
+            
         } else {
-            cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardExpansionIndicator")
+            let cell = tableView.dequeueReusableCell(withIdentifier: MaintenanceTableViewCell.identifier, for: indexPath) as? MaintenanceTableViewCell
+            
+            if indexPath.row == 1 && indexPath.section == 1 {
+                cell?.viewForHidingExcedentLineOfFirstCell.isHidden = false
+            } else {
+                cell?.viewForHidingExcedentLineOfFirstCell.isHidden = true
+            }
+            
+            collectionViewMaintenanceIndex = indexPath
+            let formatedDate = formatDate(date: allMaintenances[indexPath.section][indexPath.row].date)
+                 
+            guard let cellUnwrapped = cell else {return MaintenanceTableViewCell()}
+            
+//            cellUnwrapped.viewForHidingExcedentLineOfFirstCell.isHidden = true
+            if isExpanded && indexPath.row == selectedIndex?.row {
+                cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardCollapsingIndicator")
+            } else {
+                cellUnwrapped.cardExpansionIndicator.image = UIImage(named: "cardExpansionIndicator")
+            }
+             
+            cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: allMaintenances[indexPath.section][indexPath.row].hodometer)
+            collectionView = cellUnwrapped.cardCollectionView
+            cellUnwrapped.dateLabel.text = formatedDate
+            cellUnwrapped.cardCollectionView.delegate = self
+            cellUnwrapped.cardCollectionView.dataSource = self
+            cellUnwrapped.cardCollectionView.reloadData()
+            cellUnwrapped.animate()
+            
+            return cellUnwrapped
         }
-         
-        cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: allMaintenances[indexPath.section][indexPath.row].hodometer)
-        collectionView = cellUnwrapped.cardCollectionView
-        cellUnwrapped.dateLabel.text = formatedDate
-        cellUnwrapped.cardCollectionView.delegate = self
-        cellUnwrapped.cardCollectionView.dataSource = self
-        cellUnwrapped.cardCollectionView.reloadData()
-        cellUnwrapped.animate()
         
-        return cellUnwrapped
     }
           
     func formatHodometerText(hodometer: Double) -> String {
@@ -153,6 +185,11 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.section == 1 && indexPath.row == 0 {
+            guard let filterCell = filterCell else {return }
+            filterCell.delegatesFilterButtonActionToController(sender: filterCell.filterButton)
+            
+        }
         let oldIndex = selectedIndex?.row ?? 0
         let oldSection = selectedIndex?.section ?? 0
         if selectedIndex == indexPath { // user taps more than once in the same cell
@@ -256,5 +293,12 @@ extension MaintenanceViewController: ReloadTableViewDelegate {
     
     func reloadTableViewForNextMonth() {
         MaintenanceViewController.tableView?.reloadData()
+    }
+}
+
+extension MaintenanceViewController: FilterButtonActionDelegate {
+    func showDropDown(sender: Any) {
+        dropDown.show()
+
     }
 }
