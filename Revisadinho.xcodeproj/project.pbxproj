@@ -67,6 +67,7 @@
 		EF3D7FF326FA06FD00DC01CA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */; };
 		EF3D7FF526FB4AA500DC01CA /* DateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */; };
 		EF3D7FF726FB4DF000DC01CA /* MaintenanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */; };
+		EF799F5D273D55F800C22EE5 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF799F5C273D55F800C22EE5 /* FilterCell.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* MaintenanceViewController.swift */; };
 		EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */; };
 		EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */; };
@@ -160,6 +161,7 @@
 		EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModelTests.swift; sourceTree = "<group>"; };
 		EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewControllerTests.swift; sourceTree = "<group>"; };
+		EF799F5C273D55F800C22EE5 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			children = (
 				EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */,
 				EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */,
+				EF799F5C273D55F800C22EE5 /* FilterCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				D88D990B26FB7A4200C68F63 /* Errors.swift in Sources */,
 				D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */,
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
+				EF799F5D273D55F800C22EE5 /* FilterCell.swift in Sources */,
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
 				73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */,
