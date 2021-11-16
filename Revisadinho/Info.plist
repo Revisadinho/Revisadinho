@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>É necessário acesso ao calendário para melhor integração ao app</string>
 	<key>NSCameraUsageDescription</key>
-	<string>We need camera access</string>
+	<string>É necessário acesso à câmera para melhor integração ao app</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
