@@ -30,17 +30,10 @@ class MaintenanceView: UIView {
     }
     
     lazy var viewForTableViewHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 180))
         view.backgroundColor = .blueBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }()
-    
-    lazy var dateComponent: DateComponent = {
-        let component = DateComponent.dateComponent
-        component.isUserInteractionEnabled = true
-        component.translatesAutoresizingMaskIntoConstraints = false
-        return component
     }()
     
     lazy var placeholderText: UILabel = {
@@ -57,7 +50,7 @@ class MaintenanceView: UIView {
     }()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.showsVerticalScrollIndicator = false
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
         tableView.separatorColor = .gray
@@ -112,12 +105,31 @@ class MaintenanceView: UIView {
         viewForTableViewHeader.addSubview(titleLabel)
         viewForTableViewHeader.addSubview(plusButton)
         plusButton.addSubview(plusImage)
-        viewForTableViewHeader.addSubview(dateComponent)
         
         setUpTitleLabelConstraints()
         setUpPlusButtonConstraints()
         setUpPlusImageConstraints()
-        setUpDateComponentConstraints()
+    }
+    
+    func viewForSections(section: Int) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 40))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 45))
+        imageView.image = UIImage.init(named: "sectionMark")?.withTintColor(.sectionMarkerView)
+        let label = UILabel(frame: CGRect(x: 14, y: 0, width: 280, height: 45))
+        label.textColor = .sectionMarkLabel
+        label.textAlignment = .left
+        label.font = UIFont(name: "Quicksand-Bold", size: 19)
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
+        if section == 0 {
+            label.text = "Manutenções agendadas"
+        } else {
+            label.text = "Manutenções anteriores"
+        }
+        imageView.addSubview(label)
+        view.addSubview(imageView)
+        view.backgroundColor = .clear
+        return view
     }
     
     func setUpPlaceholderConstraints() {
@@ -155,22 +167,13 @@ class MaintenanceView: UIView {
             plusButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
-    func setUpDateComponentConstraints() {
-        NSLayoutConstraint.activate([
-            dateComponent.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 37),
-            dateComponent.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            dateComponent.centerXAnchor.constraint(equalTo: viewForTableViewHeader.centerXAnchor),
-            dateComponent.heightAnchor.constraint(equalToConstant: 65)
-        ])
-    }
-    
+
     func setUpTableViewConstraints() {
         NSLayoutConstraint.activate([
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(TabBarController.tableViewHeight ?? 0))
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
         

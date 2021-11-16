@@ -219,7 +219,6 @@
 		6E299A6D26F9FB3100DF574B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */,
 			);
 			path = ViewModel;
@@ -505,6 +504,7 @@
 				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
 				73CF4CB2271DADA3002E00FA /* LightsScene */,
+				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				7375AACD26EF9566006888B8 /* MaintanenceScene */,
 				7375AAD126EF9636006888B8 /* ProgressScene */,
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
