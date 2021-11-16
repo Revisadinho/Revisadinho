@@ -50,6 +50,7 @@ class AddMaintenceViewController: UIViewController {
             dismiss(animated: true, completion: nil)
             MaintenanceViewController.tableView?.reloadData()
             notificationService.updateLastMaintenanceHodometer(forMaintenanceItems: services, withHodometer: totalKm)
+            eventKitService.insertEventIntoCalendar(title: "Revisadinho, manutenção ", services: services, date: date)
         } catch AddMaintenceError.couldntSaveData {
                 showAlert()
         } catch {
