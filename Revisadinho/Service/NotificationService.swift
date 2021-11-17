@@ -62,6 +62,7 @@ class NotificationService {
                     self.isNotFirstBoot = true
                     self.setupDictionary()
                     self.setupPeriodicNotificationForSimpleItems()
+                    self.setupPeriodicNotificationForComplexItems()
                 }
             }
         }
@@ -156,6 +157,37 @@ class NotificationService {
         }
         content.sound = UNNotificationSound.default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 60 * 24 * 7, repeats: true) // the time interval is equal to 7 days
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
+
+    private func setupPeriodicNotificationForComplexItems() {
+        let complexItems: [MaintenanceItem] = [.WheelAlignment, .TireBalance, .EngineOil, .AirFilter, .AirConditioningFilter]
+        let content = UNMutableNotificationContent()
+        content.title = "Oi! Está na hora da revisão semestral"
+        content.body = "Dê uma olhadinha "
+        for itemIndex in 0..<complexItems.count {
+            let item = complexItems[itemIndex]
+            // only item on the list
+            if complexItems.count == 1 {
+                content.body.append("no seguinte item: \(item.description)")
+                break
+            }
+            // first item on the list
+            if itemIndex == 0 {
+                content.body.append("nos seguintes itens: \(item.description)")
+                continue
+            }
+            // last item on the list
+            if itemIndex == complexItems.count - 1 {
+                content.body.append(" e \(item.description).")
+                break
+            }
+            // all the other items in the middle of the list
+            content.body.append(", \(item.description)")
+        }
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 60 * 24 * 30 * 6, repeats: true) // the time interval is equal to 6 months / 180 days
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
