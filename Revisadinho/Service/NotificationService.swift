@@ -55,14 +55,15 @@ class NotificationService {
 
     private func askForPermissions() {
         if !isNotificationPermitted {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, _) in
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] (granted, _) in
+                guard let self = self else { return }
                 self.isNotificationPermitted = granted
+                if granted, !self.isNotFirstBoot {
+                    self.isNotFirstBoot = true
+                    self.setupDictionary()
+                    self.setupPeriodicNotificationForSimpleItems()
+                }
             }
-        }
-        if !isNotFirstBoot {
-            isNotFirstBoot = true
-            setupDictionary()
-            setupPeriodicNotificationForSimpleItems()
         }
     }
 
@@ -154,7 +155,7 @@ class NotificationService {
             content.body.append(", \(item.description)")
         }
         content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 3, repeats: true) // the time interval is equal to 7 days
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 60 * 24 * 7, repeats: true) // the time interval is equal to 7 days
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
