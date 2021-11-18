@@ -173,7 +173,7 @@ class MaintenanceView: UIView {
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
         
