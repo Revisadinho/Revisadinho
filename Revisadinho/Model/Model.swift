@@ -14,7 +14,7 @@ public class Model {
 
     private init() { }
 
-    private func getMaintenances(viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> [MaintenanceDAO] {
+    public func getMaintenances(viewContext: NSManagedObjectContext = DatabaseController.shared.viewContext) -> [MaintenanceDAO] {
         let maintenances = MaintenanceDAO.fetchAllMaintenances(viewContext: viewContext)
         return maintenances
     }
