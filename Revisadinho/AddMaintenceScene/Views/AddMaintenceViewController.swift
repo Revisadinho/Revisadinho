@@ -66,9 +66,9 @@ class AddMaintenceViewController: UIViewController {
         let attrsTitle = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor: UIColor.grayText]
         let attrsMessage = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor: UIColor.grayText]
         
-        let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage)
+        let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage as [NSAttributedString.Key : Any])
         
-        let attrStringTitle = NSAttributedString(string: alert.title ?? "", attributes: attrsTitle)
+        let attrStringTitle = NSAttributedString(string: alert.title ?? "", attributes: attrsTitle as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any])
         
         alert.setValue(attrStringTitle, forKey: "attributedTitle")
         alert.setValue(attrStringMessage, forKey: "attributedMessage")

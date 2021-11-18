@@ -90,7 +90,7 @@ class NotificationService {
                 maintenanceDueArray.append(item.key)
             }
         })
-        if maintenanceDueArray.count > 0 {
+        if !maintenanceDueArray.isEmpty {
             setupNotification(withItems: maintenanceDueArray)
         }
     }
