@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		193B92AD9DC99D0A1A98FC16 /* Pods_RevisadinhoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF6C8682E50887B5B803A9C /* Pods_RevisadinhoTests.framework */; };
+		6D3127373C4EF2F16C9C4A04 /* libPods-RevisadinhoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F26204EBB0BE419DFB371861 /* libPods-RevisadinhoTests.a */; };
 		6E0D80D527199E6600410B15 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D80D427199E6600410B15 /* NotificationService.swift */; };
 		6E0FBB5E26F8A73C00C762B7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5A26F8A73C00C762B7 /* Model.xcdatamodeld */; };
 		6E0FBB5F26F8A73C00C762B7 /* MaintenanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5C26F8A73C00C762B7 /* MaintenanceItem.swift */; };
@@ -24,6 +24,7 @@
 		6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */; };
 		6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
+		6FA63269C41AB4ADF0AD0BB0 /* libPods-Revisadinho.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D6622E656449394D18DD33 /* libPods-Revisadinho.a */; };
 		734B18082726E61000FE6E74 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B18072726E61000FE6E74 /* Labels.swift */; };
 		735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 735A47772721A2A800DC7BF0 /* LightsContent.json */; };
 		735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477A2721A3F800DC7BF0 /* JsonModel.swift */; };
@@ -37,8 +38,6 @@
 		73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CBC271DB77D002E00FA /* LightsView.swift */; };
 		73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */; };
 		73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */; };
-		949C9D407491146DE4DE0F4B /* Pods_Revisadinho_RevisadinhoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC865D1FB51AF0EA3CD4D928 /* Pods_Revisadinho_RevisadinhoUITests.framework */; };
-		BF700B7CCEF3CCACDA61C52F /* Pods_Revisadinho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DE38B71E15831DF67C47FC /* Pods_Revisadinho.framework */; };
 		D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D85EF6DF26F8B40C00AC5617 /* FSCalendar */; };
 		D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */; };
 		D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */; };
@@ -75,6 +74,7 @@
 		EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */; };
 		EFE12CF426EF76E5005FB2B2 /* RevisadinhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CF326EF76E5005FB2B2 /* RevisadinhoTests.swift */; };
 		EFE12CFF26EF76E5005FB2B2 /* RevisadinhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CFE26EF76E5005FB2B2 /* RevisadinhoUITests.swift */; };
+		F42B2DCDE4D870EB7F1D080F /* libPods-Revisadinho-RevisadinhoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C0ED8E89D28B5D76013DFA /* libPods-Revisadinho-RevisadinhoUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,13 +129,11 @@
 		73CF4CBC271DB77D002E00FA /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
 		73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-		97DE38B71E15831DF67C47FC /* Pods_Revisadinho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Revisadinho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82C0ED8E89D28B5D76013DFA /* libPods-Revisadinho-RevisadinhoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Revisadinho-RevisadinhoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96841FA9886F68D68580E67 /* Pods-Revisadinho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho.debug.xcconfig"; path = "Target Support Files/Pods-Revisadinho/Pods-Revisadinho.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1A8C6F399A3CB8DD881C4B /* Pods-Revisadinho-RevisadinhoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho-RevisadinhoUITests.release.xcconfig"; path = "Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B9EBD5365B12DA21D49AFACF /* Pods-RevisadinhoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevisadinhoTests.debug.xcconfig"; path = "Target Support Files/Pods-RevisadinhoTests/Pods-RevisadinhoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BAF6C8682E50887B5B803A9C /* Pods_RevisadinhoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevisadinhoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE680DC40FF4C2069106AE0A /* Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		CC865D1FB51AF0EA3CD4D928 /* Pods_Revisadinho_RevisadinhoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Revisadinho_RevisadinhoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewController.swift; sourceTree = "<group>"; };
 		D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceView.swift; sourceTree = "<group>"; };
 		D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewModel.swift; sourceTree = "<group>"; };
@@ -152,6 +150,7 @@
 		D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		DFAD745527D2C4B65AC6B6F1 /* Pods-Revisadinho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho.release.xcconfig"; path = "Target Support Files/Pods-Revisadinho/Pods-Revisadinho.release.xcconfig"; sourceTree = "<group>"; };
+		E4D6622E656449394D18DD33 /* libPods-Revisadinho.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Revisadinho.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3D7FDA26F0D2A500DC01CA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceView.swift; sourceTree = "<group>"; };
 		EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponent.swift; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 		EFE12CFA26EF76E5005FB2B2 /* RevisadinhoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevisadinhoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CFE26EF76E5005FB2B2 /* RevisadinhoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisadinhoUITests.swift; sourceTree = "<group>"; };
 		EFE12D0026EF76E5005FB2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F26204EBB0BE419DFB371861 /* libPods-RevisadinhoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RevisadinhoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +188,7 @@
 			files = (
 				D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */,
 				D8DAA96F27298C67005B0586 /* LightsDetection in Frameworks */,
-				BF700B7CCEF3CCACDA61C52F /* Pods_Revisadinho.framework in Frameworks */,
+				6FA63269C41AB4ADF0AD0BB0 /* libPods-Revisadinho.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				193B92AD9DC99D0A1A98FC16 /* Pods_RevisadinhoTests.framework in Frameworks */,
+				6D3127373C4EF2F16C9C4A04 /* libPods-RevisadinhoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				949C9D407491146DE4DE0F4B /* Pods_Revisadinho_RevisadinhoUITests.framework in Frameworks */,
+				F42B2DCDE4D870EB7F1D080F /* libPods-Revisadinho-RevisadinhoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,9 +467,9 @@
 		ED647FCA4F49871BD1B06AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				97DE38B71E15831DF67C47FC /* Pods_Revisadinho.framework */,
-				CC865D1FB51AF0EA3CD4D928 /* Pods_Revisadinho_RevisadinhoUITests.framework */,
-				BAF6C8682E50887B5B803A9C /* Pods_RevisadinhoTests.framework */,
+				E4D6622E656449394D18DD33 /* libPods-Revisadinho.a */,
+				82C0ED8E89D28B5D76013DFA /* libPods-Revisadinho-RevisadinhoUITests.a */,
+				F26204EBB0BE419DFB371861 /* libPods-RevisadinhoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -593,7 +593,7 @@
 				EFE12CD626EF76E4005FB2B2 /* Frameworks */,
 				EFE12CD726EF76E4005FB2B2 /* Resources */,
 				7375AAC326EF79AE006888B8 /* ShellScript */,
-				25418BBA12EA0311FF11E3C2 /* [CP] Embed Pods Frameworks */,
+				FD732BF93440277B8418F190 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -635,7 +635,7 @@
 				EFE12CF626EF76E5005FB2B2 /* Sources */,
 				EFE12CF726EF76E5005FB2B2 /* Frameworks */,
 				EFE12CF826EF76E5005FB2B2 /* Resources */,
-				2A507088EE0BBC86FEF0D012 /* [CP] Embed Pods Frameworks */,
+				37E8B5E8FADB71F7FAFA4732 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -679,7 +679,7 @@
 			);
 			mainGroup = EFE12CD026EF76E4005FB2B2;
 			packageReferences = (
-				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar.git" */,
 				D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */,
 			);
 			productRefGroup = EFE12CDA26EF76E4005FB2B2 /* Products */;
@@ -749,38 +749,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		25418BBA12EA0311FF11E3C2 /* [CP] Embed Pods Frameworks */ = {
+		37E8B5E8FADB71F7FAFA4732 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2A507088EE0BBC86FEF0D012 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7375AAC326EF79AE006888B8 /* ShellScript */ = {
@@ -844,6 +827,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FD732BF93440277B8418F190 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -893,12 +893,8 @@
 				EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */,
 				6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */,
 				6E0FBB5E26F8A73C00C762B7 /* Model.xcdatamodeld in Sources */,
-
 				EFBD1F9E2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift in Sources */,
-
-				EF3D7FF326FA06FD00DC01CA /* ModalViewController.swift in Sources */,
 				6E19951A273AB0CD00E482D5 /* EventKitService.swift in Sources */,
-
 				6E0FBB5F26F8A73C00C762B7 /* MaintenanceItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1245,7 +1241,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+		D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
@@ -1266,7 +1262,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		D85EF6DF26F8B40C00AC5617 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar.git" */;
 			productName = FSCalendar;
 		};
 		D8DAA96E27298C67005B0586 /* LightsDetection */ = {
