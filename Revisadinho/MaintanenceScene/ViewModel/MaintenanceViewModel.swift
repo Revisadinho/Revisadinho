@@ -3,8 +3,6 @@
 //  Revisadinho
 //
 //  Created by Hiago Chagas on 21/09/21.
-//  swiftlint:disable line_length identifier_name
-// swiftlint:disable trailing_whitespace line_length
 
 import Foundation
 import CoreData
