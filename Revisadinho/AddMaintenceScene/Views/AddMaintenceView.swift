@@ -44,12 +44,17 @@ class AddMaintenceView: UIView {
     
     lazy var saveButton = CustomButton()
 
+    let pageControl: UIPageControl = {
+        let pageControll = UIPageControl()
+        pageControll.backgroundStyle = .automatic
+        pageControll.translatesAutoresizingMaskIntoConstraints = false
+        pageControll.isUserInteractionEnabled = false
+        return pageControll
+    }()
+    
     lazy var servicesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 5
-        
+        let layout = CustomCollectionFlowLayout()
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .blueBackground
@@ -58,6 +63,9 @@ class AddMaintenceView: UIView {
         collectionView.allowsMultipleSelection = true
         collectionView.backgroundColor = .blueBackground
         collectionView.isScrollEnabled = true
+        collectionView.isPagingEnabled = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
 
@@ -93,6 +101,7 @@ class AddMaintenceView: UIView {
         setLabels()
         setTextFields()
         setCollectionView()
+        setPageControll()
         setButtons()
         setContraints()
     }
@@ -142,6 +151,10 @@ class AddMaintenceView: UIView {
         scrollView.addSubview(servicesCollectionView)
     }
     
+    private func setPageControll() {
+        scrollView.addSubview(pageControl)
+    }
+    
     private func setButtons() {
         saveButton.setTitle(AddMaintenceViewStrings.saveButtonLabel, for: .normal)
         addSubview(saveButton)
@@ -174,12 +187,17 @@ class AddMaintenceView: UIView {
             servicesLabel.topAnchor.constraint(lessThanOrEqualTo: hodometerTextField.bottomAnchor, constant: 15),
             
             servicesCollectionView.topAnchor.constraint(lessThanOrEqualTo: servicesLabel.bottomAnchor, constant: 5),
-            servicesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
-            servicesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            servicesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
+            servicesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            
+            pageControl.topAnchor.constraint(equalTo: servicesCollectionView.bottomAnchor),
+            pageControl.leadingAnchor.constraint(equalTo: leadingAnchor),
+            pageControl.trailingAnchor.constraint(equalTo: trailingAnchor),
+            servicesCollectionView.bottomAnchor.constraint(equalTo: pageControl.topAnchor),
             
             saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             saveButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            servicesCollectionView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -10)
+            pageControl.bottomAnchor.constraint(equalTo: saveButton.topAnchor)
         ])
     }
 }
@@ -189,6 +207,8 @@ class AddMaintenceView: UIView {
 extension AddMaintenceView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let pages = (allMaintenceItems.count + 1) / 5
+        pageControl.numberOfPages = pages
         return allMaintenceItems.count
     }
     
@@ -223,9 +243,37 @@ extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
 }
 
 extension AddMaintenceView: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.contentOffset.x = 500
+//    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.x = 0.0
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 1.3
+
+        pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 1.3
+        
+        pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
+
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        let page = scrollView.contentOffset.x / (scrollView.frame.width - 10 )
+//        pageControll.currentPage = Int(page)
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 1.3
+
+        pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
+    }
+
 }
 
 // MARK: - Temporary UIView extension
