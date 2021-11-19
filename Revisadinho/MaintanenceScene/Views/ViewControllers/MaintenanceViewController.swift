@@ -223,7 +223,7 @@ extension MaintenanceViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let collectionMaintenanceIndex = collectionViewMaintenanceIndex else {return 0}
-        if allMaintenances[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens.count == 0 {
+        if allMaintenances[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens.isEmpty {
             return 0
         } else {
             return allMaintenances[collectionMaintenanceIndex.section][collectionMaintenanceIndex.row].maintenanceItens.count
