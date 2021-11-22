@@ -11,22 +11,56 @@ protocol PlusButtonDelegate: AnyObject {
     func addNewMaintenance()
 }
 
+protocol ToolbarActionDelegate: AnyObject {
+    func dismissToolbar()
+    func saveAndDismissToolbar()
+}
+
 class MaintenanceView: UIView {
     
     var viewController: MaintenanceViewController?
     weak var delegate: PlusButtonDelegate?
+    weak var delegateToolbar: ToolbarActionDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.backgroundColor = .blueBackground
         setUpViewHierarchy()
-        setUpPlaceholderConstraints()
         setUpTableViewConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    lazy var yearPicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.backgroundColor = .borderServiceItem
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        return picker
+    }()
+    
+    lazy var textField: UITextField = {
+        let textField = UITextField(frame: .zero)
+        textField.inputView = yearPicker
+        textField.isHidden = true
+        var toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.barTintColor = .blueBackground
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .purpleAction
+        toolBar.sizeToFit()
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(saveDataAndClosePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissPicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        textField.inputAccessoryView = toolBar
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     lazy var viewForTableViewHeader: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 180))
@@ -35,24 +69,12 @@ class MaintenanceView: UIView {
         return view
     }()
     
-    lazy var placeholderText: UILabel = {
-        let label = UILabel()
-        label.text = "Nenhuma manutenção cadastrada para este mês"
-        label.textColor = .purpleDayNameCalendar
-        label.isHidden = true
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Quicksand-Bold", size: 19)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.showsVerticalScrollIndicator = false
         tableView.register(MaintenanceTableViewCell.self, forCellReuseIdentifier: MaintenanceTableViewCell.identifier)
         tableView.register(FilterCell.self, forCellReuseIdentifier: FilterCell.identifier)
+        tableView.register(PlaceholderCell.self, forCellReuseIdentifier: PlaceholderCell.identifier)
         tableView.separatorColor = .gray
         tableView.separatorColor = .blueBackground
         tableView.backgroundColor = .blueBackground
@@ -91,9 +113,17 @@ class MaintenanceView: UIView {
         delegate?.addNewMaintenance()
     }
     
+    @objc func saveDataAndClosePicker() {
+        delegateToolbar?.saveAndDismissToolbar()
+    }
+    
+    @objc func dismissPicker() {
+        delegateToolbar?.dismissToolbar()
+    }
+    
     func setUpViewHierarchy() {
         self.addSubview(tableView)
-        self.addSubview(placeholderText)
+        self.addSubview(textField)
     }
     
     func setUpViewForTableViewHeaderConstraints() {
@@ -130,15 +160,6 @@ class MaintenanceView: UIView {
         view.addSubview(imageView)
         view.backgroundColor = .clear
         return view
-    }
-    
-    func setUpPlaceholderConstraints() {
-        NSLayoutConstraint.activate([
-            placeholderText.topAnchor.constraint(equalTo: self.topAnchor, constant: 320),
-            placeholderText.widthAnchor.constraint(equalToConstant: 300),
-            placeholderText.heightAnchor.constraint(equalToConstant: 100),
-            placeholderText.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        ])
     }
     
     func setUpTitleLabelConstraints() {
