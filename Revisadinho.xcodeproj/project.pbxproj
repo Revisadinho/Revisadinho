@@ -66,6 +66,8 @@
 		EF3D7FF526FB4AA500DC01CA /* DateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */; };
 		EF3D7FF726FB4DF000DC01CA /* MaintenanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */; };
 		EF799F5D273D55F800C22EE5 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF799F5C273D55F800C22EE5 /* FilterCell.swift */; };
+		EFA4F46727487B9100A3AF8C /* MaintenancePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4F46627487B9100A3AF8C /* MaintenancePickerDelegate.swift */; };
+		EFA4F469274ACA5E00A3AF8C /* PlaceholderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4F468274ACA5E00A3AF8C /* PlaceholderCell.swift */; };
 		EFBD1F9E2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBD1F9D2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift */; };
 		EFBD1FA02741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBD1F9F2741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift */; };
 		EFBD1FA227453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBD1FA127453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift */; };
@@ -162,6 +164,8 @@
 		EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModelTests.swift; sourceTree = "<group>"; };
 		EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewControllerTests.swift; sourceTree = "<group>"; };
 		EF799F5C273D55F800C22EE5 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		EFA4F46627487B9100A3AF8C /* MaintenancePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenancePickerDelegate.swift; sourceTree = "<group>"; };
+		EFA4F468274ACA5E00A3AF8C /* PlaceholderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderCell.swift; sourceTree = "<group>"; };
 		EFBD1F9D2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaitenanceTableViewDelegate.swift; sourceTree = "<group>"; };
 		EFBD1F9F2741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		EFBD1FA127453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewDelegateHelper.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				EFBD1F9D2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift */,
 				EFBD1F9F2741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift */,
 				EFBD1FA127453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift */,
+				EFA4F46627487B9100A3AF8C /* MaintenancePickerDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */,
 				EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */,
 				EF799F5C273D55F800C22EE5 /* FilterCell.swift */,
+				EFA4F468274ACA5E00A3AF8C /* PlaceholderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -679,7 +685,7 @@
 			);
 			mainGroup = EFE12CD026EF76E4005FB2B2;
 			packageReferences = (
-				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar.git" */,
+				D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				D8DAA96D27298C67005B0586 /* XCRemoteSwiftPackageReference "LightSymbolsRecognition" */,
 			);
 			productRefGroup = EFE12CDA26EF76E4005FB2B2 /* Products */;
@@ -857,6 +863,7 @@
 				EFBD1FA02741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift in Sources */,
 				6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */,
 				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
+				EFA4F46727487B9100A3AF8C /* MaintenancePickerDelegate.swift in Sources */,
 				735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */,
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */,
@@ -869,6 +876,7 @@
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
 				73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */,
+				EFA4F469274ACA5E00A3AF8C /* PlaceholderCell.swift in Sources */,
 				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
 				73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
@@ -1241,7 +1249,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar.git" */ = {
+		D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
@@ -1262,7 +1270,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		D85EF6DF26F8B40C00AC5617 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar.git" */;
+			package = D85EF6DE26F8B40C00AC5617 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
 		D8DAA96E27298C67005B0586 /* LightsDetection */ = {
