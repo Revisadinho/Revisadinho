@@ -28,16 +28,20 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             placeholderText?.isHidden = true
             MaintenanceViewController.tableView?.bounces = true
         }
-        return getDataForSection(section: section)
+        return getAmountOfDataForSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 && indexPath.row == 0 {
+        if indexPath.section == 1 && indexPath.row == 0 { // filter cell size
+            return 100
+        } else if allMaintenances[0].isEmpty && indexPath.section == 0 && indexPath.row == 0 { // placeholder cell size for first section
+            return 100
+        } else if dataOfSelectedItemInFilterIsEmpty() && indexPath.section == 1 && indexPath.row == 1 { //placeholder cell size for second section
             return 100
         } else {
             var totalMaintenanceItems: Int = 0
             if indexPath.section == 1 {
-                totalMaintenanceItems = allMaintenances[indexPath.section][indexPath.row-1].maintenanceItens.count
+                totalMaintenanceItems = getAmountOfDataForSection(section: 1)
             } else {
                 totalMaintenanceItems = allMaintenances[indexPath.section][indexPath.row].maintenanceItens.count
             }
@@ -56,50 +60,53 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             }
             return CGFloat(MaintenanceTableViewCell.cellHeight)
         }
+    
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if !isTableViewEmpty() {
             if section == 0 {
                 return maintenanceView.viewForSections(section: 0)
             } else {
                 return maintenanceView.viewForSections(section: 1)
             }
-        } else {
-            let view = UIView()
-            view.backgroundColor = .clear
-            return view
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 1 && indexPath.row == 0 {
+        if dataOfSelectedItemInFilterIsEmpty() && indexPath.section == 1 && indexPath.row == 1 {
+            return settingUpPlaceholderCellForTableView(tableView: tableView, indexPath: indexPath)
+        } else if allMaintenances[0].isEmpty && indexPath.section == 0 && indexPath.row == 0 {
+            return settingUpPlaceholderCellForTableView(tableView: tableView, indexPath: indexPath)
+        } else if indexPath.section == 1 && indexPath.row == 0 {
             return settingUpFilterCellForTableView(tableView: tableView, indexPath: indexPath)
         } else {
             return settingUpMaintenanceCellForTableView(tableView: tableView, indexPath: indexPath)
         }
     }
     
+    func settingUpPlaceholderCellForTableView(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let placeholderCell = tableView.dequeueReusableCell(withIdentifier: PlaceholderCell.identifier, for: indexPath) as? PlaceholderCell
+        guard let placeholderCellUnwrapped = placeholderCell else {return PlaceholderCell()}
+        if indexPath.section == 0 {
+            placeholderCellUnwrapped.placeholderText.text = "Nenhuma manutenção agendada"
+        } else {
+            placeholderCellUnwrapped.placeholderText.text = "Nenhuma manutenção neste período"
+        }
+        return placeholderCellUnwrapped
+    }
+    
     func settingUpFilterCellForTableView(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cellFilter = tableView.dequeueReusableCell(withIdentifier: FilterCell.identifier, for: indexPath) as? FilterCell
                 filterCell = cellFilter
                 
-        if allMaintenances[1].isEmpty {
-            filterCell?.isHidden = true
-        } else {
-            filterCell?.isHidden = false
-        }
-                
         dropDown.anchorView = filterCell?.filterView
-        dropDown.dataSource = ["Todas"," Há 6 meses", " Há 1 ano", "Escolher ano", "Escolher mês"]
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            filterCell?.filterLabel.text = item
-            print("Selected item: \(item) at index: \(index)")
-        }
-                
+                     
         guard let filterCellUnwrapped = filterCell else {return FilterCell()}
         filterCellUnwrapped.delegate = self
+        if filterOption == .chooseYear {
+            let listOfItems = maintenanceViewModel.getListOfYearsForPicker()
+            guard let selectedRow = picker?.selectedRow(inComponent: 0) else {return FilterCell()}
+            filterCellUnwrapped.filterLabel.text = String(listOfItems[selectedRow])
+        }
         return filterCellUnwrapped
     }
     
@@ -122,8 +129,8 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         if indexPath.section == 1 {
-            formatedDate = formatDate(date:allMaintenances[indexPath.section][indexPath.row-1].date)
-            cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: allMaintenances[indexPath.section][indexPath.row-1].hodometer)
+            formatedDate = formatDate(date: getDataForSection(section: 1)[indexPath.row-1].date)
+            cellUnwrapped.hodometerLabel.text = formatHodometerText(hodometer: getDataForSection(section: 1)[indexPath.row-1].hodometer)
             collectionViewMaintenanceIndex = IndexPath(row: indexPath.row-1, section: indexPath.section)
         } else {
             formatedDate = formatDate(date:allMaintenances[indexPath.section][indexPath.row].date)
