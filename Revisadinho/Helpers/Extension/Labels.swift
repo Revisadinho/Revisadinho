@@ -3,7 +3,6 @@
 //  Revisadinho
 //
 //  Created by Leonardo Gomes Fernandes on 25/10/21.
-// swiftlint:disable line_length
 
 import Foundation
 import UIKit

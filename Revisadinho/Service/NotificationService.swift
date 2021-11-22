@@ -3,7 +3,6 @@
 //  Revisadinho
 //
 //  Created by Hiago Chagas on 15/10/21.
-//  swiftlint:disable line_length
 
 import Foundation
 import UserNotifications
