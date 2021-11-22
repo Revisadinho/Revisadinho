@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Leonardo Gomes Fernandes on 18/10/21.
-// swiftlint:disable trailing_whitespace line_length variable_name inclusive_language
+// swiftlint:disable variable_name inclusive_language
 
 import UIKit
 import LightsDetection

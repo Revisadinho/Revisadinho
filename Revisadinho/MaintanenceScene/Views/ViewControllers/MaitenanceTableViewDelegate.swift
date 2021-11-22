@@ -36,7 +36,7 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
             return 100
         } else if allMaintenances[0].isEmpty && indexPath.section == 0 && indexPath.row == 0 { // placeholder cell size for first section
             return 100
-        } else if dataOfSelectedItemInFilterIsEmpty() && indexPath.section == 1 && indexPath.row == 1 { //placeholder cell size for second section
+        } else if dataOfSelectedItemInFilterIsEmpty() && indexPath.section == 1 && indexPath.row == 1 { // placeholder cell size for second section
             return 100
         } else {
             var totalMaintenanceItems: Int = 0

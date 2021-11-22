@@ -3,7 +3,6 @@
 //  Revisadinho
 //
 //  Created by Hiago Chagas on 09/11/21.
-//swiftlint:disable line_length
 
 import EventKit
 

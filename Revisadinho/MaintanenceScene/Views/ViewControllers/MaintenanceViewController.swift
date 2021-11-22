@@ -58,7 +58,7 @@ class MaintenanceViewController: UIViewController {
     }
     
     func setUpButtonLabelForChoosenItem() {
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        dropDown.selectionAction = { [unowned self] (_: Int, item: String) in
             filterCell?.filterLabel.text = item
             switch item {
             case "Todas":
