@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Hiago Chagas on 20/09/21.
-//  swiftlint:disable line_length identifier_name
+//  swiftlint:disable identifier_name
 import Foundation
 import CoreData
 
