@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+enum FilterOptions {
+    case always
+    case sixMonthsAgo
+    case yearAgo
+    case chooseYear
+}
+
 protocol FilterButtonActionDelegate: AnyObject {
     func showDropDown(sender: Any)
 }
@@ -37,7 +44,7 @@ class FilterCell: UITableViewCell {
     
     lazy var filterLabel: UILabel = {
         let label = UILabel()
-        label.text = "6 meses"
+        label.text = "Todas"
         label.textColor = .white
         label.textAlignment = .left
         label.font = UIFont(name: "Quicksand-Bold", size: 17)

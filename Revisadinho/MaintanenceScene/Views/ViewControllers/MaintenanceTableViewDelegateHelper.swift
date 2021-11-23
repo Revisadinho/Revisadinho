@@ -45,17 +45,45 @@ extension MaintenanceViewController {
         }
     }
     
-    func getDataForSection(section: Int) -> Int {
-        if section == 0 {
+    func getAmountOfDataForSection(section: Int) -> Int {
+        if section == 0 && !allMaintenances[0].isEmpty {
             return allMaintenances[0].count
         } else if section == 1 {
-            return allMaintenances[1].count + 1 // plus filter cell
-        } else if isTableViewEmpty() {
-            return 0
+            if dataOfSelectedItemInFilterIsEmpty() {
+                return 2
+            } else {
+                if filterOption == .chooseYear {
+                    return maintenanceViewModel.getPastMaintenances(year: choosenYear).count + 1
+                } else {
+                    return maintenanceViewModel.getPastMaintenances(since: filterOption).count + 1
+                }
+            }     
+        } else if section == 0 && allMaintenances[0].isEmpty {
+            return 1
         } else {
             print("No data set for this section.")
             return 0
         }
+    }
+    
+    func getDataForSection(section: Int) -> [Maintenance] {
+        if section == 0 {
+            return allMaintenances[0]
+        } else {
+            if filterOption == .chooseYear {
+                return maintenanceViewModel.getPastMaintenances(year: choosenYear)
+            } else {
+                return maintenanceViewModel.getPastMaintenances(since: filterOption)
+            }
+        }
+    }
+    
+    func reloadTableViewScrollToTop(item: Int, section: Int) {
+        MaintenanceViewController.tableView?.reloadData()
+        guard let tableView = MaintenanceViewController.tableView else {return}
+         if tableView.numberOfRows(inSection: 1) > 0 {
+             tableView.scrollToRow(at: IndexPath(item: item, section: section), at: .top, animated: true)
+         }
     }
     
     func calculateNumberOfLines(numberOfItems: Int, numberOfItemsPerLine: Int) -> Int {
@@ -69,5 +97,21 @@ extension MaintenanceViewController {
     func calculateSizeOfExpandedCell(numberOfLines: Int, itemSize: Int, spaceBetweenItems: Int, insetTop: Int, insetBottom: Int) -> CGFloat {
         let expandedHeight = ((itemSize + spaceBetweenItems)*numberOfLines) + ((insetTop + insetBottom)*2) + 49
         return CGFloat(expandedHeight)
-    } 
+    }
+    
+    func dataOfSelectedItemInFilterIsEmpty() -> Bool {
+        if filterOption == .chooseYear {
+            if maintenanceViewModel.getPastMaintenances(year: choosenYear).isEmpty {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            if maintenanceViewModel.getPastMaintenances(since: filterOption).isEmpty {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 }
