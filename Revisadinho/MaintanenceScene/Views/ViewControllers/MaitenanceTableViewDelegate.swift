@@ -41,7 +41,8 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             var totalMaintenanceItems: Int = 0
             if indexPath.section == 1 {
-                totalMaintenanceItems = getAmountOfDataForSection(section: 1)
+                let dataForSection = getDataForSection(section: 1)
+                totalMaintenanceItems = dataForSection[indexPath.row-1].maintenanceItens.count
             } else {
                 totalMaintenanceItems = allMaintenances[indexPath.section][indexPath.row].maintenanceItens.count
             }
@@ -168,7 +169,6 @@ extension MaintenanceViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = (tableView.cellForRow(at: indexPath)) as? MaintenanceTableViewCell else {return}
         if cell.cardCollectionView.numberOfItems(inSection: 0) <= 3 {
             shakeAnimation(cell: cell)
-            tableView.reloadRows(at: [indexPath, IndexPath(row: oldIndex, section: oldSection)], with: .none)
         } else {
         // expanding and collapsing animation
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.3, animations: {
