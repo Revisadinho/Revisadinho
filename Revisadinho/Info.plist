@@ -23,7 +23,7 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>É necessário acesso ao calendário para melhor integração ao app</string>
 	<key>NSCameraUsageDescription</key>
-	<string>We need camera access</string>
+	<string>Precisamos do acesso à câmera do dispositivo para fornecer mais informações sobre luzes do painel</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Quicksand-Medium.ttf</string>
