@@ -86,7 +86,11 @@ class MaintenanceViewController: UIViewController {
     func setUpTableViewHeader() {
         MaintenanceViewController.tableView?.tableHeaderView = self.tableViewHeader
         MaintenanceViewController.tableView?.insetsContentViewsToSafeArea = true
-        MaintenanceViewController.tableView?.sectionHeaderTopPadding = 0
+        if #available(iOS 15.0, *) {
+            MaintenanceViewController.tableView?.sectionHeaderTopPadding = 0
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 

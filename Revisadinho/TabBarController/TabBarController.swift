@@ -38,7 +38,11 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = .purpleTabBarItem
         appearanceTabBar.stackedLayoutAppearance = appearenceItemTabBar
         tabBar.standardAppearance = appearanceTabBar
-        tabBar.scrollEdgeAppearance = appearanceTabBar
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearanceTabBar
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
 }
