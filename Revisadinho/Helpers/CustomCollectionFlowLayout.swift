@@ -12,11 +12,11 @@ class CustomCollectionFlowLayout: UICollectionViewFlowLayout {
     
     override init() {
         super.init()
-        
         scrollDirection = .horizontal
-        minimumLineSpacing = 20
-        minimumInteritemSpacing = 15
-        sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+        minimumLineSpacing = 5
+        sectionInset.left = 5
+        sectionInset.right = 5
+        minimumInteritemSpacing = 5
     }
     
     required init?(coder: NSCoder) {
