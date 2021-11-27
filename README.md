@@ -3,14 +3,14 @@
 
 Revisadinho é um app feito para acompanhar suas manutenções veiculares de maneira fácil e rápida. Nunca mais esqueça de fazer a manutenção preventiva do seu carro ou moto.
 
-Tenha o controle do seu veículo:
-• Manutenções
+### Tenha o controle do seu veículo  🚗 🛵
+#### Manutenções
 Registre e visualize as manutenções do seu veículo através de uma interface simples e intuitiva. Adicione filtros para observar quais foram as manutenções realizadas anteriormente.
 
-• Luzes do Painel:
+#### Luzes do Painel
 Obtenha informações do que significa cada luz no painel do seu veículo ou utilize a câmera do seu iPhone ou iPad para detectar as luzes automaticamente.
 
-• Notificações:
+#### Notificações
 Receba lembretes semanais e semestrais das manutenções básicas para que seu veículo trafegue normalmente. Receba lembretes no seu calendário no dia anterior de uma manutenção previamente marcada.
 
 Revisadinho é um aplicativo que irá ajudar você a ter um maior controle das manutenções do seu veículo, registrando manutenções passadas e lembrando de manutenções futuras.
