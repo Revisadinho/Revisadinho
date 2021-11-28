@@ -193,17 +193,17 @@ class AddMaintenceView: UIView {
             servicesLabel.topAnchor.constraint(lessThanOrEqualTo: hodometerTextField.bottomAnchor, constant: 15),
             
             servicesCollectionView.topAnchor.constraint(lessThanOrEqualTo: servicesLabel.bottomAnchor, constant: 5),
-            servicesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -28),
-            servicesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28),
+            servicesCollectionView.leftAnchor.constraint(equalTo: servicesLabel.leftAnchor, constant: -10),
+            servicesCollectionView.rightAnchor.constraint(equalTo: servicesLabel.rightAnchor, constant: 10),
+            servicesCollectionView.bottomAnchor.constraint(equalTo: pageControl.topAnchor),
             
-            pageControl.topAnchor.constraint(equalTo: servicesCollectionView.bottomAnchor),
+            
             pageControl.leadingAnchor.constraint(equalTo: leadingAnchor),
             pageControl.trailingAnchor.constraint(equalTo: trailingAnchor),
-            servicesCollectionView.bottomAnchor.constraint(equalTo: pageControl.topAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -10),
             
             saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             saveButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -40)
         ])
     }
 }
@@ -243,25 +243,46 @@ extension AddMaintenceView: UICollectionViewDelegate {
 extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var pages = 0
-        if (collectionView.frame.height >= 220) {
-            pages = (allMaintenceItems.count + 1) / 5
-        } else  {
-            pages = (allMaintenceItems.count + 1) / 2
+        print(collectionView.frame.height)
+        if (collectionView.frame.height >= 370) {
+            collectionViewLayout.collectionView?.contentInset.top = 0
+            collectionViewLayout.collectionView?.contentInset.bottom = 0
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 9, collectionView: collectionView)
+        } else if (collectionView.frame.height > 300 && collectionView.frame.height < 370) {
+            collectionViewLayout.collectionView?.contentInset.top = 15
+            collectionViewLayout.collectionView?.contentInset.bottom = 15
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 6, collectionView: collectionView)
+        } else if (collectionView.frame.height > 220 && collectionView.frame.height < 300 )  {
+            collectionViewLayout.collectionView?.contentInset.top = 10
+            collectionViewLayout.collectionView?.contentInset.bottom = 10
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 6, collectionView: collectionView)
+        } else {
+            collectionViewLayout.collectionView?.contentInset.top = 15
+            collectionViewLayout.collectionView?.contentInset.bottom = 15
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 3, collectionView: collectionView)
         }
-        pageControl.numberOfPages = pages
-        
         return CGSize(width: 100, height: 110)
+    }
+    
+    func calculateNumberOfPages(totalOfItems: Int, totalItemsInCollection: Int, collectionView: UICollectionView) -> Int {
+        var pages = 0
+        if (totalOfItems) % totalItemsInCollection == 0 {
+            pages = totalOfItems/totalItemsInCollection
+        } else {
+            pages = totalOfItems/totalItemsInCollection + 1
+        }
+        return pages
     }
 }
 
 extension AddMaintenceView: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.frame.height)
-        print(scrollView.frame.width	 )
+//        print(scrollView.frame.height)
+//        print(scrollView.frame.width	 )
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width
+
         let horizontalCenter = width / 1.3
 
         pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
