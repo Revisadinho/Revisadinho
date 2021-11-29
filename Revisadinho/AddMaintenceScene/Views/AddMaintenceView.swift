@@ -32,6 +32,7 @@ class AddMaintenceView: UIView {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: Constants.scrollViewContentSize)
         return scrollView
     }()
+    
     var offSetContent = 0.0
     lazy var titleLabel = CustomLabel()
     lazy var calendarLabel = CustomLabel()
@@ -275,13 +276,18 @@ extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
 }
 
 extension AddMaintenceView: UIScrollViewDelegate {
-
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.x > offSetContent {
+        
+        if scrollView.contentOffset.x >  offSetContent  {
             pageControl.currentPage += 1
-        } else if scrollView.contentOffset.x < offSetContent {
+        } else if scrollView.contentOffset.x < offSetContent  {
             pageControl.currentPage -= 1
         }
+        offSetContent = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         offSetContent = scrollView.contentOffset.x
     }
 }
