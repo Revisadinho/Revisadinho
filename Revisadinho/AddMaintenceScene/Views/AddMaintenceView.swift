@@ -32,7 +32,7 @@ class AddMaintenceView: UIView {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: Constants.scrollViewContentSize)
         return scrollView
     }()
-    
+    var offSetContent = 0.0
     lazy var titleLabel = CustomLabel()
     lazy var calendarLabel = CustomLabel()
     lazy var hodometerLabel = CustomLabel()
@@ -243,11 +243,10 @@ extension AddMaintenceView: UICollectionViewDelegate {
 extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(collectionView.frame.height)
         if (collectionView.frame.height >= 370) {
-            collectionViewLayout.collectionView?.contentInset.top = 0
-            collectionViewLayout.collectionView?.contentInset.bottom = 0
-            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 9, collectionView: collectionView)
+            collectionViewLayout.collectionView?.contentInset.top = 35
+            collectionViewLayout.collectionView?.contentInset.bottom = 35
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 6, collectionView: collectionView)
         } else if (collectionView.frame.height > 300 && collectionView.frame.height < 370) {
             collectionViewLayout.collectionView?.contentInset.top = 15
             collectionViewLayout.collectionView?.contentInset.bottom = 15
@@ -277,36 +276,14 @@ extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
 
 extension AddMaintenceView: UIScrollViewDelegate {
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print(scrollView.frame.height)
-//        print(scrollView.frame.width	 )
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-
-        let horizontalCenter = width / 1.3
-
-        pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.x > offSetContent {
+            pageControl.currentPage += 1
+        } else if scrollView.contentOffset.x < offSetContent {
+            pageControl.currentPage -= 1
+        }
+        offSetContent = scrollView.contentOffset.x
     }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 1.3
-        
-        pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
-
-    }
-
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        let page = scrollView.contentOffset.x / (scrollView.frame.width - 10 )
-//        pageControll.currentPage = Int(page)
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 1.3
-
-        pageControl.currentPage = Int(offSet) / Int(horizontalCenter)
-    }
-
 }
 
 // MARK: - Temporary UIView extension
