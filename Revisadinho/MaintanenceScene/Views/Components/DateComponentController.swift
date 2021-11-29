@@ -4,7 +4,6 @@
 //
 //  Created by Jhennyfer Rodrigues de Oliveira on 15/09/21.
 // swiftlint:disable trailing_whitespace
-// swiftlint:disable line_length
 
 import Foundation
 import UIKit

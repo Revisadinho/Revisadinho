@@ -4,7 +4,6 @@
 //
 //  Created by Jéssica Araujo on 14/09/21.
 //
-// swiftlint:disable trailing_whitespace line_length
 
 import UIKit
 
@@ -34,6 +33,7 @@ class AddMaintenceView: UIView {
         return scrollView
     }()
     
+    var offSetContent = 0.0
     lazy var titleLabel = CustomLabel()
     lazy var calendarLabel = CustomLabel()
     lazy var hodometerLabel = CustomLabel()
@@ -44,20 +44,29 @@ class AddMaintenceView: UIView {
     
     lazy var saveButton = CustomButton()
 
+    let pageControl: UIPageControl = {
+        let pageControll = UIPageControl()
+        pageControll.backgroundStyle = .automatic
+        pageControll.translatesAutoresizingMaskIntoConstraints = false
+        pageControll.isUserInteractionEnabled = false
+        pageControll.currentPageIndicatorTintColor = .purpleAction
+        pageControll.pageIndicatorTintColor = .borderServiceItem
+        return pageControll
+    }()
+    
     lazy var servicesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 5
-        
+        let layout = CustomCollectionFlowLayout()
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .blueBackground
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.allowsMultipleSelection = true
-        collectionView.backgroundColor = .blueBackground
         collectionView.isScrollEnabled = true
+        collectionView.isPagingEnabled = true
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
 
@@ -73,6 +82,9 @@ class AddMaintenceView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        allMaintenceItems = allMaintenceItems.sorted {
+            $0.description.folding(options: .diacriticInsensitive, locale: .current) < $1.description.folding(options: .diacriticInsensitive, locale: .current)
+        }
         setupAddMaintenceView()
     }
     
@@ -90,6 +102,7 @@ class AddMaintenceView: UIView {
         setLabels()
         setTextFields()
         setCollectionView()
+        setPageControll()
         setButtons()
         setContraints()
     }
@@ -139,6 +152,10 @@ class AddMaintenceView: UIView {
         scrollView.addSubview(servicesCollectionView)
     }
     
+    private func setPageControll() {
+        scrollView.addSubview(pageControl)
+    }
+    
     private func setButtons() {
         saveButton.setTitle(AddMaintenceViewStrings.saveButtonLabel, for: .normal)
         addSubview(saveButton)
@@ -153,30 +170,41 @@ class AddMaintenceView: UIView {
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
         
             titleLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            titleLabel.topAnchor.constraint(lessThanOrEqualTo: scrollView.topAnchor, constant: 15),
+            titleLabel.topAnchor.constraint(lessThanOrEqualTo: scrollView.topAnchor, constant: 35),
+            
+            
             
             calendarLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             calendarLabel.topAnchor.constraint(lessThanOrEqualTo: titleLabel.bottomAnchor, constant: 15),
             
             calendarTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            calendarTextField.topAnchor.constraint(lessThanOrEqualTo: calendarLabel.bottomAnchor, constant: 5),
+            calendarTextField.topAnchor.constraint(lessThanOrEqualTo: calendarLabel.bottomAnchor, constant: 10),
+            
+            
             
             hodometerLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             hodometerLabel.topAnchor.constraint(lessThanOrEqualTo: calendarTextField.bottomAnchor, constant: 15),
             
             hodometerTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            hodometerTextField.topAnchor.constraint(lessThanOrEqualTo: hodometerLabel.bottomAnchor, constant: 5),
+            hodometerTextField.topAnchor.constraint(lessThanOrEqualTo: hodometerLabel.bottomAnchor, constant: 10),
+            
+            
             
             servicesLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             servicesLabel.topAnchor.constraint(lessThanOrEqualTo: hodometerTextField.bottomAnchor, constant: 15),
             
             servicesCollectionView.topAnchor.constraint(lessThanOrEqualTo: servicesLabel.bottomAnchor, constant: 5),
-            servicesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
-            servicesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            servicesCollectionView.leftAnchor.constraint(equalTo: servicesLabel.leftAnchor, constant: -10),
+            servicesCollectionView.rightAnchor.constraint(equalTo: servicesLabel.rightAnchor, constant: 10),
+            servicesCollectionView.bottomAnchor.constraint(equalTo: pageControl.topAnchor),
+            
+            
+            pageControl.leadingAnchor.constraint(equalTo: leadingAnchor),
+            pageControl.trailingAnchor.constraint(equalTo: trailingAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -10),
             
             saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             saveButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            servicesCollectionView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -10)
         ])
     }
 }
@@ -186,6 +214,7 @@ class AddMaintenceView: UIView {
 extension AddMaintenceView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return allMaintenceItems.count
     }
     
@@ -215,13 +244,51 @@ extension AddMaintenceView: UICollectionViewDelegate {
 extension AddMaintenceView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (collectionView.frame.height >= 370) {
+            collectionViewLayout.collectionView?.contentInset.top = 35
+            collectionViewLayout.collectionView?.contentInset.bottom = 35
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 6, collectionView: collectionView)
+        } else if (collectionView.frame.height > 300 && collectionView.frame.height < 370) {
+            collectionViewLayout.collectionView?.contentInset.top = 15
+            collectionViewLayout.collectionView?.contentInset.bottom = 15
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 6, collectionView: collectionView)
+        } else if (collectionView.frame.height > 220 && collectionView.frame.height < 300 )  {
+            collectionViewLayout.collectionView?.contentInset.top = 10
+            collectionViewLayout.collectionView?.contentInset.bottom = 10
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 6, collectionView: collectionView)
+        } else {
+            collectionViewLayout.collectionView?.contentInset.top = 15
+            collectionViewLayout.collectionView?.contentInset.bottom = 15
+            pageControl.numberOfPages = calculateNumberOfPages(totalOfItems: allMaintenceItems.count, totalItemsInCollection: 3, collectionView: collectionView)
+        }
         return CGSize(width: 100, height: 110)
+    }
+    
+    func calculateNumberOfPages(totalOfItems: Int, totalItemsInCollection: Int, collectionView: UICollectionView) -> Int {
+        var pages = 0
+        if (totalOfItems) % totalItemsInCollection == 0 {
+            pages = totalOfItems/totalItemsInCollection
+        } else {
+            pages = totalOfItems/totalItemsInCollection + 1
+        }
+        return pages
     }
 }
 
 extension AddMaintenceView: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.x = 0.0
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if scrollView.contentOffset.x >  offSetContent  {
+            pageControl.currentPage += 1
+        } else if scrollView.contentOffset.x < offSetContent  {
+            pageControl.currentPage -= 1
+        }
+        offSetContent = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        offSetContent = scrollView.contentOffset.x
     }
 }
 

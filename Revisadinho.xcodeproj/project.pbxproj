@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D3127373C4EF2F16C9C4A04 /* libPods-RevisadinhoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F26204EBB0BE419DFB371861 /* libPods-RevisadinhoTests.a */; };
 		6E0D80D527199E6600410B15 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D80D427199E6600410B15 /* NotificationService.swift */; };
 		6E0FBB5E26F8A73C00C762B7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5A26F8A73C00C762B7 /* Model.xcdatamodeld */; };
 		6E0FBB5F26F8A73C00C762B7 /* MaintenanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB5C26F8A73C00C762B7 /* MaintenanceItem.swift */; };
@@ -18,15 +19,17 @@
 		6E0FBB7226F8CADA00C762B7 /* MaintenanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB7126F8CADA00C762B7 /* MaintenanceViewModelTests.swift */; };
 		6E0FBB7426F8D04600C762B7 /* AddMaintenanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FBB7326F8D04600C762B7 /* AddMaintenanceViewModelTests.swift */; };
 		6E16FC8C26F368DC0093C7D3 /* CoreDataTestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */; };
+		6E19951A273AB0CD00E482D5 /* EventKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E199519273AB0CD00E482D5 /* EventKitService.swift */; };
 		6E1BF43626F22D6000A424E7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BF43526F22D6000A424E7 /* ModelTests.swift */; };
 		6E299A6F26F9FB9600DF574B /* MaintenanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */; };
 		6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */; };
 		6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */; };
+		6FA63269C41AB4ADF0AD0BB0 /* libPods-Revisadinho.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D6622E656449394D18DD33 /* libPods-Revisadinho.a */; };
 		734B18082726E61000FE6E74 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B18072726E61000FE6E74 /* Labels.swift */; };
 		735A47782721A2A800DC7BF0 /* LightsContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 735A47772721A2A800DC7BF0 /* LightsContent.json */; };
 		735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477A2721A3F800DC7BF0 /* JsonModel.swift */; };
 		735A477E2721A70A00DC7BF0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735A477D2721A70A00DC7BF0 /* JsonParser.swift */; };
-		7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7375AAC426EF7A6C006888B8 /* swiftlint.yml */; };
+		737BC4AF27469697005204A3 /* CustomCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BC4AE27469697005204A3 /* CustomCollectionFlowLayout.swift */; };
 		73A1355C26FA06D40010AC59 /* MaintenanceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */; };
 		73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1355F26FA11C30010AC59 /* MainRouter.swift */; };
 		73BF5315271705CA00C4951E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF5314271705CA00C4951E /* TabBarController.swift */; };
@@ -61,15 +64,20 @@
 		EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */; };
 		EF3D7FED26F8C9DD00DC01CA /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FEC26F8C9DD00DC01CA /* DateModel.swift */; };
 		EF3D7FEF26FA02C500DC01CA /* DateComponentControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FEE26FA02C500DC01CA /* DateComponentControllerTests.swift */; };
-		EF3D7FF126FA046300DC01CA /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF026FA046300DC01CA /* ModalView.swift */; };
-		EF3D7FF326FA06FD00DC01CA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */; };
 		EF3D7FF526FB4AA500DC01CA /* DateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */; };
 		EF3D7FF726FB4DF000DC01CA /* MaintenanceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */; };
+		EF799F5D273D55F800C22EE5 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF799F5C273D55F800C22EE5 /* FilterCell.swift */; };
+		EFA4F46727487B9100A3AF8C /* MaintenancePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4F46627487B9100A3AF8C /* MaintenancePickerDelegate.swift */; };
+		EFA4F469274ACA5E00A3AF8C /* PlaceholderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4F468274ACA5E00A3AF8C /* PlaceholderCell.swift */; };
+		EFBD1F9E2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBD1F9D2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift */; };
+		EFBD1FA02741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBD1F9F2741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift */; };
+		EFBD1FA227453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBD1FA127453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift */; };
 		EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CE026EF76E4005FB2B2 /* MaintenanceViewController.swift */; };
 		EFE12CE626EF76E4005FB2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */; };
 		EFE12CE926EF76E4005FB2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */; };
 		EFE12CF426EF76E5005FB2B2 /* RevisadinhoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CF326EF76E5005FB2B2 /* RevisadinhoTests.swift */; };
 		EFE12CFF26EF76E5005FB2B2 /* RevisadinhoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE12CFE26EF76E5005FB2B2 /* RevisadinhoUITests.swift */; };
+		F42B2DCDE4D870EB7F1D080F /* libPods-Revisadinho-RevisadinhoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C0ED8E89D28B5D76013DFA /* libPods-Revisadinho-RevisadinhoUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D37CC8D1A952A7A823DE5CA /* Pods-RevisadinhoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevisadinhoTests.release.xcconfig"; path = "Target Support Files/Pods-RevisadinhoTests/Pods-RevisadinhoTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E0D80D427199E6600410B15 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		6E0FBB5B26F8A73C00C762B7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6E0FBB5C26F8A73C00C762B7 /* MaintenanceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
@@ -101,6 +110,7 @@
 		6E0FBB7126F8CADA00C762B7 /* MaintenanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewModelTests.swift; sourceTree = "<group>"; };
 		6E0FBB7326F8D04600C762B7 /* AddMaintenanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceViewModelTests.swift; sourceTree = "<group>"; };
 		6E16FC8B26F368DC0093C7D3 /* CoreDataTestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestStack.swift; sourceTree = "<group>"; };
+		6E199519273AB0CD00E482D5 /* EventKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitService.swift; sourceTree = "<group>"; };
 		6E1BF43126F2205600A424E7 /* Maintenance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6E1BF43226F2205600A424E7 /* Maintenance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6E1BF43526F22D6000A424E7 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
@@ -113,7 +123,7 @@
 		735A47772721A2A800DC7BF0 /* LightsContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LightsContent.json; sourceTree = "<group>"; };
 		735A477A2721A3F800DC7BF0 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
 		735A477D2721A70A00DC7BF0 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
-		7375AAC426EF7A6C006888B8 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
+		737BC4AE27469697005204A3 /* CustomCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		73A1355B26FA06D40010AC59 /* MaintenanceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRouter.swift; sourceTree = "<group>"; };
 		73A1355F26FA11C30010AC59 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		73BF5314271705CA00C4951E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -123,6 +133,11 @@
 		73CF4CBC271DB77D002E00FA /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
 		73CF4CC0271EEFB3002E00FA /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		73ED397B26F0C9410030CF52 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		82C0ED8E89D28B5D76013DFA /* libPods-Revisadinho-RevisadinhoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Revisadinho-RevisadinhoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A96841FA9886F68D68580E67 /* Pods-Revisadinho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho.debug.xcconfig"; path = "Target Support Files/Pods-Revisadinho/Pods-Revisadinho.debug.xcconfig"; sourceTree = "<group>"; };
+		AC1A8C6F399A3CB8DD881C4B /* Pods-Revisadinho-RevisadinhoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho-RevisadinhoUITests.release.xcconfig"; path = "Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B9EBD5365B12DA21D49AFACF /* Pods-RevisadinhoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevisadinhoTests.debug.xcconfig"; path = "Target Support Files/Pods-RevisadinhoTests/Pods-RevisadinhoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE680DC40FF4C2069106AE0A /* Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8637FB526F0D68800B5F64F /* AddMaintenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewController.swift; sourceTree = "<group>"; };
 		D8637FB726F0D6BD00B5F64F /* AddMaintenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceView.swift; sourceTree = "<group>"; };
 		D8637FB926F0D6DE00B5F64F /* AddMaintenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenceViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +153,8 @@
 		D8A734CF26F22C9B00A4D799 /* ServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8D35B9526F3802B00CFEF65 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		D8D35B9726F3808800CFEF65 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		DFAD745527D2C4B65AC6B6F1 /* Pods-Revisadinho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Revisadinho.release.xcconfig"; path = "Target Support Files/Pods-Revisadinho/Pods-Revisadinho.release.xcconfig"; sourceTree = "<group>"; };
+		E4D6622E656449394D18DD33 /* libPods-Revisadinho.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Revisadinho.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3D7FDA26F0D2A500DC01CA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceView.swift; sourceTree = "<group>"; };
 		EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponent.swift; sourceTree = "<group>"; };
@@ -146,10 +163,14 @@
 		EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF3D7FEC26F8C9DD00DC01CA /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		EF3D7FEE26FA02C500DC01CA /* DateComponentControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentControllerTests.swift; sourceTree = "<group>"; };
-		EF3D7FF026FA046300DC01CA /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		EF3D7FF426FB4AA500DC01CA /* DateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModelTests.swift; sourceTree = "<group>"; };
 		EF3D7FF626FB4DF000DC01CA /* MaintenanceViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceViewControllerTests.swift; sourceTree = "<group>"; };
+		EF799F5C273D55F800C22EE5 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		EFA4F46627487B9100A3AF8C /* MaintenancePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenancePickerDelegate.swift; sourceTree = "<group>"; };
+		EFA4F468274ACA5E00A3AF8C /* PlaceholderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderCell.swift; sourceTree = "<group>"; };
+		EFBD1F9D2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaitenanceTableViewDelegate.swift; sourceTree = "<group>"; };
+		EFBD1F9F2741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		EFBD1FA127453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewDelegateHelper.swift; sourceTree = "<group>"; };
 		EFE12CD926EF76E4005FB2B2 /* Revisadinho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revisadinho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CDC26EF76E4005FB2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFE12CDE26EF76E4005FB2B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +184,7 @@
 		EFE12CFA26EF76E5005FB2B2 /* RevisadinhoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevisadinhoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE12CFE26EF76E5005FB2B2 /* RevisadinhoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisadinhoUITests.swift; sourceTree = "<group>"; };
 		EFE12D0026EF76E5005FB2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F26204EBB0BE419DFB371861 /* libPods-RevisadinhoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RevisadinhoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +194,7 @@
 			files = (
 				D85EF6E026F8B40C00AC5617 /* FSCalendar in Frameworks */,
 				D8DAA96F27298C67005B0586 /* LightsDetection in Frameworks */,
+				6FA63269C41AB4ADF0AD0BB0 /* libPods-Revisadinho.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3127373C4EF2F16C9C4A04 /* libPods-RevisadinhoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42B2DCDE4D870EB7F1D080F /* libPods-Revisadinho-RevisadinhoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				6E0D80D427199E6600410B15 /* NotificationService.swift */,
+				6E199519273AB0CD00E482D5 /* EventKitService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -216,7 +242,6 @@
 		6E299A6D26F9FB3100DF574B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				6E299A6E26F9FB9600DF574B /* MaintenanceViewModel.swift */,
 			);
 			path = ViewModel;
@@ -261,8 +286,6 @@
 				EF3D7FEB26F372EE00DC01CA /* Components */,
 				EF3D7FEA26F372E700DC01CA /* Cells */,
 				EF3D7FDC26F0DA5900DC01CA /* MaintenanceView.swift */,
-				EF3D7FF026FA046300DC01CA /* ModalView.swift */,
-				EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */,
 				7375AACB26EF941E006888B8 /* ViewControllers */,
 			);
 			path = Views;
@@ -272,8 +295,10 @@
 			isa = PBXGroup;
 			children = (
 				EFE12CE026EF76E4005FB2B2 /* MaintenanceViewController.swift */,
-				EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */,
-				EF3D7FF226FA06FD00DC01CA /* ModalViewController.swift */,
+				EFBD1F9D2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift */,
+				EFBD1F9F2741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift */,
+				EFBD1FA127453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift */,
+				EFA4F46627487B9100A3AF8C /* MaintenancePickerDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -393,6 +418,19 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		98A2642C7FE3AC70E988CA42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A96841FA9886F68D68580E67 /* Pods-Revisadinho.debug.xcconfig */,
+				DFAD745527D2C4B65AC6B6F1 /* Pods-Revisadinho.release.xcconfig */,
+				BE680DC40FF4C2069106AE0A /* Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig */,
+				AC1A8C6F399A3CB8DD881C4B /* Pods-Revisadinho-RevisadinhoUITests.release.xcconfig */,
+				B9EBD5365B12DA21D49AFACF /* Pods-RevisadinhoTests.debug.xcconfig */,
+				5D37CC8D1A952A7A823DE5CA /* Pods-RevisadinhoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D8637FB226F0D61B00B5F64F /* AddMaintenceScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,12 +471,23 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		ED647FCA4F49871BD1B06AFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4D6622E656449394D18DD33 /* libPods-Revisadinho.a */,
+				82C0ED8E89D28B5D76013DFA /* libPods-Revisadinho-RevisadinhoUITests.a */,
+				F26204EBB0BE419DFB371861 /* libPods-RevisadinhoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF3D7FD826F0D27E00DC01CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				735A477C2721A6E100DC7BF0 /* Json Parser */,
 				D88D990926FB7A2B00C68F63 /* Enum */,
 				EF3D7FD926F0D28600DC01CA /* Extension */,
+				737BC4AE27469697005204A3 /* CustomCollectionFlowLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -457,6 +506,8 @@
 			children = (
 				EF3D7FE826F3728F00DC01CA /* MaintenanceCollectionViewCell.swift */,
 				EF3D7FE426F239CF00DC01CA /* MaintenanceTableViewCell.swift */,
+				EF799F5C273D55F800C22EE5 /* FilterCell.swift */,
+				EFA4F468274ACA5E00A3AF8C /* PlaceholderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -465,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				EF3D7FDE26F0DC9500DC01CA /* DateComponent.swift */,
+				EF3D7FE226F21B9D00DC01CA /* DateComponentController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -472,12 +524,13 @@
 		EFE12CD026EF76E4005FB2B2 = {
 			isa = PBXGroup;
 			children = (
-				7375AAC426EF7A6C006888B8 /* swiftlint.yml */,
 				EFE12CDB26EF76E4005FB2B2 /* Revisadinho */,
 				EFE12CF226EF76E5005FB2B2 /* RevisadinhoTests */,
 				EFE12CFD26EF76E5005FB2B2 /* RevisadinhoUITests */,
 				EFE12CDA26EF76E4005FB2B2 /* Products */,
 				6E0FBB4C26F8A59300C762B7 /* Recovered References */,
+				98A2642C7FE3AC70E988CA42 /* Pods */,
+				ED647FCA4F49871BD1B06AFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -502,9 +555,11 @@
 				73ED397A26F0C9350030CF52 /* Fonts */,
 				7375AACC26EF9491006888B8 /* Delegates */,
 				73CF4CB2271DADA3002E00FA /* LightsScene */,
+				D8637FB226F0D61B00B5F64F /* AddMaintenceScene */,
 				7375AACD26EF9566006888B8 /* MaintanenceScene */,
 				7375AAD126EF9636006888B8 /* ProgressScene */,
 				EFE12CE526EF76E4005FB2B2 /* Assets.xcassets */,
+				EFE12CE726EF76E4005FB2B2 /* LaunchScreen.storyboard */,
 				EFE12CEA26EF76E4005FB2B2 /* Info.plist */,
 			);
 			path = Revisadinho;
@@ -542,10 +597,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE12D0326EF76E5005FB2B2 /* Build configuration list for PBXNativeTarget "Revisadinho" */;
 			buildPhases = (
+				0B1311E562D3A9A922AB2DF8 /* [CP] Check Pods Manifest.lock */,
 				EFE12CD526EF76E4005FB2B2 /* Sources */,
 				EFE12CD626EF76E4005FB2B2 /* Frameworks */,
 				EFE12CD726EF76E4005FB2B2 /* Resources */,
-				7375AAC326EF79AE006888B8 /* ShellScript */,
+				FD732BF93440277B8418F190 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -564,6 +620,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE12D0626EF76E5005FB2B2 /* Build configuration list for PBXNativeTarget "RevisadinhoTests" */;
 			buildPhases = (
+				8106AD1441C6032ED1385069 /* [CP] Check Pods Manifest.lock */,
 				EFE12CEB26EF76E5005FB2B2 /* Sources */,
 				EFE12CEC26EF76E5005FB2B2 /* Frameworks */,
 				EFE12CED26EF76E5005FB2B2 /* Resources */,
@@ -582,9 +639,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFE12D0926EF76E5005FB2B2 /* Build configuration list for PBXNativeTarget "RevisadinhoUITests" */;
 			buildPhases = (
+				8F76552BDE327813C03A3CB3 /* [CP] Check Pods Manifest.lock */,
 				EFE12CF626EF76E5005FB2B2 /* Sources */,
 				EFE12CF726EF76E5005FB2B2 /* Frameworks */,
 				EFE12CF826EF76E5005FB2B2 /* Resources */,
+				37E8B5E8FADB71F7FAFA4732 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -647,7 +706,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7375AAC526EF7A6C006888B8 /* swiftlint.yml in Resources */,
 				D8A734CD26F215BE00A4D799 /* Quicksand-SemiBold.ttf in Resources */,
 				D8A734CE26F215BE00A4D799 /* Quicksand-Medium.ttf in Resources */,
 				73ED397C26F0C9570030CF52 /* Quicksand-VariableFont_wght.ttf in Resources */,
@@ -677,7 +735,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7375AAC326EF79AE006888B8 /* ShellScript */ = {
+		0B1311E562D3A9A922AB2DF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -685,14 +743,97 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Revisadinho-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37E8B5E8FADB71F7FAFA4732 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Revisadinho-RevisadinhoUITests/Pods-Revisadinho-RevisadinhoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8106AD1441C6032ED1385069 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RevisadinhoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F76552BDE327813C03A3CB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Revisadinho-RevisadinhoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD732BF93440277B8418F190 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Revisadinho/Pods-Revisadinho-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -703,8 +844,11 @@
 			files = (
 				6E299A7126FA052A00DF574B /* SceneDelegate.swift in Sources */,
 				6E0D80D527199E6600410B15 /* NotificationService.swift in Sources */,
+				EFBD1FA227453A210079F6A1 /* MaintenanceTableViewDelegateHelper.swift in Sources */,
+				EFBD1FA02741C3880079F6A1 /* MaintenanceCollectionViewDelegate.swift in Sources */,
 				6E299A7026FA052300DF574B /* AppDelegate.swift in Sources */,
 				D8637FBC26F0DB4400B5F64F /* CustomTextField.swift in Sources */,
+				EFA4F46727487B9100A3AF8C /* MaintenancePickerDelegate.swift in Sources */,
 				735A477B2721A3F800DC7BF0 /* JsonModel.swift in Sources */,
 				D8637FB826F0D6BD00B5F64F /* AddMaintenceView.swift in Sources */,
 				EFE12CE126EF76E4005FB2B2 /* MaintenanceViewController.swift in Sources */,
@@ -713,9 +857,11 @@
 				D88D990B26FB7A4200C68F63 /* Errors.swift in Sources */,
 				D8637FBA26F0D6DE00B5F64F /* AddMaintenceViewModel.swift in Sources */,
 				D8637FB626F0D68800B5F64F /* AddMaintenceViewController.swift in Sources */,
+				EF799F5D273D55F800C22EE5 /* FilterCell.swift in Sources */,
 				D8D35B9826F3808800CFEF65 /* BottomSheetViewController.swift in Sources */,
 				D8A734D026F22C9B00A4D799 /* ServicesCollectionViewCell.swift in Sources */,
 				73CF4CC1271EEFB3002E00FA /* LightTableViewCell.swift in Sources */,
+				EFA4F469274ACA5E00A3AF8C /* PlaceholderCell.swift in Sources */,
 				D8D35B9626F3802B00CFEF65 /* BottomSheetView.swift in Sources */,
 				73CF4CBD271DB77D002E00FA /* LightsView.swift in Sources */,
 				D8637FBE26F0E85E00B5F64F /* CustomLabel.swift in Sources */,
@@ -725,7 +871,7 @@
 				6E0FBB6B26F8BDC800C762B7 /* MaintenanceDAO+CoreDataClass.swift in Sources */,
 				73CF4CB9271DAFA2002E00FA /* LightsViewModel.swift in Sources */,
 				EF3D7FDF26F0DC9500DC01CA /* DateComponent.swift in Sources */,
-				EF3D7FF126FA046300DC01CA /* ModalView.swift in Sources */,
+				737BC4AF27469697005204A3 /* CustomCollectionFlowLayout.swift in Sources */,
 				73A1356026FA11C30010AC59 /* MainRouter.swift in Sources */,
 				6E0FBB6626F8AA4C00C762B7 /* DatabaseController.swift in Sources */,
 				6E0FBB6E26F8C39900C762B7 /* Maintenance.swift in Sources */,
@@ -741,7 +887,8 @@
 				EF3D7FE926F3728F00DC01CA /* MaintenanceCollectionViewCell.swift in Sources */,
 				6E0FBB6026F8A73C00C762B7 /* Model.swift in Sources */,
 				6E0FBB5E26F8A73C00C762B7 /* Model.xcdatamodeld in Sources */,
-				EF3D7FF326FA06FD00DC01CA /* ModalViewController.swift in Sources */,
+				EFBD1F9E2741C3460079F6A1 /* MaitenanceTableViewDelegate.swift in Sources */,
+				6E19951A273AB0CD00E482D5 /* EventKitService.swift in Sources */,
 				6E0FBB5F26F8A73C00C762B7 /* MaintenanceItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,7 +994,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -902,7 +1049,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -914,18 +1061,21 @@
 		};
 		EFE12D0426EF76E5005FB2B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A96841FA9886F68D68580E67 /* Pods-Revisadinho.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.revisadinhoTeam.Revisadinho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -935,18 +1085,21 @@
 		};
 		EFE12D0526EF76E5005FB2B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFAD745527D2C4B65AC6B6F1 /* Pods-Revisadinho.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2UZ6YPHV3D;
 				INFOPLIST_FILE = Revisadinho/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.revisadinhoTeam.Revisadinho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -956,6 +1109,7 @@
 		};
 		EFE12D0726EF76E5005FB2B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9EBD5365B12DA21D49AFACF /* Pods-RevisadinhoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -978,6 +1132,7 @@
 		};
 		EFE12D0826EF76E5005FB2B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D37CC8D1A952A7A823DE5CA /* Pods-RevisadinhoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1000,6 +1155,7 @@
 		};
 		EFE12D0A26EF76E5005FB2B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE680DC40FF4C2069106AE0A /* Pods-Revisadinho-RevisadinhoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1020,6 +1176,7 @@
 		};
 		EFE12D0B26EF76E5005FB2B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC1A8C6F399A3CB8DD881C4B /* Pods-Revisadinho-RevisadinhoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

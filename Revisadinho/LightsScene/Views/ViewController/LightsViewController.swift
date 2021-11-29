@@ -3,7 +3,7 @@
 //  Revisadinho
 //
 //  Created by Leonardo Gomes Fernandes on 18/10/21.
-// swiftlint:disable trailing_whitespace line_length variable_name inclusive_language
+// swiftlint:disable variable_name inclusive_language
 
 import UIKit
 import LightsDetection
@@ -208,7 +208,7 @@ extension LightsViewController: UISearchBarDelegate {
     }
 }
 
-extension LightsViewController: SymbolDetection {
+extension LightsViewController: LigthsDetectionDelegate {
     
     private func setupIdentifyButton() {
         lightsView.identifyButton.addTarget(self, action: #selector(identifyLights), for: .touchUpInside)
@@ -218,11 +218,12 @@ extension LightsViewController: SymbolDetection {
         OperationQueue.main.addOperation {
             self.lightsDetectionViewController.showViewController()
             self.lightsDetectionViewController.setBackButtonColor(with: .purpleAction)
+            self.lightsDetectionViewController.setErrorLabel(backgroundColor: .blueBackground, font: UIFont(name: Fonts.medium, size: 16)!, textColor: .white)
         }
     }
     
-    func getSymbolDetected(symbolName: String) {
-        for light in DashboardLights.allCases where "\(light)" == symbolName {
+    func sendLigthDetected(named: String)  {
+        for light in DashboardLights.allCases where "\(light)" == named {
                 rowIdentified = light.number
         }
     }

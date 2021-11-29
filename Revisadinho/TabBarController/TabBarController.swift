@@ -4,7 +4,6 @@
 //
 //  Created by Leonardo Gomes Fernandes on 13/10/21.
 //
-// swiftlint:disable trailing_whitespace line_length
 
 import Foundation
 import UIKit
@@ -39,7 +38,11 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = .purpleTabBarItem
         appearanceTabBar.stackedLayoutAppearance = appearenceItemTabBar
         tabBar.standardAppearance = appearanceTabBar
-        tabBar.scrollEdgeAppearance = appearanceTabBar
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearanceTabBar
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
 }

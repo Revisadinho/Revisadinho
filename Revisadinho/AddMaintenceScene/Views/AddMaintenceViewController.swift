@@ -11,6 +11,7 @@ import UIKit
 class AddMaintenceViewController: UIViewController {
     
     private let notificationService = NotificationService.shared
+    private let eventKitService = EventKitService.shared
     lazy var contentView = AddMaintenceView()
     lazy var bottomSheetViewController: BottomSheetViewController = {
         let viewController = BottomSheetViewController()
@@ -49,6 +50,7 @@ class AddMaintenceViewController: UIViewController {
             dismiss(animated: true, completion: nil)
             MaintenanceViewController.tableView?.reloadData()
             notificationService.updateLastMaintenanceHodometer(forMaintenanceItems: services, withHodometer: totalKm)
+            eventKitService.insertEventIntoCalendar(title: "Revisadinho, manutenção ", services: services, date: date)
         } catch AddMaintenceError.couldntSaveData {
                 showAlert()
         } catch {
@@ -66,9 +68,9 @@ class AddMaintenceViewController: UIViewController {
         let attrsTitle = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 13), NSAttributedString.Key.foregroundColor: UIColor.grayText]
         let attrsMessage = [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12), NSAttributedString.Key.foregroundColor: UIColor.grayText]
         
-        let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage)
+        let attrStringMessage = NSAttributedString(string: alert.message ?? "", attributes: attrsMessage as [NSAttributedString.Key : Any])
         
-        let attrStringTitle = NSAttributedString(string: alert.title ?? "", attributes: attrsTitle)
+        let attrStringTitle = NSAttributedString(string: alert.title ?? "", attributes: attrsTitle as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any])
         
         alert.setValue(attrStringTitle, forKey: "attributedTitle")
         alert.setValue(attrStringMessage, forKey: "attributedMessage")

@@ -3,7 +3,6 @@
 //  Revisadinho
 //
 //  Created by Jhennyfer Rodrigues de Oliveira on 14/09/21.
-// swiftlint:disable trailing_whitespace line_length weak_delegate
 
 import Foundation
 import UIKit
