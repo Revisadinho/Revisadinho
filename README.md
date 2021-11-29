@@ -13,11 +13,9 @@ Obtenha informações do que significa cada luz no painel do seu veículo ou uti
 #### Notificações
 Receba lembretes semanais e semestrais das manutenções básicas para que seu veículo trafegue normalmente. Receba lembretes no seu calendário no dia anterior de uma manutenção previamente marcada.
 
-Revisadinho é um aplicativo que irá ajudar você a ter um maior controle das manutenções do seu veículo, registrando manutenções passadas e lembrando de manutenções futuras.
+[Disponível na App Store](https://apps.apple.com/br/app/revisadinho/id1587033972?l=en#?platform=iphone)
 
-[Disponível na App Store](https://apple.co/3F3cuPZ)
-
-![github](https://user-images.githubusercontent.com/52433246/135288919-8a7251f0-2850-4c34-9e0b-2bb0445b0899.png)
+![github](https://user-images.githubusercontent.com/52433246/143904288-c6ada80d-3df7-4ee2-8aa7-e134f694c659.png)
 
 ## Licença
 Copyright © 2021 [Hiago Chagas](https://github.com/hiagochagas), [Jéssica Guiot](https://github.com/jessicaguiot), [Jhennyfer Oliveira](https://github.com/jhennyferOliveira), [Leonardo Gomes](https://github.com/leonardo252).
