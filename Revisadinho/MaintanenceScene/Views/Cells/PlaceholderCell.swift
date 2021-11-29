@@ -31,7 +31,7 @@ class PlaceholderCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Quicksand-Bold", size: 19)
+        label.font = UIFont(name: "Quicksand-Bold", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -40,7 +40,7 @@ class PlaceholderCell: UITableViewCell {
         NSLayoutConstraint.activate([
             placeholderText.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             placeholderText.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            placeholderText.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40),
+            placeholderText.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 20),
             placeholderText.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
